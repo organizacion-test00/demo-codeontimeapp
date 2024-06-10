@@ -1,0 +1,37 @@
+﻿{
+  "name": "Lichen",
+  "color": "#849585",
+  "header": {
+    "background": "#849585",
+    "border": "#849585",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#eee",
+      "hover": "rgba(255,255,255,.6)",
+      "backgroundOpacity": ".15"
+    },
+    "text": {
+      "default": "#f5f5f5",
+      "hover": "#fff",
+      "logo": "#fff",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.1)"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent", "border": "transparent"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#849585",
+      "hover": "#687869"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#849585"
+    }
+  }
+}

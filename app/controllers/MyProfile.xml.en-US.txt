@@ -1,0 +1,93 @@
+﻿*******************************************************************************
+Your application uses this file to locate resource strings defined
+in MyProfile.xml project item. 
+
+Replace the text between localization brackets as needed.
+*******************************************************************************
+
+^Account^Account^Account^
+
+^BackToRequestPasswordActionHeaderText^Back^BackToRequestPasswordActionHeaderText^
+
+^ConfirmIdentityActionHeaderText^Finish^ConfirmIdentityActionHeaderText^
+
+^ConfirmNewPassword^Confirm New Password^ConfirmNewPassword^
+
+^ConfirmPassword^Confirm Password^ConfirmPassword^
+
+^Email^Email^Email^
+
+^ForgotYourPassword^Forgot your password?^ForgotYourPassword^
+
+^IdentityConfirmationViewIdentityConfirmCategoryDescription^Answer the following question to receive your password. <br/><br/><br/>^IdentityConfirmationViewIdentityConfirmCategoryDescription^
+
+^IdentityConfirmationViewIdentityConfirmCategoryHeaderText^Identity Confirmation^IdentityConfirmationViewIdentityConfirmCategoryHeaderText^
+
+^IdentityConfirmViewHeaderText^Please fill this form and click Submit button to recover the forgotten password. Click Cancel to return to the previous screen.^IdentityConfirmViewHeaderText^
+
+^IdentityConfirmViewLabel^Password Recovery: Step 2 of 2^IdentityConfirmViewLabel^
+
+^LoginButton^Login^LoginButton^
+
+^LoginLink^Login^LoginLink^
+
+^MaskedPasswordAnswer^Password Answer (not displayed for your protection)^MaskedPasswordAnswer^
+
+^MyAccountViewCurrentPasswordCategoryDescription^Please enter your current password to create new password, update your email address, or change password recovery question and answer.^MyAccountViewCurrentPasswordCategoryDescription^
+
+^MyAccountViewCurrentPasswordCategoryHeaderText^1. Current Password^MyAccountViewCurrentPasswordCategoryHeaderText^
+
+^MyAccountViewHeaderText^Please review your membership information below. Click Update My Account to change this record, or click Cancel to return back.^MyAccountViewHeaderText^
+
+^MyAccountViewLabel^My Account^MyAccountViewLabel^
+
+^MyAccountViewNewPasswordCategoryDescription^Please enter new password. Note that password must be at least 7 characters long and include one non-alphanumeric character.^MyAccountViewNewPasswordCategoryDescription^
+
+^MyAccountViewNewPasswordCategoryHeaderText^2. New Password (Optional)^MyAccountViewNewPasswordCategoryHeaderText^
+
+^MyAccountViewPasswordRecoveryCategoryDescription^During the recovery of a forgotten password you will be asked to enter your user name. 
+						If a user account exists then a password question must be answered. A correct answer will trigger an email with a temporary password send to you.^MyAccountViewPasswordRecoveryCategoryDescription^
+
+^MyAccountViewPasswordRecoveryCategoryHeaderText^3. Email &amp; Password Recovery (Optional)^MyAccountViewPasswordRecoveryCategoryHeaderText^
+
+^NewPassword^New Password^NewPassword^
+
+^OldPassword^Old Password^OldPassword^
+
+^Password^Password^Password^
+
+^PasswordAnswer^Password Answer^PasswordAnswer^
+
+^PasswordQuestion^Password Question^PasswordQuestion^
+
+^PasswordRequestViewForgotPasswordCategoryDescription^Please enter a user name. <br/><br/><br/>^PasswordRequestViewForgotPasswordCategoryDescription^
+
+^PasswordRequestViewForgotPasswordCategoryHeaderText^Forgot your password?^PasswordRequestViewForgotPasswordCategoryHeaderText^
+
+^PasswordRequestViewHeaderText^Please fill this form and click Continue button to recover the forgotten password. Click Cancel to return to the previous screen.^PasswordRequestViewHeaderText^
+
+^PasswordRequestViewLabel^Password Recovery: Step 1 of 2^PasswordRequestViewLabel^
+
+^RememberMe^Remember me next time^RememberMe^
+
+^RequestPasswordActionHeaderText^Next^RequestPasswordActionHeaderText^
+
+^SignUp^Sign Up^SignUp^
+
+^SignUpViewHeaderText^Please fill this form and click OK button to sign up for an account. Click Cancel to return to the previous screen.^SignUpViewHeaderText^
+
+^SignUpViewLabel^Account Sign Up^SignUpViewLabel^
+
+^SignUpViewNewUserInfoCategoryDescription^Please enter user name and password. Note that password must be at least 7 characters long and include one non-alphanumeric character. Only approved users will be able to login into the website.^SignUpViewNewUserInfoCategoryDescription^
+
+^SignUpViewNewUserInfoCategoryHeaderText^New User Information^SignUpViewNewUserInfoCategoryHeaderText^
+
+^SignUpViewPasswordRecoveryCategoryDescription^These fields are required to help you to recover a forgotten password. During the recovery process you will be asked to enter a user name. 
+						If a user account exists then a security question is requested to be answered. A correct answer will trigger an email with a temporary password send to the registered email.^SignUpViewPasswordRecoveryCategoryDescription^
+
+^SignUpViewPasswordRecoveryCategoryHeaderText^Password Recovery^SignUpViewPasswordRecoveryCategoryHeaderText^
+
+^UpdateMyAccountActionHeaderText^Update My Account^UpdateMyAccountActionHeaderText^
+
+^UserName^User Name^UserName^
+

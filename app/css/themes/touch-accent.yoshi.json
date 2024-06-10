@@ -1,0 +1,81 @@
+﻿{
+  "name": "Yoshi",
+  "color": "#89c74a",
+  "header": {
+    "background": "#89c74a",
+    "border": "#aaa",
+    "icon": {
+      "default": "#333",
+      "hover": "rgba(0,0,0,.55)",
+      "active": "#111",
+      "backgroundOpacity": "0.1",
+      "disabled": "rgba(0,0,0,.35)"
+    },
+    "text": {
+      "default": "#333",
+      "hover": "#111",
+      "active": "#111",
+      "hoverBackground": "rgba(255,255,255,0.1)",
+      "selectedBackground": "rgba(255,255,255,0.2)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#c45212",
+      "hover": "#b54b10",
+      "active": "#ad450c"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    },
+    "activeTabText": "#333"
+  },
+  "buttons": {
+    "promo": {
+      "background": "#89c74a",
+      "icon": {
+        "default": "#000"
+      }
+    },
+    "form": {
+      "text": {
+        "default": "#c45212",
+        "hover": "#b54b10",
+        "active": "#ad450c"
+      }
+    }
+  },
+  "sidebar": {
+    "full": {
+      "icon": {
+        "default": "#c45212",
+        "hover": "#b54b10",
+        "active": "#ad450c"
+      }
+    }
+  },
+  "readingPane": {
+    "detail": {
+      "toolbar": {
+        "buttons": {
+          "default": "#333"
+        }
+      }
+    }
+  },
+  "system": {
+    "select": {
+      "text": "#6d9e3b"
+    }
+  },
+  "theme": {
+    "Light": {
+      "filter": {
+        "text": "#c45212"
+      }
+    }
+  }
+}

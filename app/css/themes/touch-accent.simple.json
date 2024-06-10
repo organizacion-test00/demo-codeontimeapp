@@ -1,0 +1,121 @@
+﻿{
+  "name": "Simple",
+  "color": "#FFFFFF",
+  "header": {
+    "background": "#FFFFFF",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#555",
+      "hover": "#111",
+      "active": "#000",
+      "disabled": "rgba(0,0,0,.3)"
+    },
+    "text": {
+      "default": "#555",
+      "hover": "#111",
+      "active": "#000",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.08)"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    },
+    "tabColor": "#38c"
+  },
+  "buttons": {
+    "promo": {
+      "background": "#FFFFFF",
+      "icon": {
+        "default": "#000"
+      }
+    },
+    "menu": {
+      "background": "#38c",
+      "border": "#38c",
+      "text": {
+        "default": "#fff"
+      },
+      "icon": {
+        "default": "#fff",
+        "hover": "#eee",
+        "active": "#f5f5f5"
+      }
+    }
+  },
+  "sidebar": {
+    "full": {
+      "background": "#fff",
+      "selectedColor": "#38c",
+      "toolbar": {
+        "background": "#fff"
+      },
+      "icon": {
+        "default": "#555",
+        "hover": "#111",
+        "active": "#000"
+      },
+      "text": {
+        "default": "#555",
+        "hover": "#111",
+        "active": "#000"
+      }
+    }
+  },
+  "readingPane": {
+    "master": {
+      "toolbar": {
+        "menuButton": {
+          "border": "#38c"
+        },
+        "border": "#38c"
+      }
+    },
+    "detail": {
+      "toolbar": {
+        "buttons": {
+          "default": "#555"
+        }
+      }
+    }
+  },
+  "system": {
+    "select": {
+      "bar": "#38c"
+    }
+  },
+  "theme": {
+    "Light": {
+      "actionBar": {
+        "background": "#fff",
+        "icon": {
+          "default": "#555",
+          "hover": "#111",
+          "active": "#000"
+        },
+        "text": {
+          "default": "#555",
+          "hover": "#111",
+          "active": "#000"
+        }
+      },
+      "filter": { "text": "#38c" },
+      "background": {
+        "hoverPromo": "rgba(0,0,0,.05)"
+      }
+    },
+    "Dark": {
+      "sidebar": {
+        "full": {
+          "border": "#ccc"
+        }
+      },
+      "filter": { "text": "#38c" },
+      "background": {
+        "hoverPromo": "rgba(0,0,0,.1)"
+      }
+    }
+  }
+}

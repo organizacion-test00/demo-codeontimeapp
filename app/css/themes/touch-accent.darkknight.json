@@ -1,0 +1,134 @@
+﻿{
+  "name": "DarkKnight",
+  "color": "#000",
+  "header": {
+    "background": "#000",
+    "border": "#000",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#eee",
+      "hover": "rgba(255,255,255,.65)",
+      "backgroundOpacity": "0.2"
+    },
+    "text": {
+      "default": "#f5f5f5",
+      "hover": "#fff",
+      "logo": "#fff",
+      "hoverBackground": "rgba(255,255,255,0.15)",
+      "selectedBackground": "rgba(255,255,255,0.2)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#000",
+      "hover": "#333"
+    },
+    "tile": {
+      "selected": "#38c"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    },
+    "tabColor": "#333"
+  },
+  "modal": {
+    "header": {
+      "background": "#333"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#000"
+    }
+  },
+  "sidebar": {
+    "full": {
+      "background": "#000",
+      "border": "#000",
+      "hoverBackground": "rgba(255,255,255,0.15)",
+      "selectedColor": "#fff",
+      "icon": {
+        "default": "#fff",
+        "hover": "#eee",
+        "active": "#f5f5f5"
+      },
+      "text": {
+        "default": "#fff",
+        "hover": "#eee",
+        "active": "#f5f5f5",
+        "static": "#aaa"
+      }
+    },
+    "mini": {
+      "background": "#000",
+      "border": "#000",
+      "icon": {
+        "default": "#fff",
+        "hover": "#eee",
+        "active": "#f5f5f5"
+      },
+      "text": {
+        "default": "#fff",
+        "hover": "#eee"
+      }
+    }
+  },
+  "system": {
+    "select": {
+      "bar": "#777"
+    },
+    "busyIndicator": "#fff"
+  },
+  "readingPane": {
+    "master": {
+      "toolbar": {
+        "menuButton": {
+          "border": "#000"
+        }
+      }
+    },
+    "detail": {
+      "toolbar": {
+        "background": "#333"
+      }
+    }
+  },
+  "theme": {
+    "Dark": {
+      "form": {
+        "tabColor": "#777"
+      },
+      "panel": {
+        "icon": {
+          "default": "#888",
+          "hover": "#ddd",
+          "active": "#fff"
+        }
+      },
+      "filter": {
+        "text": "#fff"
+      },
+      "buttons": {
+        "promo": {
+          "background": "#fff",
+          "icon": {
+            "default": "#333"
+          }
+        }
+      }
+    },
+    "Light": {
+      "background": {
+        "hoverPromo": "rgba(255,255,255,.2)"
+      },
+      "displayFlow": {
+        "toolbar": {
+          "background": "#444"
+        }
+      }
+    }
+  }
+}

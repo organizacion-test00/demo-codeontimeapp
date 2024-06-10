@@ -1,0 +1,21 @@
+﻿*******************************************************************************
+Your application uses this file to locate resource strings defined
+in Welcome.html project item. 
+
+Replace the text between localization brackets as needed.
+*******************************************************************************
+
+^AdminDesc^Cuenta administrativa^AdminDesc^
+
+^SignInHeader^Instrucciones^SignInHeader^
+
+^SignInInstruction^Inicia sesión para acceder al contenido del sitio protegido.^SignInInstruction^
+
+^SignInPara1^Dos cuentas de usuario estándar, se crean automáticamente cuando la aplicación se inicia si la opción de afiliación ha sido seleccionada para esta aplicación.^SignInPara1^
+
+^SignInPara2^La cuenta administrativa <b>admin</b> está autorizada para acceder a todas las áreas del sitio web y manejo de usuarios. La cuenta estándar <b>user</b> puede acceder a todas las áreas del sitio web, con la excepción del Manejo de Usuarios y Funciones.^SignInPara2^
+
+^SignInPara3^Mueva el puntero del ratón sobre el enlace <i>Ingreso</i> a este sitio web en el lado derecho en la parte superior de la página e inicie sesión con una de las cuentas que aparecen a continuación.^SignInPara3^
+
+^UserDesc^Cuenta de usuario estándar^UserDesc^
+

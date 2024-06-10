@@ -1,0 +1,77 @@
+﻿{
+  "name": "Graham",
+  "color": "#e4b669",
+  "header": {
+    "background": "#e4b669",
+    "divider": "#e4b669",
+    "border": "#aaa",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#555",
+      "hover": "#333",
+      "active": "#000",
+      "backgroundOpacity": "0.15",
+      "disabled": "rgba(0,0,0,.3)"
+    },
+    "text": {
+      "default": "#555",
+      "hover": "#333",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.08)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#CF9126",
+      "hover": "#9B6D1C"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    },
+    "tabColor": "#555"
+  },
+  "buttons": {
+    "promo": {
+      "background": "#e4b669",
+      "icon": {
+        "default": "#333"
+      }
+    },
+    "menu": {
+      "background": "#e4b669",
+      "border": "#aaa",
+      "text": {
+        "default": "#000"
+      },
+      "icon": {
+        "default": "#333",
+        "hover": "#111",
+        "active": "#000"
+      }
+    }
+  },
+  "system": {
+    "select": {
+      "text": "#ad8a50"
+    }
+  },
+  "readingPane": {
+    "detail": {
+      "toolbar": {
+        "buttons": {
+          "default": "#333"
+        }
+      }
+    }
+  },
+  "theme": {
+    "Light": {
+      "filter": {
+        "text": "#CF9126"
+      }
+    }
+  }
+}

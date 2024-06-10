@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="MyProfile" conflictDetection="overwriteChanges" label="My Profile" handler="MyCompany.Rules.MyProfileBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands />
+  <fields>
+    <field name="UserName" type="String" allowNulls="false" label="^UserName^User Name^UserName^" />
+    <field name="RememberMe" type="Boolean" allowNulls="false" default="0" label="^RememberMe^Remember me next time^RememberMe^">
+      <items style="CheckBox" />
+    </field>
+    <field name="Password" type="String" allowNulls="false" label="^Password^Password^Password^" />
+    <field name="ConfirmPassword" type="String" allowNulls="false" label="^ConfirmPassword^Confirm Password^ConfirmPassword^" />
+    <field name="OldPassword" type="String" allowNulls="false" label="^OldPassword^Old Password^OldPassword^" />
+    <field name="Email" type="String" label="^Email^Email^Email^" allowNulls="false" />
+    <field name="PasswordQuestion" type="String" label="^PasswordQuestion^Password Question^PasswordQuestion^" allowNulls="false" />
+    <field name="PasswordAnswer" type="String" label="^PasswordAnswer^Password Answer^PasswordAnswer^" allowNulls="false" />
+    <field name="DisplayRememberMe" type="Boolean" />
+    <field name="OAuthEnabled" type="Boolean" />
+    <field name="OAuthProvider" type="String" allowNulls="false" label="^Account^Account^Account^">
+      <items style="RadioButtonList">
+        <item value="facebook" text="Facebook" />
+        <item value="google" text="Google" />
+        <item value="msgraph" text="Microsoft" />
+        <item value="linkedin" text="LinkedIn" />
+        <item value="windowslive" text="Windows Live" />
+        <item value="sharepoint" text="SharePoint" />
+        <item value="dnn" text="DotNetNuke" />
+        <item value="identityserver" text="Identity Server" />
+        <item value="cloudidentity" text="Cloud Identity" />
+        <item value="other" text="Other" />
+      </items>
+    </field>
+  </fields>
+  <views>
+    <view id="loginForm" type="Form" access="Public" label="^LoginLink^Login^LoginLink^" tags="modal-fit-content modal-auto-grow modal-max-xs material-icon-lock-outline discard-changes-prompt-none">
+      <categories>
+        <category id="c1" headerText="" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="OAuthEnabled" hidden="true" />
+            <dataField fieldName="OAuthProvider" hidden="true" tag="lookup-auto-advance" columns="1" />
+            <dataField fieldName="UserName" />
+            <dataField fieldName="Password" textMode="Password">
+              <visibility>
+                <expression test="$app.touch.settings('membership.disableLoginPassword') != true" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="RememberMe">
+              <visibility>
+                <expression test="$row.DisplayRememberMe != false" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="DisplayRememberMe" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="signUpForm" type="Form" commandId="command1" access="Public" label="^SignUpViewLabel^Account Sign Up^SignUpViewLabel^" tags="material-icon-person-add">
+      <headerText>^SignUpViewHeaderText^Please fill this form and click OK button to sign up for an account. Click Cancel to return to the previous screen.^SignUpViewHeaderText^</headerText>
+      <categories>
+        <category id="c1" headerText="^SignUpViewNewUserInfoCategoryHeaderText^New User Information^SignUpViewNewUserInfoCategoryHeaderText^" flow="NewColumn">
+          <description><![CDATA[^SignUpViewNewUserInfoCategoryDescription^Please enter user name and password. Note that password must be at least 7 characters long and include one non-alphanumeric character. Only approved users will be able to login into the website.^SignUpViewNewUserInfoCategoryDescription^]]></description>
+          <dataFields>
+            <dataField fieldName="UserName" columns="20" />
+            <dataField fieldName="Password" columns="20" textMode="Password" />
+            <dataField fieldName="ConfirmPassword" columns="20" textMode="Password" />
+          </dataFields>
+        </category>
+        <category id="c2" headerText="^SignUpViewPasswordRecoveryCategoryHeaderText^Password Recovery^SignUpViewPasswordRecoveryCategoryHeaderText^">
+          <description><![CDATA[
+													
+                        ^SignUpViewPasswordRecoveryCategoryDescription^These fields are required to help you to recover a forgotten password. During the recovery process you will be asked to enter a user name. 
+						If a user account exists then a security question is requested to be answered. A correct answer will trigger an email with a temporary password send to the registered email.^SignUpViewPasswordRecoveryCategoryDescription^
+                      
+												]]></description>
+          <dataFields>
+            <dataField fieldName="Email" />
+            <dataField fieldName="PasswordQuestion" />
+            <dataField fieldName="PasswordAnswer" textMode="Password" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="passwordRequestForm" type="Form" commandId="command1" access="Public" label="^PasswordRequestViewLabel^Password Recovery: Step 1 of 2^PasswordRequestViewLabel^" tags="material-icon-lock discard-changes-prompt-none">
+      <headerText>^PasswordRequestViewHeaderText^Please fill this form and click Continue button to recover the forgotten password. Click Cancel to return to the previous screen.^PasswordRequestViewHeaderText^</headerText>
+      <categories>
+        <category id="c1" headerText="^PasswordRequestViewForgotPasswordCategoryHeaderText^Forgot your password?^PasswordRequestViewForgotPasswordCategoryHeaderText^" flow="NewColumn">
+          <description><![CDATA[^PasswordRequestViewForgotPasswordCategoryDescription^Please enter a user name. <br/><br/><br/>^PasswordRequestViewForgotPasswordCategoryDescription^]]></description>
+          <dataFields>
+            <dataField fieldName="UserName" columns="20" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="identityConfirmationForm" type="Form" commandId="command1" access="Public" label="^IdentityConfirmViewLabel^Password Recovery: Step 2 of 2^IdentityConfirmViewLabel^" tags="material-icon-lock-open discard-changes-prompt-none">
+      <headerText>^IdentityConfirmViewHeaderText^Please fill this form and click Submit button to recover the forgotten password. Click Cancel to return to the previous screen.^IdentityConfirmViewHeaderText^</headerText>
+      <categories>
+        <category id="c1" headerText="^IdentityConfirmationViewIdentityConfirmCategoryHeaderText^Identity Confirmation^IdentityConfirmationViewIdentityConfirmCategoryHeaderText^" flow="NewColumn">
+          <description><![CDATA[^IdentityConfirmationViewIdentityConfirmCategoryDescription^Answer the following question to receive your password. <br/><br/><br/>^IdentityConfirmationViewIdentityConfirmCategoryDescription^]]></description>
+          <dataFields>
+            <dataField fieldName="UserName" columns="20" readOnly="true" />
+            <dataField fieldName="PasswordQuestion" readOnly="true" />
+            <dataField fieldName="PasswordAnswer" textMode="Password" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="myAccountForm" type="Form" commandId="command1" label="^MyAccountViewLabel^My Account^MyAccountViewLabel^" tags="material-icon-perm-identity discard-changes-prompt-none">
+      <headerText>^MyAccountViewHeaderText^Please review your membership information below. Click Update My Account to change this record, or click Cancel to return back.^MyAccountViewHeaderText^</headerText>
+      <categories>
+        <category id="c1" headerText="^MyAccountViewCurrentPasswordCategoryHeaderText^1. Current Password^MyAccountViewCurrentPasswordCategoryHeaderText^" flow="NewColumn">
+          <description><![CDATA[^MyAccountViewCurrentPasswordCategoryDescription^Please enter your current password to create new password, update your email address, or change password recovery question and answer.^MyAccountViewCurrentPasswordCategoryDescription^]]></description>
+          <dataFields>
+            <dataField fieldName="UserName" readOnly="true" />
+            <dataField fieldName="OldPassword" columns="20" textMode="Password">
+              <headerText>^Password^Password^Password^</headerText>
+            </dataField>
+          </dataFields>
+        </category>
+        <category id="c2" headerText="^MyAccountViewNewPasswordCategoryHeaderText^2. New Password (Optional)^MyAccountViewNewPasswordCategoryHeaderText^">
+          <description><![CDATA[^MyAccountViewNewPasswordCategoryDescription^Please enter new password. Note that password must be at least 7 characters long and include one non-alphanumeric character.^MyAccountViewNewPasswordCategoryDescription^]]></description>
+          <dataFields>
+            <dataField fieldName="Password" columns="20" textMode="Password">
+              <headerText>^NewPassword^New Password^NewPassword^</headerText>
+            </dataField>
+            <dataField fieldName="ConfirmPassword" columns="20" textMode="Password">
+              <headerText>^ConfirmNewPassword^Confirm New Password^ConfirmNewPassword^</headerText>
+            </dataField>
+          </dataFields>
+        </category>
+        <category id="c3" headerText="^MyAccountViewPasswordRecoveryCategoryHeaderText^3. Email &amp; Password Recovery (Optional)^MyAccountViewPasswordRecoveryCategoryHeaderText^">
+          <description><![CDATA[
+													
+                        ^MyAccountViewPasswordRecoveryCategoryDescription^During the recovery of a forgotten password you will be asked to enter your user name. 
+						If a user account exists then a password question must be answered. A correct answer will trigger an email with a temporary password send to you.^MyAccountViewPasswordRecoveryCategoryDescription^
+                      
+												]]></description>
+          <dataFields>
+            <dataField fieldName="Email" />
+            <dataField fieldName="PasswordQuestion" />
+            <dataField fieldName="PasswordAnswer" textMode="Password">
+              <headerText>^MaskedPasswordAnswer^Password Answer (not displayed for your protection)^MaskedPasswordAnswer^</headerText>
+            </dataField>
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Form">
+      <action id="a1" whenLastCommandName="New" whenLastCommandArgument="signUpForm" commandName="Insert" commandArgument="SignUp" headerText="^SignUp^Sign Up^SignUp^" />
+      <action id="a2" whenLastCommandName="New" whenLastCommandArgument="signUpForm" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="Insert" whenLastCommandArgument="SignUp" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="New" whenLastCommandArgument="passwordRequestForm" commandName="Cancel" />
+      <action id="a5" whenLastCommandName="New" whenLastCommandArgument="passwordRequestForm" commandName="Custom" commandArgument="RequestPassword" headerText="^RequestPasswordActionHeaderText^Next^RequestPasswordActionHeaderText^" cssClass="material-icon-arrow-forward" />
+      <action id="a6" whenLastCommandName="Edit" whenLastCommandArgument="identityConfirmationForm" commandName="Custom" commandArgument="BackToRequestPassword" headerText="^BackToRequestPasswordActionHeaderText^Back^BackToRequestPasswordActionHeaderText^" causesValidation="false" />
+      <action id="a7" whenLastCommandName="Edit" whenLastCommandArgument="identityConfirmationForm" commandName="Custom" commandArgument="ConfirmIdentity" headerText="^ConfirmIdentityActionHeaderText^Finish^ConfirmIdentityActionHeaderText^" cssClass="material-icon-check" />
+      <action id="a8" whenLastCommandName="Edit" whenLastCommandArgument="myAccountForm" commandName="Update" headerText="^UpdateMyAccountActionHeaderText^Update My Account^UpdateMyAccountActionHeaderText^" causesValidation="false" />
+      <action id="a9" whenLastCommandName="Edit" whenLastCommandArgument="myAccountForm" commandName="Cancel" />
+      <action id="a10" commandName="Custom" headerText="^LoginButton^Login^LoginButton^" commandArgument="Login" whenLastCommandName="New" whenLastCommandArgument="loginForm" causesValidation="true" key="Enter" cssClass="material-icon-arrow-forward" />
+      <action id="a12" commandName="Custom" headerText="^ForgotYourPassword^Forgot your password?^ForgotYourPassword^" commandArgument="ForgotPassword" whenLastCommandName="New" whenLastCommandArgument="loginForm" causesValidation="false" />
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Custom" commandArgument="Login" type="JavaScript" phase="Execute"><![CDATA[
+									
+this.preventDefault();
+var resources = Web.MembershipResources.Messages,
+    oauthProvider = $row.OAuthProvider;
+if (oauthProvider && oauthProvider != 'other')
+    window.location = $app.resolveClientUrl('~/appservices/saas/' + oauthProvider);
+else
+    $app.login($row.UserName, $row.Password, $row.RememberMe==true,
+      function () {
+        setTimeout(function() {
+          $app._navigated = true;
+          window.location.replace($app.touch.returnUrl() || __baseUrl);
+        });
+      },
+      function () {
+        $app.alert(resources.InvalidUserNameAndPassword, function() {$app.input.focus({fieldName:'UserName'})});
+      });
+
+								]]></rule>
+    <rule id="r101" commandName="Custom" commandArgument="SignUp" type="JavaScript" phase="Execute"><![CDATA[
+										
+this.preventDefault();
+$app.touch.show({
+  controller: 'MyProfile',
+  startCommand: 'New',
+  startArgument: 'signUpForm'
+});
+
+									]]></rule>
+    <rule id="r102" commandName="Custom" commandArgument="ForgotPassword" type="JavaScript" phase="Execute"><![CDATA[
+										
+this.preventDefault();
+$app.touch.show({
+  controller: 'MyProfile',
+  startCommand: 'New',
+  startArgument: 'passwordRequestForm'
+});
+
+									]]></rule>
+  </businessRules>
+</dataController>

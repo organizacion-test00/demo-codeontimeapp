@@ -1,0 +1,69 @@
+﻿{
+  "name": "Ricasso",
+  "color": "#EEE8AA",
+  "header": {
+    "background": "#EEE8AA",
+    "border": "#ccc",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#333",
+      "hover": "rgba(0,0,0,.6)",
+      "active": "#000",
+      "disabled": "rgba(0,0,0,.35)"
+    },
+    "text": {
+      "default": "#555",
+      "hover": "#222",
+      "active": "#000",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.1)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#B8860B",
+      "hover": "#987316"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    },
+    "tabColor": "#777"
+  },
+  "buttons": {
+    "promo": {
+      "background": "#EEE8AA",
+      "icon": {
+        "default": "#000"
+      }
+    }
+  },
+  "sidebar": {
+    "full": {
+      "selectedColor": "#777"
+    }
+  },
+  "system": {
+    "select": {
+      "bar": "#777"
+    }
+  },
+  "readingPane": {
+    "detail": {
+      "toolbar": {
+        "buttons": {
+          "default": "#333"
+        }
+      }
+    }
+  },
+  "theme": {
+    "Light": {
+      "filter": {
+        "text": "#B8860B"
+      }
+    }
+  }
+}

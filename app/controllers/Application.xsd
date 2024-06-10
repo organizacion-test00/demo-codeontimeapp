@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataAquarium"
+    targetNamespace="urn:schemas-codeontime-com:data-aquarium-application"
+    elementFormDefault="qualified"
+    xmlns="urn:schemas-codeontime-com:data-aquarium-application"
+    xmlns:a="urn:schemas-codeontime-com:data-aquarium-application"
+    xmlns:mstns="urn:schemas-codeontime-com:data-aquarium-application"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="application">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="pages" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="page">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element name="containers" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                          <xs:element name="container">
+                            <xs:complexType>
+                              <xs:attribute name="id" type="xs:string" use="required"/>
+                              <xs:attribute name="flow" use="required">
+                                <xs:simpleType >
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="NewRow"/>
+                                    <xs:enumeration value="NewColumn"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:attribute>
+                              <xs:attribute name="width" type="xs:string" use="optional"/>
+                              <xs:attribute name="className" type="xs:string" use="optional"/>
+                              <xs:attribute name="style" type="xs:string" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="controls" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                          <xs:element name="control">
+                            <xs:complexType>
+                              <xs:attribute name="id" type="xs:string" use="required"/>
+                              <xs:attribute name="name" type="xs:string" use="required"/>
+                              <xs:attribute name="container" type="xs:string" use="required"/>
+                              <xs:attribute name="activator">
+                                <xs:simpleType >
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value=""/>
+                                    <xs:enumeration value="Tab"/>
+                                    <xs:enumeration value="SideBarTasks"/>
+                                    <xs:enumeration value="SiteActions"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:attribute>
+                              <xs:attribute name="text" type="xs:string" use="optional"/>
+                              <xs:attribute name="sequence" type="xs:int" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dataViews" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                          <xs:element name="dataView">
+                            <xs:complexType>
+                              <xs:attribute name="id" type="xs:string" use="required"/>
+                              <xs:attribute name="container" type="xs:string" use="required"/>
+                              <xs:attribute name="controller" type="xs:string" use="required"/>
+                              <xs:attribute name="view" type="xs:string" use="optional"/>
+                              <xs:attribute name="text" type="xs:string" use="optional"/>
+                              <xs:attribute name="showInSummary" type="xs:boolean" use="optional"/>
+                              <xs:attribute name="activator">
+                                <xs:simpleType >
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value=""/>
+                                    <xs:enumeration value="None"/>
+                                    <xs:enumeration value="Tab"/>
+                                    <xs:enumeration value="SideBarTasks"/>
+                                    <xs:enumeration value="SiteActions"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:attribute>
+                              <xs:attribute name="showActionBar" type="xs:boolean" use="optional"/>
+                              <xs:attribute name="showDescription" type="xs:boolean" use="optional"/>
+                              <xs:attribute name="showViewSelector" type="xs:boolean" use="optional"/>
+                              <xs:attribute name="showModalForms" type="xs:boolean" use="optional"/>
+                              <xs:attribute name="searchByFirstLetter" type="xs:boolean" use="optional"/>
+                              <xs:attribute name="searchOnStart" type="xs:boolean" use="optional"/>
+                              <xs:attribute name="filterSource" type="xs:string" use="optional"/>
+                              <xs:attribute name="filterFields" type="xs:string" use="optional"/>
+                              <xs:attribute name="filterField2" type="xs:string" use="optional"/>
+                              <xs:attribute name="filterField3" type="xs:string" use="optional"/>
+                              <xs:attribute name="filterField4" type="xs:string" use="optional"/>
+                              <xs:attribute name="filterField5" type="xs:string" use="optional"/>
+                              <xs:attribute name="pageSize" type="xs:int" use="optional"/>
+                              <xs:attribute name="multiSelect" type="xs:boolean" use="optional"/>
+                              <xs:attribute name="tag" type="xs:string" use="optional"/>
+                              <xs:attribute name="startCommandName" type="xs:string" use="optional"/>
+                              <xs:attribute name="startCommandArgument" type="xs:string" use="optional"/>
+                              <xs:attribute name="sequence" type="xs:int" use="optional"/>
+                              <xs:attribute name="autoHide" use="optional">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Northing"/>
+                                    <xs:enumeration value="Self"/>
+                                    <xs:enumeration value="Container"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:attribute>
+                              <!--<xs:attribute name="transaction" use="optional">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="NotSupported"/>
+                                    <xs:enumeration value="Required"/>
+                                    <xs:enumeration value="Supported"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:attribute>-->
+                              <xs:attribute name="showActionButtons" use="optional">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value=""/>
+                                    <xs:enumeration value="None"/>
+                                    <xs:enumeration value="Top"/>
+                                    <xs:enumeration value="Bottom"/>
+                                    <xs:enumeration value="TopAndBottom"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:attribute>
+                              <xs:attribute name="showDetailsInListMode" type="xs:boolean" use="optional"/>
+                              <xs:attribute name="showPager" use="optional">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value=""/>
+                                    <xs:enumeration value="None"/>
+                                    <xs:enumeration value="Top"/>
+                                    <xs:enumeration value="Bottom"/>
+                                    <xs:enumeration value="TopAndBottom"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:attribute>
+                              <xs:attribute name="showPageSize" type="xs:boolean" use="optional"/>
+                              <xs:attribute name="showSearchBar" type="xs:boolean" use="optional"/>
+                              <xs:attribute name="showQuickFind" type="xs:boolean" use="optional"/>
+                              <xs:attribute name="showRowNumber" type="xs:boolean" use="optional"/>
+                              <xs:attribute name="visibleWhen" type="xs:string" use="optional"/>
+                              <xs:attribute name="autoSelectFirstRow" type="xs:boolean" use="optional"/>
+                              <xs:attribute name="autoHighlightFirstRow" type="xs:boolean" use="optional"/>
+                              <xs:attribute name="refreshInterval" type="xs:int" use="optional"/>
+                              <xs:attribute name="className" type="xs:string" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="about" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                  </xs:all>
+                  <xs:attribute name="name" type="xs:string" use="required"/>
+                  <xs:attribute name="title" type="xs:string" use="optional"/>
+                  <xs:attribute name="description" type="xs:string" use="optional"/>
+                  <xs:attribute name="path" type="xs:string" use="optional"/>
+                  <xs:attribute name="style" use="optional">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value=""/>
+                        <xs:enumeration value="Generic"/>
+                        <xs:enumeration value="AnnouncePage" />
+                        <xs:enumeration value="CategoriesPage" />
+                        <xs:enumeration value="CommentsPage" />
+                        <xs:enumeration value="ContactsPage" />
+                        <xs:enumeration value="DiscussionsPage" />
+                        <xs:enumeration value="EventsPage" />
+                        <xs:enumeration value="FoldersPage" />
+                        <xs:enumeration value="HomePage" />
+                        <xs:enumeration value="ImagesPage" />
+                        <xs:enumeration value="MeetingPage"/>
+                        <xs:enumeration value="MemosPage" />
+                        <xs:enumeration value="MiscPage" />
+                        <xs:enumeration value="NotesPage" />
+                        <xs:enumeration value="ReferencesPage" />
+                        <xs:enumeration value="SettingsPage" />
+                        <xs:enumeration value="SolutionsPage" />
+                        <xs:enumeration value="TasksPage" />
+                        <xs:enumeration value="UsersPage" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="customStyle" type="xs:string" use="optional"/>
+                  <xs:attribute name="index" type="xs:int" use="optional"/>
+                  <xs:attribute name="roles" type="xs:string" use="optional"/>
+                  <xs:attribute name="master" type="xs:string" use="optional"/>
+                  <xs:attribute name="url" type="xs:string" use="optional"/>
+                  <xs:attribute name="externalUrl" type="xs:string" use="optional"/>
+                  <xs:attribute name="device" use="optional">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value=""/>
+                        <xs:enumeration value="Mobile"/>
+                        <xs:enumeration value="Desktop" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="userControls" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="userControl">
+                <xs:complexType >
+                  <xs:all>
+                    <xs:element name="body" minOccurs="0" maxOccurs="1">
+                      <xs:complexType mixed="true">
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:all>
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                  <xs:attribute name="prefix" type="xs:string" use="required" />
+                  <xs:attribute name="generate">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Always"/>
+                        <xs:enumeration value="FirstTimeOnly"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="snapshot" type="xs:boolean" use="optional"/>
+      <xs:attribute name="integrity" type="xs:string" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

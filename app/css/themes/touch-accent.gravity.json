@@ -1,0 +1,84 @@
+﻿{
+  "name": "Gravity",
+  "color": "#bee0ec",
+  "header": {
+    "background": "#bee0ec",
+    "border": "#bbb",
+    "divider": "#bee0ec",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#333",
+      "hover": "rgba(0,0,0,.55)",
+      "active": "#000",
+      "backgroundOpacity": "0.1",
+      "disabled": "rgba(0,0,0,.3)"
+    },
+    "text": {
+      "default": "#333",
+      "hover": "#000",
+      "active": "#000",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.08)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#328DAE",
+      "hover": "#29738E"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent",
+      "divider": "#bbb"
+    },
+    "tabColor": "#777"
+  },
+  "buttons": {
+    "promo": {
+      "background": "#bee0ec",
+      "icon": {
+        "default": "#000"
+      }
+    },
+    "menu": {
+      "background": "#bee0ec",
+      "border": "#bbb",
+      "text": {
+        "default": "#000"
+      },
+      "icon": {
+        "default": "#333",
+        "hover": "#111",
+        "active": "#000"
+      }
+    }
+  },
+  "sidebar": {
+    "full": {
+      "selectedColor": "#777"
+    }
+  },
+  "system": {
+    "select": {
+      "bar": "#777"
+    }
+  },
+  "readingPane": {
+    "detail": {
+      "toolbar": {
+        "buttons": {
+          "default": "#333"
+        }
+      }
+    }
+  },
+  "theme": {
+    "Light": {
+      "filter": {
+        "text": "#328DAE"
+      }
+    }
+  }
+}

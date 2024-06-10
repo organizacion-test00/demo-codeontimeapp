@@ -1,0 +1,175 @@
+﻿*******************************************************************************
+Your application uses this file to locate resource strings defined
+in aspnet_Membership.xml project item. 
+
+Replace the text between localization brackets as needed.
+*******************************************************************************
+
+^ActionBarNewActionDescription^Create a new user record.^ActionBarNewActionDescription^
+
+^ActionBarNewActionHeaderText^New User^ActionBarNewActionHeaderText^
+
+^ActionBarNewGroupHeaderText^New^ActionBarNewGroupHeaderText^
+
+^BackToRequestPasswordActionHeaderText^Back^BackToRequestPasswordActionHeaderText^
+
+^Comment^Comment^Comment^
+
+^ConfirmIdentityActionHeaderText^Finish^ConfirmIdentityActionHeaderText^
+
+^ConfirmPassword^Confirm Password^ConfirmPassword^
+
+^CreateDate^Create Date^CreateDate^
+
+^CreateFormCommentCategoryDescription^Enter any additional comments about this user account. Comment is not visible to the user.^CreateFormCommentCategoryDescription^
+
+^CreateFormCommentCategoryHeaderText^Comments^CreateFormCommentCategoryHeaderText^
+
+^CreateFormNewUserInfoCategoryDescription^Please enter user name and password. Note that password must be at least 7 characters long and include one non-alphanumeric character. Only approved users will be able to login into the website.^CreateFormNewUserInfoCategoryDescription^
+
+^CreateFormNewUserInfoCategoryHeaderText^New User Information^CreateFormNewUserInfoCategoryHeaderText^
+
+^CreateFormPasswordRecoveryCategoryDescription^These fields are required to help a user to recover a forgotten password. During the recovery process the user will be asked to enter a user name.  
+						If a user account exists then a security question is requested to be answered. A correct answer will trigger an email with a temporary password send to the user.^CreateFormPasswordRecoveryCategoryDescription^
+
+^CreateFormPasswordRecoveryCategoryHeaderText^Password Recovery^CreateFormPasswordRecoveryCategoryHeaderText^
+
+^CreateFormRolesCategoryDescription^Please select user roles that most closely match user's responsibilities. Roles control access to the areas of this web site. Please contact system administrator if role access restrictions must be changed.^CreateFormRolesCategoryDescription^
+
+^CreateFormRolesCategoryHeaderText^Roles^CreateFormRolesCategoryHeaderText^
+
+^CreateFormViewHeaderText^Please fill this form and click OK button to create a new user membership record. Click Cancel to return to the previous screen.^CreateFormViewHeaderText^
+
+^CreateFormViewLabel^New User^CreateFormViewLabel^
+
+^CreateViewIsApprovedFieldHeaderText^This user account will be created as approved.^CreateViewIsApprovedFieldHeaderText^
+
+^DuplicateEmail^Duplicate email address.^DuplicateEmail^
+
+^DuplicateProviderUserKey^Duplicate provider key.^DuplicateProviderUserKey^
+
+^DuplicateUserName^Duplicate user name.^DuplicateUserName^
+
+^EditFormActivityStatisticsCategoryDescription^Activity Statistics^EditFormActivityStatisticsCategoryDescription^
+
+^EditFormIsApprovedFieldHeaderText^This user account is approved^EditFormIsApprovedFieldHeaderText^
+
+^EditFormLoginStatisticsCategoryDescription^These are the statistics of failed login attempts by this user.
+					<br/>
+					<br/>
+					User will be locked out after reaching a maximum number of failed login attempts. Locked out users will be able to login again after the date in Failed Password Attempt Window Start. Users who failed to recover the password will be able to so after the date in Failed Password Answer Attempt Window Start.
+					<br/>
+					<br/>
+					You can restore user's ability to login by setting Locked Out flag to 'No'.^EditFormLoginStatisticsCategoryDescription^
+
+^EditFormLoginStatisticsCategoryHeaderText^Login Statistics^EditFormLoginStatisticsCategoryHeaderText^
+
+^EditFormPasswordRecoveryCategoryDescription^During the recovery of a forgotten password the user will be asked to enter a user name. If a user account exists then a security question is requested to be answered. A correct answer will trigger an email with a temporary password send to the user.
+						<br/><br/>
+						Change locked out flag to 'No' if the user has been locked out after reaching a maximum number of failed login attempts and you want to allow user to login again.^EditFormPasswordRecoveryCategoryDescription^
+
+^EditFormPasswordRecoveryCategoryHeaderText^Password Recovery^EditFormPasswordRecoveryCategoryHeaderText^
+
+^EditFormUserInformationCategoryDescription^Please select user roles that most closely match user's responsibilities. Roles control access to the areas of this web site. Please contact system administrator if role access restrictions must be changed.
+						<br/>
+						<br/>
+						Enter any additional comments about this user account. Comment is not visible to the user.^EditFormUserInformationCategoryDescription^
+
+^EditFormUserInformationCategoryHeaderText^User Information^EditFormUserInformationCategoryHeaderText^
+
+^EditFormViewHeaderText^Please review user membership information below. Click Edit to change this record, click Delete to delete the record, or click Cancel/Close to return back.^EditFormViewHeaderText^
+
+^EditFormViewLabel^Review User^EditFormViewLabel^
+
+^Email^Email^Email^
+
+^EnterCurrentPassword^Please enter your current password.^EnterCurrentPassword^
+
+^EnterPasswordAnswer^Please enter a password answer.^EnterPasswordAnswer^
+
+^ErrorSavingUser^Error saving user account.^ErrorSavingUser^
+
+^FailedPasswordAnswerAttemptCount^Failed Password Answer Attempt Count^FailedPasswordAnswerAttemptCount^
+
+^FailedPasswordAnswerAttemptWindowStart^Failed Password Answer Attempt Window Start^FailedPasswordAnswerAttemptWindowStart^
+
+^FailedPasswordAttemptCount^Failed Password Attempt Count^FailedPasswordAttemptCount^
+
+^FailedPasswordAttemptWindowStart^Failed Password Attempt Window Start^FailedPasswordAttemptWindowStart^
+
+^GridViewHeaderText^This is a list of membership user records.^GridViewHeaderText^
+
+^GridViewLabel^All Users^GridViewLabel^
+
+^InvalidAnswer^Invalid password recovery answer.^InvalidAnswer^
+
+^InvalidEmail^Invalid email address.^InvalidEmail^
+
+^InvalidPassword^Invalid password.^InvalidPassword^
+
+^InvalidProviderUserKey^Invalid provider user key.^InvalidProviderUserKey^
+
+^InvalidQuestion^Invalid password recovery question.^InvalidQuestion^
+
+^InvalidUserName^Invalid user name.^InvalidUserName^
+
+^IsApproved^Is Approved^IsApproved^
+
+^IsLockedOut^Is Locked Out^IsLockedOut^
+
+^LastLockoutDate^Last Lockout Date^LastLockoutDate^
+
+^LastLoginDate^Last Login Date^LastLoginDate^
+
+^LastPasswordChangedDate^Last Password Changed Date^LastPasswordChangedDate^
+
+^NewPasswordAlert^A new password has been emailed to the address on file.^NewPasswordAlert^
+
+^NewPasswordAndConfirmatinDoNotMatch^New password and confirmation do not match.^NewPasswordAndConfirmatinDoNotMatch^
+
+^NewPasswordInvalid^Your new password is invalid.^NewPasswordInvalid^
+
+^NewPasswordSubject^New password for \'{0}\'.^NewPasswordSubject^
+
+^OldPassword^Old Password^OldPassword^
+
+^Password^Password^Password^
+
+^PasswordAndConfirmationDoNotMatch^Password and confirmation do not match.^PasswordAndConfirmationDoNotMatch^
+
+^PasswordAnswer^Password Answer^PasswordAnswer^
+
+^PasswordDoesNotMatchRecords^Your password does not match our records.^PasswordDoesNotMatchRecords^
+
+^PasswordFormat^Password Format^PasswordFormat^
+
+^PasswordQuestion^Password Question^PasswordQuestion^
+
+^ProviderError^Provider error.^ProviderError^
+
+^RequestPasswordActionHeaderText^Next^RequestPasswordActionHeaderText^
+
+^Roles^Roles^Roles^
+
+^SelfRegisteredUser^Self-registered user.^SelfRegisteredUser^
+
+^SignUp^Sign Up^SignUp^
+
+^UpdateMyAccountActionHeaderText^Update My Account^UpdateMyAccountActionHeaderText^
+
+^UserCannotBeLockedOut^User cannot be locked out. If you want to prevent this user from being able to login then simply mark user as 'not-approved'.^UserCannotBeLockedOut^
+
+^UserHasBeenDeleted^User '{0}' has been deleted.^UserHasBeenDeleted^
+
+^UserName^User Name^UserName^
+
+^UserNameDoesNotExist^User name does not exist.^UserNameDoesNotExist^
+
+^UserNotFound^User not found.^UserNotFound^
+
+^UserRejected^User has been rejected.^UserRejected^
+
+^UsersInRolesGridHeaderText^This is a list of membership user records that belong to a selected role.^UsersInRolesGridHeaderText^
+
+^UsersInRolesGridLabel^Users in Role^UsersInRolesGridLabel^
+

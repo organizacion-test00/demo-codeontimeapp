@@ -1,0 +1,150 @@
+﻿{
+  "name": "Vantage",
+  "color": "#ea3625",
+  "header": {
+    "icon": {
+      "default": "#ea3625",
+      "hover": "#BA2012",
+      "active": "#BA2012"
+    },
+    "text": {
+      "default": "#333",
+      "hover": "#111",
+      "active": "#BA2012"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#ea3625",
+      "hover": "#BA2012"
+    }
+  },
+  "form": {
+    "tabColor": "#ea3625"
+  },
+  "buttons": {
+    "promo": {
+      "background": "#ea3625",
+      "icon": {
+        "default": "#fff"
+      }
+    },
+    "wizard": {
+      "border": "#ea3625",
+      "background": "#ea3625",
+      "text": {
+        "default": "#fff"
+      }
+    }
+  },
+  "sidebar": {
+    "full": {
+      "selectedColor": "#ea3625",
+      "icon": {
+        "default": "#ea3625",
+        "hover": "#BA2012",
+        "active": "#d83020"
+      },
+      "toolbar": {
+        "icon": {
+          "default": "#ea3625",
+          "hover": "#BA2012"
+        }
+      }
+    }
+  },
+  "system": {
+    "select": {
+      "bar": "#ea3625"
+    }
+  },
+  "theme": {
+    "Dark": {
+      "header": {
+        "text": {
+          "default": "#999",
+          "hover": "#eee",
+          "active": "#BA2012",
+          "logo": "#eee",
+          "hoverBackground": "rgba(255,252,255,.05)",
+          "selectedBackground": "rgba(0,0,0,.2)"
+        }
+      },
+      "modal": {
+        "header": {
+          "background": "#444"
+
+        }
+      },
+      "filter": {
+        "text": "#ea3625"
+      },
+      "buttons": {
+        "promo": {
+          "icon": {
+            "default": "#111"
+          }
+        }
+      },
+      "actionBar": {
+        "buttons": {
+          "icon": {
+            "default": "#eee"
+          },
+          "text": {
+            "default": "#eee"
+          }
+        }
+      },
+      "boxShadow": {
+        "modal": "0 0 5px 2px rgba(0,0,0,.4);",
+        "modalActive": "0 0 5px 2px rgba(0,0,0,.5)"
+      },
+      "readingPane": {
+        "detail": {
+          "toolbar": {
+            "background": "#444",
+            "buttons": {
+              "default": "#ea3625"
+            }
+          }
+        }
+      }
+    },
+    "Light": {
+      "header": {
+        "icon": { "disabled": "rgba(0,0,0,.3)" }
+      },
+      "filter": {
+        "text": "#ea3625"
+      },
+      "buttons": {
+        "promo": {
+          "icon": {
+            "default": "#ebebeb"
+          }
+        }
+      },
+      "actionBar": {
+        "buttons": {
+          "icon": {
+            "default": "#777"
+          },
+          "text": {
+            "default": "#333"
+          }
+        }
+      },
+      "readingPane": {
+        "detail": {
+          "toolbar": {
+            "buttons": {
+              "default": "#ea3625"
+            }
+          }
+        }
+      }
+
+    }
+  }
+}

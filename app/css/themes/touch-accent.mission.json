@@ -1,0 +1,77 @@
+﻿{
+  "name": "Mission",
+  "color": "#c49d74",
+  "header": {
+    "background": "#c49d74",
+    "border": "#aaa",
+    "divider": "#c49d74",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#333",
+      "hover": "rgba(0,0,0,.5)",
+      "active": "#000",
+      "disabled": "rgba(0,0,0,.3)"
+    },
+    "text": {
+      "default": "#000",
+      "hover": "#222",
+      "active": "#222",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.1)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#AB7C49",
+      "hover": "#AB7C49"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent",
+      "divider": "#aaa"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#c49d74",
+      "icon": {
+        "default": "#000",
+        "hover": "#000",
+        "active": "#000"
+      }
+    },
+    "menu": {
+      "background": "#c49d74",
+      "border": "#aaa",
+      "text": {
+        "default": "#000"
+      },
+      "icon": {
+        "default": "#333",
+        "hover": "#111",
+        "active": "#000"
+      }
+    }
+  },
+  "sidebar": {
+    "full": {
+      "selectedColor": "#777"
+    }
+  },
+  "readingPane": {
+    "detail": {
+      "toolbar": {
+        "buttons": {
+          "default": "#000"
+        }
+      }
+    }
+  },
+  "system": {
+    "select": {
+      "bar": "#777"
+    }
+  }
+}

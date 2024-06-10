@@ -1,0 +1,43 @@
+﻿{
+  "name": "Aquarium",
+  "color": "#0089ce",
+  "header": {
+    "background": "#0089ce",
+    "border": "#0089ce",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#eee",
+      "hover": "rgba(255,255,255,.75)",
+      "active": "rgba(255,255,255,0.8)",
+      "backgroundOpacity": "0.2"
+    },
+    "text": {
+      "default": "#f5f5f5",
+      "hover": "#fff",
+      "active": "#fff",
+      "logo": "#fff",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.1)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#0089ce",
+      "hover": "#006DA3"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#0089ce"
+    }
+  },
+  "system": {
+    "busyIndicator": "#ceac00"
+  }
+}

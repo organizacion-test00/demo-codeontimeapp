@@ -1,0 +1,11 @@
+﻿*******************************************************************************
+Your application uses this file to locate resource strings defined
+in Membership.html project item. 
+
+Replace the text between localization brackets as needed.
+*******************************************************************************
+
+^MembershipAbout^This page allows to manage roles and users.^MembershipAbout^
+
+^MembershipTitle^Membership Manager^MembershipTitle^
+

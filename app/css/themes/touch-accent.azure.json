@@ -1,0 +1,108 @@
+﻿{
+  "name": "Azure",
+  "color": "#0072C6",
+  "header": {
+    "background": "#0072C6",
+    "border": "#0072C6",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#eee",
+      "hover": "rgba(255,255,255,.75)",
+      "backgroundOpacity": "0.2"
+    },
+    "text": {
+      "default": "#f5f5f5",
+      "hover": "#fff",
+      "logo": "#fff",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.1)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#0072C6",
+      "hover": "#0070E0"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    },
+    "tabColor": "#0072C6"
+  },
+  "buttons": {
+    "promo": {
+      "background": "#0072C6"
+    },
+    "menu": {
+      "background": "#003652",
+      "border": "#003652",
+      "text": {
+        "default": "#fff"
+      },
+      "icon": {
+        "default": "#fff",
+        "hover": "#eee",
+        "active": "#f5f5f5"
+      }
+    }
+  },
+  "readingPane": {
+    "master": {
+      "toolbar": {
+        "menuButton": {
+          "border": "#003652"
+        }
+      }
+    }
+  },
+  "sidebar": {
+    "full": {
+      "toolbar": {
+        "text": "#fff",
+        "background": "#003652",
+        "border": "#003652",
+        "selectedColor": "#fff",
+        "icon": {
+          "default": "#fff",
+          "hover": "#fff",
+          "active": "#fff"
+        }
+      }
+    },
+    "mini": {
+      "background": "#0072C6",
+      "border": "#0072C6",
+      "pixel": "#003652",
+      "selectedColor": "#fff",
+      "icon": {
+        "default": "#fff",
+        "hover": "#e5e5e5",
+        "active": "#eee"
+      },
+      "toolbar": {
+        "background": "#0072C6",
+        "border": "#0072C6",
+        "selectedColor": "#fff",
+        "icon": {
+          "default": "#fff",
+          "hover": "#fff",
+          "active": "#fff"
+        }
+      }
+    }
+  },
+  "system": {
+    "busyIndicator": "#c64500"
+  },
+  "theme": {
+    "Dark": {
+      "system": {
+        "select": {
+          "bar": "#aeaeae"
+        }
+      }
+    }
+  }
+}

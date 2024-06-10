@@ -1,0 +1,5 @@
+﻿daf/*
+sys/*
+lib/*
+surveys/*
+_references.js

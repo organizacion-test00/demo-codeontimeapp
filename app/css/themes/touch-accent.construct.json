@@ -1,0 +1,89 @@
+﻿{
+  "name": "Construct",
+  "color": "#f4ce00",
+  "header": {
+    "background": "#f4ce00",
+    "divider": "#f4ce00",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#333",
+      "hover": "rgba(0,0,0,.6)",
+      "active": "#000",
+      "disabled": "rgba(0,0,0,.3)"
+    },
+    "text": {
+      "default": "#333",
+      "hover": "#000",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.08)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#FF8C00",
+      "hover": "#E07B00"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    },
+    "tabColor": "#777"
+  },
+  "buttons": {
+    "promo": {
+      "background": "#f4ce00",
+      "icon": {
+        "default": "#000"
+      }
+    },
+    "menu": {
+      "background": "#f4ce00",
+      "text": {
+        "default": "#000"
+      },
+      "icon": {
+        "default": "#333",
+        "hover": "#000",
+        "active": "#000"
+      }
+    }
+  },
+  "readingPane": {
+    "detail": {
+      "toolbar": {
+        "buttons": {
+          "default": "#333"
+        }
+      }
+    }
+  },
+  "theme": {
+    "Light": {
+      "header": {
+        "border": "#ccc"
+      },
+      "buttons": {
+        "menu": {
+          "border": "#ccc"
+        }
+      },
+      "filter": {
+        "text": "#FF8C00"
+      },
+      "system": {
+        "select": {
+          "text": "#aca201"
+        }
+      }
+    },
+    "Dark": {
+      "buttons": {
+        "menu": {
+          "pixel": "#444"
+        }
+      }
+    }
+  }
+}

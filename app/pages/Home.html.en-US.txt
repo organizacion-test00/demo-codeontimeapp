@@ -1,0 +1,9 @@
+﻿*******************************************************************************
+Your application uses this file to locate resource strings defined
+in Home.html project item. 
+
+Replace the text between localization brackets as needed.
+*******************************************************************************
+
+^HomeTitle^Start^HomeTitle^
+

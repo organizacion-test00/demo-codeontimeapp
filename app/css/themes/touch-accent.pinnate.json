@@ -1,0 +1,47 @@
+﻿{
+  "name": "Pinnate",
+  "color": "#789831",
+  "header": {
+    "background": "#789831",
+    "border": "#789831",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#eee",
+      "hover": "rgba(255,255,255,.65)",
+      "backgroundOpacity": "0.1"
+    },
+    "text": {
+      "default": "#f5f5f5",
+      "hover": "#fff",
+      "logo": "#fff",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.1)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#789831",
+      "hover": "#495C1E"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent", "border": "transparent"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#789831"
+    }
+  },
+  "sidebar": {
+    "full": {
+      "toolbar": {
+        "icon": {
+          "default": "#789831",
+          "hover": "#495C1E"
+        }
+      }
+    }
+  }
+}

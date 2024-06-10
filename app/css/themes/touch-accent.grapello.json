@@ -1,0 +1,37 @@
+﻿{
+  "name": "Grapello",
+  "color": "#595b87",
+  "header": {
+    "background": "#595b87",
+    "border": "#595b87",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#eee",
+      "hover": "rgba(255,255,255,.7)"
+    },
+    "text": {
+      "default": "#f5f5f5",
+      "hover": "#fff",
+      "logo": "#fff",
+      "hoverBackground": "rgba(0,0,0,0.08)",
+      "selectedBackground": "rgba(0,0,0,0.15)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#595b87",
+      "hover": "#494A6F"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#595b87"
+    }
+  }
+}

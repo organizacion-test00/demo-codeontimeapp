@@ -1,0 +1,27 @@
+﻿*******************************************************************************
+Your application uses this file to locate resource strings defined
+in aspnet_Roles.xml project item. 
+
+Replace the text between localization brackets as needed.
+*******************************************************************************
+
+^ActionBarNewActionDescription^Create a new membership Role record.^ActionBarNewActionDescription^
+
+^ActionBarNewActionHeaderText^New Role^ActionBarNewActionHeaderText^
+
+^ActionBarNewGroupHeaderText^New^ActionBarNewGroupHeaderText^
+
+^CreateFormCategory^Complete the form. Make sure to enter all required fields.^CreateFormCategory^
+
+^CreateFormHeaderText^Please fill this form and click OK button to create a new membership roles record. Click Cancel to return to the previous screen.^CreateFormHeaderText^
+
+^DescriptionLabel^Description^DescriptionLabel^
+
+^EditViewCategory^These are the fields of the membership role record that can be edited.^EditViewCategory^
+
+^EditViewHeaderText^Please review membership roles information below. Click Edit to change this record, click Delete to delete the record, or click Cancel/Close to return back.^EditViewHeaderText^
+
+^GridViewHeaderText^This is a list of membership roles.^GridViewHeaderText^
+
+^RoleNameLabel^Role Name^RoleNameLabel^
+

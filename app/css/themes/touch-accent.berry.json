@@ -1,0 +1,61 @@
+﻿{
+  "name": "Berry",
+  "color": "#c13c4c",
+  "header": {
+    "background": "#c13c4c",
+    "border": "#c13c4c",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#eee",
+      "hover": "rgba(255,255,255,.65)",
+      "backgroundOpacity": "0.2"
+    },
+    "text": {
+      "default": "#f5f5f5",
+      "hover": "#fff",
+      "logo": "#fff",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.1)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#c13c4c",
+      "hover": "#9C303D"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    },
+    "tabColor": "#8C2B36"
+  },
+  "buttons": {
+    "promo": {
+      "background": "#c13c4c"
+    },
+    "menu": {
+      "background": "#8C2B36",
+      "border": "#8C2B36",
+      "text": {
+        "default": "#fff"
+      },
+      "icon": {
+        "default": "#fff",
+        "hover": "#eee",
+        "active": "#f5f5f5"
+      }
+    }
+  },
+  "sidebar": {
+    "full": {
+      "selectedColor": "#8C2B36"
+    }
+  },
+  "system": {
+    "select": {
+      "bar": "#c13c4c"
+    }
+  }
+}

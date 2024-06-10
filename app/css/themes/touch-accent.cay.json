@@ -1,0 +1,113 @@
+﻿{
+  "name": "Cay",
+  "color": "#C3DBE9",
+  "header": {
+    "background": "#C3DBE9",
+    "border": "#bbb",
+    "divider": "#206090",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#10222D",
+      "hover": "rgba(0,0,0,.65)",
+      "disabled": "rgba(0,0,0,.2)"
+    },
+    "text": {
+      "default": "#10222D",
+      "hover": "#306688",
+      "logo": "#000",
+      "hoverBackground": "rgba(255,255,255,0.15)",
+      "selectedBackground": "rgba(255,255,255,0.3)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#4188B4",
+      "hover": "#316687"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent",
+      "divider": "#bbb"
+    },
+    "tabColor": "#206090"
+  },
+  "buttons": {
+    "promo": {
+      "background": "#206090"
+    },
+    "menu": {
+      "background": "#206090",
+      "border": "#206090",
+      "text": {
+        "default": "#fff"
+      },
+      "icon": {
+        "default": "#fff",
+        "hover": "#ccc"
+      }
+    }
+  },
+  "readingPane": {
+    "master": {
+      "toolbar": {
+        "menuButton": {
+          "border": "#206090"
+        }
+      }
+    },
+    "detail": {
+      "toolbar": {
+        "buttons": {
+          "default": "#10222D"
+        }
+      }
+    }
+  },
+  "sidebar": {
+    "full": {
+      "background": "#206090",
+      "border": "#206090",
+      "selectedColor": "#fff",
+      "icon": {
+        "default": "#fff",
+        "hover": "#eee",
+        "active": "#eee"
+      },
+      "text": {
+        "default": "#fff",
+        "hover": "#fff",
+        "active": "#eee",
+        "static": "#C3DBE9"
+      }
+    },
+    "mini": {
+      "background": "#206090",
+      "border": "#206090",
+      "selectedColor": "#fff",
+      "icon": {
+        "default": "#fff",
+        "hover": "#eee"
+      },
+      "text": {
+        "default": "#fff",
+        "hover": "#fff",
+        "static": "#555"
+      }
+    }
+  },
+  "system": {
+    "busyIndicator": "#eb5200",
+    "select": {
+      "bar": "#777"
+    }
+  },
+  "theme": {
+    "Light": {
+      "filter": {
+        "text": "#306688"
+      }
+    }
+  }
+}

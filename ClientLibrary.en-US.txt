@@ -1,0 +1,1343 @@
+﻿***********************************************************************************
+This file is not required to execute your application and does not have to be
+deployed to production server.
+
+Code On Time generator uses this file to maintain AJAX Client Library resource 
+strings. Replace the text between localization brackets as needed and 
+re-generate your application. Refresh the browser cache to ensure that the latest 
+client library resource scripts are being used when application starts.
+
+Help us to improve the client library resources. We ask you to kindly contribute
+localized resource files to Code On Time community. 
+
+Simply send the resource files as attachments to customerservice@codeontime.com and 
+we will include your resource file(s) in the general distribution of the code 
+generation library.
+************************************************************************************
+
+^About^About^About^
+
+^Accent^Accent^Accent^
+
+^ActionBarActionsHeaderText^Actions^ActionBarActionsHeaderText^
+
+^ActionBarCancelActionHeaderText^Cancel^ActionBarCancelActionHeaderText^
+
+^ActionBarCancelWhenEditActionDescription^Cancel all record changes.^ActionBarCancelWhenEditActionDescription^
+
+^ActionBarCancelWhenNewActionDescription^Cancel new record.^ActionBarCancelWhenNewActionDescription^
+
+^ActionBarInsertActionDescription^Save new record to the database.^ActionBarInsertActionDescription^
+
+^ActionBarInsertActionHeaderText^Save^ActionBarInsertActionHeaderText^
+
+^ActionBarNewHeaderDescription^Create a new {0} record.^ActionBarNewHeaderDescription^
+
+^ActionBarNewHeaderText^New {0}^ActionBarNewHeaderText^
+
+^ActionBarNewHeaderText2^New^ActionBarNewHeaderText2^
+
+^ActionBarRecordHeaderText^Record^ActionBarRecordHeaderText^
+
+^ActionBarReportHeaderText^Report^ActionBarReportHeaderText^
+
+^ActionBarUpdateActionDescription^Save changes to the database.^ActionBarUpdateActionDescription^
+
+^ActionBarUpdateActionHeaderText^Save^ActionBarUpdateActionHeaderText^
+
+^AddAccount^Add Account^AddAccount^
+
+^AddCondition^Add Condition^AddCondition^
+
+^AddConditionText^Add search condition^AddConditionText^
+
+^AddItem^Add Item^AddItem^
+
+^AddMatchingGroup^Add matching group^AddMatchingGroup^
+
+^AddSearchBarField^More Search Fields^AddSearchBarField^
+
+^AddSystemIdentity^Add System Identity^AddSystemIdentity^
+
+^AddToFavorites^Add to Favorites^AddToFavorites^
+
+^AdvancedSearch^Advanced Search^AdvancedSearch^
+
+^AdvancedSearchInstruction^Enter conditions that must be matched and press search button.^AdvancedSearchInstruction^
+
+^After^After^After^
+
+^Agenda^Agenda^Agenda^
+
+^AllDatesInPreriod^All Dates in the Period^AllDatesInPreriod^
+
+^AlternativeView^Select an alternative view of data.^AlternativeView^
+
+^Always^Always^Always^
+
+^AnyValue^(any)^AnyValue^
+
+^Apply^Apply^Apply^
+
+^Apps^Apps^Apps^
+
+^Aquarium^Aquarium^Aquarium^
+
+^Auto^Auto^Auto^
+
+^AutoOpenNextItem^Auto-open next item^AutoOpenNextItem^
+
+^AverageOf^Average of^AverageOf^
+
+^AvgAggregate^Avg: {0}^AvgAggregate^
+
+^AvgAggregateToolTip^Average of {0}^AvgAggregateToolTip^
+
+^Azure^Azure^Azure^
+
+^Back^Back^Back^
+
+^BackColor^Back Color^BackColor^
+
+^BatchEditActionHeaderText^Batch Edit^BatchEditActionHeaderText^
+
+^BatchEdited^{0} updated^BatchEdited^
+
+^BatchEditInFormActionHeaderText^Batch Edit (Form)^BatchEditInFormActionHeaderText^
+
+^BatchUpdate^update^BatchUpdate^
+
+^Before^Before^Before^
+
+^BeginsWith^Begins With^BeginsWith^
+
+^Belltown^Belltown^Belltown^
+
+^Berry^Berry^Berry^
+
+^Between^Between^Between^
+
+^Bittersweet^Bittersweet^Bittersweet^
+
+^Blank^Blank^Blank^
+
+^BlankPassword^Password cannot be blank.^BlankPassword^
+
+^BlankUserName^User name cannot be blank.^BlankUserName^
+
+^BlankValue^(Blank)^BlankValue^
+
+^BlobDownloadHint^Click here to download the original file.^BlobDownloadHint^
+
+^BlobDownloadLink^download^BlobDownloadLink^
+
+^BlobDownloadOriginalHint^Tap image to download the original file.^BlobDownloadOriginalHint^
+
+^Blur^Blur^Blur^
+
+^Bold^Bold^Bold^
+
+^BooleanFilterText^Logical Filters^BooleanFilterText^
+
+^BooleanIsExpected^A logical value is expected.^BooleanIsExpected^
+
+^ButtonShapes^Button Shapes^ButtonShapes^
+
+^By^by^By^
+
+^Calendar^Calendar^Calendar^
+
+^Cancel^Cancel^Cancel^
+
+^Cards^Cards^Cards^
+
+^Cay^Cay^Cay^
+
+^ChangeYourLanguage^Change your language^ChangeYourLanguage^
+
+^Charts^Charts^Charts^
+
+^Citrus^Citrus^Citrus^
+
+^Classic^Classic^Classic^
+
+^ClearFilter^Clear Filter from {0}^ClearFilter^
+
+^ClearFilter2^Clear Filter^ClearFilter2^
+
+^ClearText^Clear^ClearText^
+
+^ClearToolTip^Clear {0}^ClearToolTip^
+
+^Close^Close^Close^
+
+^Comfortable^Comfortable^Comfortable^
+
+^Compact^Compact^Compact^
+
+^Condensed^Condensed^Condensed^
+
+^ConfirmContinue^Continue?^ConfirmContinue^
+
+^ConfirmReload^Reload?^ConfirmReload^
+
+^ConnectionLost^The network connection has been lost. Try again?^ConnectionLost^
+
+^Construct^Construct^Construct^
+
+^Contains^Contains^Contains^
+
+^Convention^Convention^Convention^
+
+^Copy^Copy^Copy^
+
+^CountAggregate^Count: {0}^CountAggregate^
+
+^CountAggregateToolTip^Count of {0}^CountAggregateToolTip^
+
+^CountOf^Count of^CountOf^
+
+^CreateLink^Create Link^CreateLink^
+
+^CustomFilterOption^Filter...^CustomFilterOption^
+
+^Cut^Cut^Cut^
+
+^DarkKnight^Dark Knight^DarkKnight^
+
+^DarkTheme^Dark^DarkTheme^
+
+^DataSheetActionDescription^Display items using a data sheet<br/>format.^DataSheetActionDescription^
+
+^DataSheetActionHeaderText^Show in Data Sheet^DataSheetActionHeaderText^
+
+^DataWarning^The maximum number of items to process is {0:d}. Please apply a filter to reduce the number of items.^DataWarning^
+
+^Date^Date^Date^
+
+^DateFilterText^Date Filters^DateFilterText^
+
+^DateIsExpected^A date is expected.^DateIsExpected^
+
+^DatesAMinAgo^a minute ago^DatesAMinAgo^
+
+^DatesInAMin^in a minute^DatesInAMin^
+
+^DatesInHour^in an hour^DatesInHour^
+
+^DatesInMin^in {0} min^DatesInMin^
+
+^DatesLast^Last^DatesLast^
+
+^DatesMinAgo^{0} min ago^DatesMinAgo^
+
+^DatesNext^Next^DatesNext^
+
+^DatesNow^Now^DatesNow^
+
+^DatesOneHour^an hour ago^DatesOneHour^
+
+^DateSortAscending^Earliest on Top^DateSortAscending^
+
+^DateSortDescending^Latest on Top^DateSortDescending^
+
+^DatesSmart^Smart Dates^DatesSmart^
+
+^DatesToday^Today^DatesToday^
+
+^DatesTomorrow^Tomorrow^DatesTomorrow^
+
+^DatesYesterday^Yesterday^DatesYesterday^
+
+^Day^Day^Day^
+
+^DefaultCancelActionHeaderText^Close^DefaultCancelActionHeaderText^
+
+^DefaultCreateViewDescription^Please fill this form and press Save button to create a new {0} record. Press Cancel to return to the previous screen.^DefaultCreateViewDescription^
+
+^DefaultEditDescription^These are the fields of the {0} record that can be edited.^DefaultEditDescription^
+
+^DefaultEditViewDescription^Please review {0} information below. Press Edit to change this record, press Delete to delete the record, or press Cancel/Close to return back.^DefaultEditViewDescription^
+
+^DefaultGridViewDescription^This is a list of {0}.^DefaultGridViewDescription^
+
+^DefaultNewDescription^Complete the form. Make sure to enter all required fields.^DefaultNewDescription^
+
+^DefaultOption^Default^DefaultOption^
+
+^DefaultReferenceDescription^Additional details about {0} are provided in the reference information section.^DefaultReferenceDescription^
+
+^Delete^Delete^Delete^
+
+^DeleteActionConfirmation^Delete?^DeleteActionConfirmation^
+
+^DeleteActionHeaderText^Delete^DeleteActionHeaderText^
+
+^Deleted^{$selected} deleted^Deleted^
+
+^DeleteOriginalSel^delete original selection^DeleteOriginalSel^
+
+^DeleteSearchBarField^(delete)^DeleteSearchBarField^
+
+^DetailsToolTip^View details for {0}^DetailsToolTip^
+
+^DevelopExplorer^Project Explorer^DevelopExplorer^
+
+^DevelopFormLayout^Form Layout^DevelopFormLayout^
+
+^DevelopFormLayoutInstr^Select screen sizes to be included in the layout.^DevelopFormLayoutInstr^
+
+^DevelopTools^Developer Tools^DevelopTools^
+
+^Device^Device^Device^
+
+^DeviceLoginPrompt^Please log in to authorize access on this device.^DeviceLoginPrompt^
+
+^DidNotMatch^Did not match^DidNotMatch^
+
+^Directions^Directions^Directions^
+
+^DiscardChanges^Discard changes?^DiscardChanges^
+
+^DisplayDensity^Display Density^DisplayDensity^
+
+^DisplayedAbove^Displayed Above^DisplayedAbove^
+
+^DisplayedBelow^Displayed Below^DisplayedBelow^
+
+^DoesNotBeginWith^Does Not Begin With^DoesNotBeginWith^
+
+^DoesNotContain^Does Not Contain^DoesNotContain^
+
+^DoesNotEndWith^Does Not End With^DoesNotEndWith^
+
+^DoesNotEqual^Does Not Equal^DoesNotEqual^
+
+^DoesNotInclude^Does Not Include^DoesNotInclude^
+
+^DoNotMatchAll^Do not match all conditions^DoNotMatchAll^
+
+^DoNotMatchAllPastTense^Did not match all conditions^DoNotMatchAllPastTense^
+
+^DoNotMatchAny^Do not match any conditions^DoNotMatchAny^
+
+^DoNotMatchAnyPastTense^Did not match any conditions^DoNotMatchAnyPastTense^
+
+^Download^Download^Download^
+
+^Draw^Draw^Draw^
+
+^DuplicateActionHeaderText^Duplicate^DuplicateActionHeaderText^
+
+^DuplicateItem^Duplicate Item^DuplicateItem^
+
+^DuplicateRow^Duplicate Row^DuplicateRow^
+
+^EditActionHeaderText^Edit^EditActionHeaderText^
+
+^EditItem^Edit Item^EditItem^
+
+^EditModeCancelActionHeaderText^Cancel^EditModeCancelActionHeaderText^
+
+^EditRow^Edit Row^EditRow^
+
+^Empty^Empty^Empty^
+
+^EmptyContext^Actions are not available.^EmptyContext^
+
+^EmptyValue^(Empty)^EmptyValue^
+
+^Enable^Enable^Enable^
+
+^EndsWith^Ends With^EndsWith^
+
+^Equals^Equals^Equals^
+
+^Eraser^Eraser^Eraser^
+
+^Error^Error^Error^
+
+^Exit^Exit^Exit^
+
+^ExitFullscreen^Exit Fullscreen^ExitFullscreen^
+
+^ExportCsvActionDescription^Download items in CSV format.^ExportCsvActionDescription^
+
+^ExportCsvActionHeaderText^Download^ExportCsvActionHeaderText^
+
+^ExportRowsetActionDescription^Analyze items with spreadsheet<br/>application.^ExportRowsetActionDescription^
+
+^ExportRowsetActionHeaderText^Export to Spreadsheet^ExportRowsetActionHeaderText^
+
+^ExportRssActionDescription^Syndicate items with an RSS reader.^ExportRssActionDescription^
+
+^ExportRssActionHeaderText^View RSS Feed^ExportRssActionHeaderText^
+
+^Favorites^Favorites^Favorites^
+
+^Felt^Felt^Felt^
+
+^FileCleared^Value will be cleared on save^FileCleared^
+
+^FilesBytes^bytes^FilesBytes^
+
+^FilesClear^Clear^FilesClear^
+
+^FilesClearConfirm^Clear?^FilesClearConfirm^
+
+^FilesClick^Click to select a file^FilesClick^
+
+^FilesClickMany^Click to select files^FilesClickMany^
+
+^FilesDrop^Drop a file here^FilesDrop^
+
+^FilesDropMany^Drop files here^FilesDropMany^
+
+^FilesKB^KB^FilesKB^
+
+^FilesMB^MB^FilesMB^
+
+^FilesTap^Tap to select a file^FilesTap^
+
+^FilesTapMany^Tap to select files^FilesTapMany^
+
+^Filter^Filter^Filter^
+
+^FilterApplied^A filter has been applied.^FilterApplied^
+
+^FilterByField^Select a field to apply a filter to <b>{0}</b>.^FilterByField^
+
+^FilterByOptions^Select one or more options in the list below and press <b>{2}</b> to filter <b>{0}</b> by the field <b>{1}</b>.^FilterByOptions^
+
+^FilterCleared^Cleared all filters.^FilterCleared^
+
+^FilterLabelAnd^and^FilterLabelAnd^
+
+^FilterLabelClear^Clear^FilterLabelClear^
+
+^FilterLabelEquals^equals^FilterLabelEquals^
+
+^FilterLabelFilterToolTip^Change^FilterLabelFilterToolTip^
+
+^FilterLabelIncludes^includes^FilterLabelIncludes^
+
+^FilterLabelOr^or^FilterLabelOr^
+
+^FilterLabelSelectAll^(Select All)^FilterLabelSelectAll^
+
+^FilterSiteMap^Filter site map...^FilterSiteMap^
+
+^Finish^Finish^Finish^
+
+^FitToWidth^Fit To Width^FitToWidth^
+
+^FlatTreeToggle^Switch to Hierarchy^FlatTreeToggle^
+
+^FontName^Font Name^FontName^
+
+^FontSize^Font Size^FontSize^
+
+^ForeColor^Fore Color^ForeColor^
+
+^Forget^Forget^Forget^
+
+^ForgotYourPassword^Forgot your password?^ForgotYourPassword^
+
+^Format^Format^Format^
+
+^Freeze^Freeze^Freeze^
+
+^From^from^From^
+
+^Fullscreen^Fullscreen^Fullscreen^
+
+^Future^Future^Future^
+
+^GeneralTabText^General^GeneralTabText^
+
+^Generate^Generate^Generate^
+
+^GenericNewToolTip^Create New^GenericNewToolTip^
+
+^GenericSortAscending^Smallest on Top^GenericSortAscending^
+
+^GenericSortDescending^Largest on Top^GenericSortDescending^
+
+^Graham^Graham^Graham^
+
+^GrandTotals^Grand Totals^GrandTotals^
+
+^Granite^Granite^Granite^
+
+^Grapello^Grapello^Grapello^
+
+^Gravity^Gravity^Gravity^
+
+^GreaterThan^Greater Than^GreaterThan^
+
+^GreateThanOrEqual^Greater Than Or Equal^GreateThanOrEqual^
+
+^Grid^Grid^Grid^
+
+^GridActionDescription^Display items in the standard<br/>list format.^GridActionDescription^
+
+^GridActionHeaderText^Show in Standard View^GridActionHeaderText^
+
+^Group^Group^Group^
+
+^GroupByField^Select a field to group <b>{0}</b>.^GroupByField^
+
+^Grouped^Grouped^Grouped^
+
+^GroupedBy^Grouped by^GroupedBy^
+
+^Heading1^Heading 1^Heading1^
+
+^Heading2^Heading 2^Heading2^
+
+^Heading3^Heading 3^Heading3^
+
+^Heading4^Heading 4^Heading4^
+
+^Heading5^Heading 5^Heading5^
+
+^Heading6^Heading 6^Heading6^
+
+^Help^Help^Help^
+
+^HelpClose^Close^HelpClose^
+
+^HelpFullScreen^Full Screen^HelpFullScreen^
+
+^Hide^Hide^Hide^
+
+^HideAdvancedSearch^Hide Advanced Search^HideAdvancedSearch^
+
+^HierarchyTreeModeToggle^Switch to Flat List^HierarchyTreeModeToggle^
+
+^Highlighter^Highlighter^Highlighter^
+
+^History^History^History^
+
+^HistoryToolTip^View history of previously selected records^HistoryToolTip^
+
+^HistoryUnavailable^History is not available.^HistoryUnavailable^
+
+^Home^Home^Home^
+
+^IdleUser^Are you still there? Please login again.^IdleUser^
+
+^ImportActionDescription^Upload a CSV, XLS, or XLSX file<br/>to import records.^ImportActionDescription^
+
+^ImportActionHeaderText^Import From File^ImportActionHeaderText^
+
+^ImportAutoDetect^(auto detect)^ImportAutoDetect^
+
+^ImportComplete^complete^ImportComplete^
+
+^ImportDone^Completed importing^ImportDone^
+
+^ImportDownloadTemplate^Download import file template.^ImportDownloadTemplate^
+
+^ImportDuplicates^Duplicates^ImportDuplicates^
+
+^ImportEmail^Send the import log to the following email addresses (optional)^ImportEmail^
+
+^ImportEmailNotSpecified^Recipient of the import log has not been specified. Proceed anyway?^ImportEmailNotSpecified^
+
+^ImportExpected^Expected to complete^ImportExpected^
+
+^ImportFileStats^There are <b>{0}</b> records in the file <b>{1}</b> ready to be processed. Please match the field names.^ImportFileStats^
+
+^Importing^Importing^Importing^
+
+^ImportMappingInstruction^There are <b>{0}</b> record(s) in the file <b>{1}</b> ready to be processed.<br/>Please map the import fields from data file to the application fields and click <i>Import</i> to start processing.^ImportMappingInstruction^
+
+^ImportNotSupported^Data format of "{0}" is not supported.^ImportNotSupported^
+
+^ImportProcessing^Import file processing has been initiated. The imported data records will become available upon successful processing. You may need to refresh the relevant views/pages to see the imported records.^ImportProcessing^
+
+^ImportRemaining^Remaining^ImportRemaining^
+
+^ImportSelectFile^Select a data file in CSV, XLS, or XLSX format.^ImportSelectFile^
+
+^ImportStartButton^Import^ImportStartButton^
+
+^ImportUploading^Your file is being uploaded to the server. Please wait...^ImportUploading^
+
+^ImportUploadInstruction^Please select the file to upload. The file must be in <b>CSV</b>, <b>XLS</b>, or <b>XLSX</b> format.^ImportUploadInstruction^
+
+^In^in^In^
+
+^Includes^Includes^Includes^
+
+^Indent^Indent^Indent^
+
+^InfoBarAnd^and^InfoBarAnd^
+
+^InfoBarEmpty^empty^InfoBarEmpty^
+
+^InfoBarEqualTo^is equal to^InfoBarEqualTo^
+
+^InfoBarGreaterThan^is greater than^InfoBarGreaterThan^
+
+^InfoBarGreaterThanOrEqual^is greater than or equal to^InfoBarGreaterThanOrEqual^
+
+^InfoBarLessThan^is less than^InfoBarLessThan^
+
+^InfoBarLessThanOrEqual^is less than or equal to^InfoBarLessThanOrEqual^
+
+^InfoBarLike^is like^InfoBarLike^
+
+^InfoBarOr^or^InfoBarOr^
+
+^InfoBarQuickFind^Any field contains^InfoBarQuickFind^
+
+^InfoBarStartsWith^starts with^InfoBarStartsWith^
+
+^InitialListMode^Initial List Mode^InitialListMode^
+
+^InlineEditing^Inline Editing^InlineEditing^
+
+^InsertActionHeaderText^OK^InsertActionHeaderText^
+
+^InsertHorizontalRule^Insert Horizontal Rule^InsertHorizontalRule^
+
+^InsertingRecords^Inserting records^InsertingRecords^
+
+^InsertOrderedList^Insert Ordered List^InsertOrderedList^
+
+^InsertUnorderedList^Insert Unordered List^InsertUnorderedList^
+
+^Into^into^Into^
+
+^InvalidUserNameAndPassword^Your user name and password are not valid.^InvalidUserNameAndPassword^
+
+^Italic^Italic^Italic^
+
+^ItemsPerPage^Items per page: ^ItemsPerPage^
+
+^ItemsSelectedMany^{0} items selected^ItemsSelectedMany^
+
+^ItemsSelectedOne^{0} item selected^ItemsSelectedOne^
+
+^JustDatesNow^Just now^JustDatesNow^
+
+^JustifyCenter^Justify Center^JustifyCenter^
+
+^JustifyFull^Justify Full^JustifyFull^
+
+^JustifyLeft^Justify Left^JustifyLeft^
+
+^JustifyRight^Justify Right^JustifyRight^
+
+^KeepOriginalSel^keep original selection^KeepOriginalSel^
+
+^LabelsInList^Labels In List^LabelsInList^
+
+^Lacquer^Lacquer^Lacquer^
+
+^Laminate^Laminate^Laminate^
+
+^Landscape^Landscape^Landscape^
+
+^Large^Large^Large^
+
+^LastMonth^Last Month^LastMonth^
+
+^LastQuarter^Last Quarter^LastQuarter^
+
+^LastWeek^Last Week^LastWeek^
+
+^LastYear^Last Year^LastYear^
+
+^Less^Less^Less^
+
+^LessThan^Less Than^LessThan^
+
+^LessThanOrEqual^Less Than Or Equal^LessThanOrEqual^
+
+^Lichen^Lichen^Lichen^
+
+^LightTheme^Light^LightTheme^
+
+^Line^Line^Line^
+
+^ListViewStyle^List^ListViewStyle^
+
+^Loading^Loading...^Loading^
+
+^Logical^Logical^Logical^
+
+^LoginButton^Login^LoginButton^
+
+^LoginLink^Login^LoginLink^
+
+^Logout^Logout^Logout^
+
+^LookupInstruction^Please select <b>{0}</b> in the list. ^LookupInstruction^
+
+^LookupOriginalSelection^The original selection is <b>"{0}"</b>. ^LookupOriginalSelection^
+
+^ManageAccounts^Manage Accounts^ManageAccounts^
+
+^Map^Map^Map^
+
+^MatchAll^Match all conditions^MatchAll^
+
+^MatchAllPastTense^Matched all conditions^MatchAllPastTense^
+
+^MatchAny^Match any conditions^MatchAny^
+
+^MatchAnyPastTense^Matched any conditions^MatchAnyPastTense^
+
+^Matched^Matched^Matched^
+
+^MaxAggregate^Max: {0}^MaxAggregate^
+
+^MaxAggregateToolTip^Maximum of {0}^MaxAggregateToolTip^
+
+^Maximize^Expand^Maximize^
+
+^MaximumOf^Maximum of^MaximumOf^
+
+^Medium^Medium^Medium^
+
+^Menu^Menu^Menu^
+
+^MinAggregate^Min: {0}^MinAggregate^
+
+^MinAggregateToolTip^Minimum of {0}^MinAggregateToolTip^
+
+^Minimize^Collapse^Minimize^
+
+^MinimumOf^Minimum of^MinimumOf^
+
+^Mission^Mission^Mission^
+
+^Modern^Modern^Modern^
+
+^ModernRose^Modern Rose^ModernRose^
+
+^Month^Month^Month^
+
+^More^More^More^
+
+^MultiSelection^Multi Selection^MultiSelection^
+
+^Municipal^Municipal^Municipal^
+
+^MyAccount^My Account^MyAccount^
+
+^Never^Never^Never^
+
+^NewActionHeaderText^New^NewActionHeaderText^
+
+^NewItem^New Item^NewItem^
+
+^NewRow^New Row^NewRow^
+
+^NewRowLink^Click here to create a new record.^NewRowLink^
+
+^NewToolTip^New {0}^NewToolTip^
+
+^Next^Next^Next^
+
+^Next2^Next^Next2^
+
+^NextMonth^Next Month^NextMonth^
+
+^NextQuarter^Next Quarter^NextQuarter^
+
+^NextWeek^Next Week^NextWeek^
+
+^NextYear^Next Year^NextYear^
+
+^No^No^No^
+
+^NoMatches^No matches.^NoMatches^
+
+^None^None^None^
+
+^Noon^Noon^Noon^
+
+^NoRecords^No records found.^NoRecords^
+
+^NoteDeleteConfirm^Delete?^NoteDeleteConfirm^
+
+^NoteDeleteLabel^delete^NoteDeleteLabel^
+
+^NoteEditLabel^edit^NoteEditLabel^
+
+^NotEmpty^Not Empty^NotEmpty^
+
+^NotMatched^(not matched)^NotMatched^
+
+^NullValue^n/a^NullValue^
+
+^NullValueInForms^N/A^NullValueInForms^
+
+^Number^Number^Number^
+
+^NumberFilterText^Number Filters^NumberFilterText^
+
+^NumberIsExpected^A number is expected.^NumberIsExpected^
+
+^OdpCommitting^Uploading transactions...^OdpCommitting^
+
+^OdpDone^Done.^OdpDone^
+
+^OdpDownloadingBlob^Downloading binary data for {0}...^OdpDownloadingBlob^
+
+^OdpDownloadingData^Downloading data for {0}...^OdpDownloadingData^
+
+^OdpInitializing^Initializing...^OdpInitializing^
+
+^OdpInvalidResponse^Invalid response from the server.^OdpInvalidResponse^
+
+^OdpLastRefresh^Last refresh: {0}.^OdpLastRefresh^
+
+^OdpNotRefreshed^Data has not been refreshed.^OdpNotRefreshed^
+
+^OdpOfflineState^You are working in offline mode.^OdpOfflineState^
+
+^OdpOnlineRequired^Online connection is required.^OdpOnlineRequired^
+
+^OdpPending^Pending Changes^OdpPending^
+
+^OdpReconRequired^Reconciliation is required^OdpReconRequired^
+
+^OdpReconTxDelete^Delete this change from the log?^OdpReconTxDelete^
+
+^OdpReconTxDeleted^Deleted first pending transaction in the log.^OdpReconTxDeleted^
+
+^OdpRefresh^Refresh Data^OdpRefresh^
+
+^OdpRefreshData^Refresh Data^OdpRefreshData^
+
+^OdpRefreshLast^Data Refreshed^OdpRefreshLast^
+
+^OdpSave^Please save all changes.^OdpSave^
+
+^OdpSaveAndSync^Save all changes and choose the Synchronize option in the context menu.^OdpSaveAndSync^
+
+^OdpServerUnavailable^Application server is not available.^OdpServerUnavailable^
+
+^OdpStatus^Status^OdpStatus^
+
+^OdpSync^Synchronize^OdpSync^
+
+^OdpSynced^Synchronized^OdpSynced^
+
+^OdpSyncLast^Last Sync^OdpSyncLast^
+
+^OdpSyncLong^Synchronize to upload changes.^OdpSyncLong^
+
+^OdpSyncUploadFailed^Failed to upload {0} files.^OdpSyncUploadFailed^
+
+^OdpSyncUploadingFiles^Uploading {0} ...^OdpSyncUploadingFiles^
+
+^OdpUnableToDelete^Unable to delete. {1} dependent items in {0}.^OdpUnableToDelete^
+
+^OdpUnableToExec^Unable to execute.^OdpUnableToExec^
+
+^OdpUnableToProcess^Unable to process transactions.^OdpUnableToProcess^
+
+^OdpUnableToSave^Unable to save changes.^OdpUnableToSave^
+
+^OdpUploadFailed^Failed to upload files.^OdpUploadFailed^
+
+^OdpUploadingFiles^Uploading {0} files...^OdpUploadingFiles^
+
+^OK^OK^OK^
+
+^OnHover^On Hover^OnHover^
+
+^OnOrAfter^On or After^OnOrAfter^
+
+^OnOrBefore^On or Before^OnOrBefore^
+
+^OpenActionHeaderText^Open^OpenActionHeaderText^
+
+^Optional^Optional^Optional^
+
+^Orientation^Orientation^Orientation^
+
+^Other^Other^Other^
+
+^Outdent^Outdent^Outdent^
+
+^Page^Page^Page^
+
+^Paragraph^Paragraph^Paragraph^
+
+^Password^Password^Password^
+
+^Past^Past^Past^
+
+^Paste^Paste^Paste^
+
+^Pen^Pen^Pen^
+
+^PerformAdvancedSearch^Search^PerformAdvancedSearch^
+
+^Permalink^Permalink^Permalink^
+
+^PermalinkToolTip^Create a permanent link for selected record^PermalinkToolTip^
+
+^PermalinkUnavailable^Permalink is not available. Please select a record.^PermalinkUnavailable^
+
+^Petal^Petal^Petal^
+
+^Pinnate^Pinnate^Pinnate^
+
+^Plastic^Plastic^Plastic^
+
+^Portrait^Portrait^Portrait^
+
+^PresentationStyle^Select a data presentation style.^PresentationStyle^
+
+^Prev2^Prev^Prev2^
+
+^Previous^Previous^Previous^
+
+^PromoteActions^Promote Actions^PromoteActions^
+
+^Quarter^Quarter^Quarter^
+
+^Quarter1^Quarter 1^Quarter1^
+
+^Quarter2^Quarter 2^Quarter2^
+
+^Quarter3^Quarter 3^Quarter3^
+
+^Quarter4^Quarter 4^Quarter4^
+
+^QuickFindDescription^Search in {0}^QuickFindDescription^
+
+^QuickFindScope^Search in...^QuickFindScope^
+
+^QuickFindText^Quick Find^QuickFindText^
+
+^QuickFindToolTip^Type to search the records and press Enter^QuickFindToolTip^
+
+^Quotation^Quotation^Quotation^
+
+^Reading^Reading...^Reading^
+
+^ReadingPane^Reading Pane^ReadingPane^
+
+^ReadOnly^{0} is read-only.^ReadOnly^
+
+^Recent^Recent^Recent^
+
+^Redo^Redo^Redo^
+
+^Refresh^Refresh^Refresh^
+
+^Refreshed^Refreshed^Refreshed^
+
+^RememberMe^Remember me next time^RememberMe^
+
+^RemoveCondition^Remove Condition^RemoveCondition^
+
+^RemoveFormat^Remove Format^RemoveFormat^
+
+^ReportActionDescription^Render a report in PDF format^ReportActionDescription^
+
+^ReportActionHeaderText^Report^ReportActionHeaderText^
+
+^ReportAsExcelActionDescription^View items in a formatted<br/>Microsoft Excel spreadsheet.^ReportAsExcelActionDescription^
+
+^ReportAsExcelActionHeaderText^Spreadsheet^ReportAsExcelActionHeaderText^
+
+^ReportAsImageActionDescription^View items as a multipage TIFF image.^ReportAsImageActionDescription^
+
+^ReportAsImageActionHeaderText^Multipage Image^ReportAsImageActionHeaderText^
+
+^ReportAsPdfActionDescription^View items as Adobe PDF document.<br/>Requires a compatible reader.^ReportAsPdfActionDescription^
+
+^ReportAsPdfActionHeaderText^PDF Document^ReportAsPdfActionHeaderText^
+
+^ReportAsWordActionDescription^View items in a formatted<br/>Microsoft Word document.^ReportAsWordActionDescription^
+
+^ReportAsWordActionHeaderText^Microsoft Word^ReportAsWordActionHeaderText^
+
+^Required^Required^Required^
+
+^RequiredField^This field is required.^RequiredField^
+
+^RequiredFiledMarkerFootNote^indicates a required field^RequiredFiledMarkerFootNote^
+
+^ResetAdvancedSearch^Reset^ResetAdvancedSearch^
+
+^ResetSearchConfirm^Reset search conditions?^ResetSearchConfirm^
+
+^ResolvingReferences^Resolving references^ResolvingReferences^
+
+^ResumeBrowsing^Resume Browsing^ResumeBrowsing^
+
+^ResumeEditing^Resume Editing^ResumeEditing^
+
+^ResumeEntering^Resume Entering^ResumeEntering^
+
+^ResumeLookup^Resume Lookup^ResumeLookup^
+
+^ResumeViewing^Resume Viewing^ResumeViewing^
+
+^Ricasso^Ricasso^Ricasso^
+
+^RolesTab^Roles^RolesTab^
+
+^RootNodeText^Top Level^RootNodeText^
+
+^Rotate^Rotate^Rotate^
+
+^RowCancelActionHeaderText^Cancel^RowCancelActionHeaderText^
+
+^RowInsertActionHeaderText^Insert^RowInsertActionHeaderText^
+
+^RowUpdateActionHeaderText^Save^RowUpdateActionHeaderText^
+
+^RowUpdateWhenBatchEditActionConfirmation^Update?^RowUpdateWhenBatchEditActionConfirmation^
+
+^RowUpdateWhenBatchEditActionHeaderText^Update Selection^RowUpdateWhenBatchEditActionHeaderText^
+
+^Save^Save^Save^
+
+^SaveAndContinue^Save and Continue^SaveAndContinue^
+
+^SaveAndNew^Save and New^SaveAndNew^
+
+^Saved^Saved - {0}^Saved^
+
+^ScanToConfirm^Please scan again to confirm.^ScanToConfirm^
+
+^SeeAll^See All^SeeAll^
+
+^SeeAlso^See Also^SeeAlso^
+
+^SelectActionHeaderText^Select^SelectActionHeaderText^
+
+^SelectAll^Select All^SelectAll^
+
+^SelectItem^Select Item^SelectItem^
+
+^SelectLink^(select)^SelectLink^
+
+^SelectRow^Select Row^SelectRow^
+
+^SelectToolTip^Select {0}^SelectToolTip^
+
+^Separator^Separator^Separator^
+
+^Settings^Settings^Settings^
+
+^Show^Show^Show^
+
+^ShowAdvancedSearch^Show Advanced Search^ShowAdvancedSearch^
+
+^ShowChart^Show Chart^ShowChart^
+
+^ShowData^Show Data^ShowData^
+
+^ShowingItems^Showing <b>{0}</b>-<b>{1}</b> of <b>{2}</b> items^ShowingItems^
+
+^ShowingItemsInfo^Showing {0} items.^ShowingItemsInfo^
+
+^ShowingItemsRange^Showing {0} of {1} items^ShowingItemsRange^
+
+^ShowLess^Show Less^ShowLess^
+
+^ShowMore^Show More^ShowMore^
+
+^ShowOptions^Show Options^ShowOptions^
+
+^ShowSystemButtons^Show System Buttons^ShowSystemButtons^
+
+^Sidebar^Sidebar^Sidebar^
+
+^Sign^Sign here^Sign^
+
+^SignedOut^Signed Out^SignedOut^
+
+^SignUpNow^Sign up now^SignUpNow^
+
+^Simple^Simple^Simple^
+
+^SiteActions^Site Actions^SiteActions^
+
+^SizeLabel^Size^SizeLabel^
+
+^Small^Small^Small^
+
+^Social^Social^Social^
+
+^Sort^Sort^Sort^
+
+^SortBy^Sort by {0}^SortBy^
+
+^SortByField^Select a field to change the sort order of <b>{0}</b>.^SortByField^
+
+^SortByOptions^Select the sort order of <b>{0}</b> by the field <b>{1}</b> in the list of options below.^SortByOptions^
+
+^Sorted^Sorted^Sorted^
+
+^SortedDefault^Default sort order.^SortedDefault^
+
+^StartImport^Start Import^StartImport^
+
+^StrikeThrough^Strike Through^StrikeThrough^
+
+^StringSortAscending^Ascending^StringSortAscending^
+
+^StringSortDescending^Descending^StringSortDescending^
+
+^Submit^Submit^Submit^
+
+^Subscript^Sub Script^Subscript^
+
+^Suggestions^Suggestions^Suggestions^
+
+^SumAggregate^Total: {0}^SumAggregate^
+
+^SumAggregateToolTip^Total of {0}^SumAggregateToolTip^
+
+^Summary^Summary^Summary^
+
+^Summer^Summer^Summer^
+
+^SumOf^Total of^SumOf^
+
+^Superscript^Super Script^Superscript^
+
+^Sync^Sync^Sync^
+
+^Tasks^Tasks^Tasks^
+
+^TelHints1^ ^TelHints1^
+
+^TelHints2^abc^TelHints2^
+
+^TelHints3^def^TelHints3^
+
+^TelHints4^ghi^TelHints4^
+
+^TelHints5^jkl^TelHints5^
+
+^TelHints6^mno^TelHints6^
+
+^TelHints7^pqrs^TelHints7^
+
+^TelHints8^tuv^TelHints8^
+
+^TelHints9^wxyz^TelHints9^
+
+^TestingRecords^Testing records^TestingRecords^
+
+^Text^Text^Text^
+
+^TextFilterText^Text Filters^TextFilterText^
+
+^Theme^Theme^Theme^
+
+^ThisMonth^This Month^ThisMonth^
+
+^ThisQuarter^This Quarter^ThisQuarter^
+
+^ThisWeek^This Week^ThisWeek^
+
+^ThisYear^This Year^ThisYear^
+
+^Tiny^Tiny^Tiny^
+
+^Today^Today^Today^
+
+^Tomorrow^Tomorrow^Tomorrow^
+
+^Top^top^Top^
+
+^ToThisWebsite^to this website^ToThisWebsite^
+
+^TouchUINotSupported^Touch UI is not supported in this browser.^TouchUINotSupported^
+
+^TransitionFade^Fade^TransitionFade^
+
+^TransitionFlip^Flip^TransitionFlip^
+
+^TransitionFlow^Flow^TransitionFlow^
+
+^TransitionNone^None^TransitionNone^
+
+^TransitionPop^Pop^TransitionPop^
+
+^Transitions^Transitions^Transitions^
+
+^TransitionSlide^Slide^TransitionSlide^
+
+^TransitionSlideDown^Slide Down^TransitionSlideDown^
+
+^TransitionSlideUp^Slide Up^TransitionSlideUp^
+
+^TransitionTurn^Turn^TransitionTurn^
+
+^TreeActionDescription^Display hierarchical relationships.^TreeActionDescription^
+
+^TreeActionHeaderText^Show Hierarchy^TreeActionHeaderText^
+
+^TwoFaActionsGetVerificationCode^Get Verification Code^TwoFaActionsGetVerificationCode^
+
+^TwoFaAuthenticatorApp^Authenticator App^TwoFaAuthenticatorApp^
+
+^TwoFaBackupCodeFooter^If you are unable to provide the verification code, then enter the backup code instead.^TwoFaBackupCodeFooter^
+
+^TwoFaBackupCodePlaceholder^one-time code^TwoFaBackupCodePlaceholder^
+
+^TwoFaBackupCodeText^Backup Code^TwoFaBackupCodeText^
+
+^TwoFaCodeSentCall^Call was placed to^TwoFaCodeSentCall^
+
+^TwoFaCodeSentEmail^Email was sent to^TwoFaCodeSentEmail^
+
+^TwoFaCodeSentSms^Text message was sent to^TwoFaCodeSentSms^
+
+^TwoFaConsent^Consent^TwoFaConsent^
+
+^TwoFaEnterPassword^Enter your password^TwoFaEnterPassword^
+
+^TwoFaGetCodeCall^Call me at^TwoFaGetCodeCall^
+
+^TwoFaGetCodeDial^I will call^TwoFaGetCodeDial^
+
+^TwoFaGetCodeEmail^Email me to^TwoFaGetCodeEmail^
+
+^TwoFaGetCodeSms^Text me at^TwoFaGetCodeSms^
+
+^TwoFaMethod^Method^TwoFaMethod^
+
+^TwoFaMsgChanged^2-Factor Authentication has been changed.^TwoFaMsgChanged^
+
+^TwoFaMsgDisabled^2-Factor Authentication has been disabled.^TwoFaMsgDisabled^
+
+^TwoFaMsgDisableQuestion^Disable two-factor authenticaton?^TwoFaMsgDisableQuestion^
+
+^TwoFaMsgEnabled^2-Factor Authentication has been enabled.^TwoFaMsgEnabled^
+
+^TwoFaMsgEnterCode^Please enter the {0}-digit verification code.^TwoFaMsgEnterCode^
+
+^TwoFaMsgInvalidPassword^Invalid password.^TwoFaMsgInvalidPassword^
+
+^TwoFaMsgInvalidVerificationCode^Invalid verification code.^TwoFaMsgInvalidVerificationCode^
+
+^TwoFaMsgYourCode^000000 is your {0} verification code.^TwoFaMsgYourCode^
+
+^TwoFaSetupAppConfigEnterSetupKey^I can\u0027t scan the QR code.^TwoFaSetupAppConfigEnterSetupKey^
+
+^TwoFaSetupAppConfigInstallApp^I need help installing authenticator app.^TwoFaSetupAppConfigInstallApp^
+
+^TwoFaSetupAppConfigScanQrCode^I have an authenticator app on a mobile device.^TwoFaSetupAppConfigScanQrCode^
+
+^TwoFaSetupBackupCodesFooter^The one-time use backup codes will let you to sign in if you are unable to provide a verification code.^TwoFaSetupBackupCodesFooter^
+
+^TwoFaSetupBackupCodesText^Backup Codes^TwoFaSetupBackupCodesText^
+
+^TwoFaSetupConsent^I will enter a verification code after the successful sign in.^TwoFaSetupConsent^
+
+^TwoFaSetupEnterSetupKey^Enter the setup key in the app^TwoFaSetupEnterSetupKey^
+
+^TwoFaSetupMethods^Verification Methods^TwoFaSetupMethods^
+
+^TwoFaSetupScanAppQrCode^Scan the QR code with the camera^TwoFaSetupScanAppQrCode^
+
+^TwoFaSetupScanQrCode^Scan the QR code in the app^TwoFaSetupScanQrCode^
+
+^TwoFaText^2-Factor Authentication^TwoFaText^
+
+^TwoFaTrustThisDevice^Trust this device^TwoFaTrustThisDevice^
+
+^TwoFaVerificationCode^Verification Code^TwoFaVerificationCode^
+
+^TwoFaVerifyViaApp^I will use an authenticator app to get the verification code.^TwoFaVerifyViaApp^
+
+^TwoFaVerifyViaCall^I will receive an automated call on my phone.^TwoFaVerifyViaCall^
+
+^TwoFaVerifyViaEmail^The verification code will be delivered via email.^TwoFaVerifyViaEmail^
+
+^TwoFaVerifyViaSms^The verification code will be delivered via text message.^TwoFaVerifyViaSms^
+
+^TypeToSearch^Type to Search^TypeToSearch^
+
+^Underline^Underline^Underline^
+
+^Undo^Undo^Undo^
+
+^Unfreeze^Unfreeze^Unfreeze^
+
+^UnGrouped^Grouping has been removed^UnGrouped^
+
+^UnLink^Unlink^UnLink^
+
+^UnSelect^Unselect^UnSelect^
+
+^UpdateActionHeaderText^OK^UpdateActionHeaderText^
+
+^UpdateActionInBatchModeConfirmation^Update?^UpdateActionInBatchModeConfirmation^
+
+^UpdateActionInBatchModeHeaderText^Update Selection^UpdateActionInBatchModeHeaderText^
+
+^Upload^Upload^Upload^
+
+^UploadDescription^Upload multiple files.^UploadDescription^
+
+^Uploading^Uploading {0}...^Uploading^
+
+^UpOneLevel^Up One Level^UpOneLevel^
+
+^UseLEV^Paste "{0}"^UseLEV^
+
+^UserName^User Name^UserName^
+
+^UsersInRole^Users in Role^UsersInRole^
+
+^UsersTab^Users^UsersTab^
+
+^Vantage^Vantage^Vantage^
+
+^Verdant^Verdant^Verdant^
+
+^Verify^Verify^Verify^
+
+^View^View^View^
+
+^Viewpoint^Viewpoint^Viewpoint^
+
+^Wait^Please wait...^Wait^
+
+^Week^Week^Week^
+
+^Welcome1^Welcome^Welcome1^
+
+^Welcome2^Today is^Welcome2^
+
+^WhiteSmoke^White Smoke^WhiteSmoke^
+
+^WithSelectedValues10^With Selected Values (Top 10)^WithSelectedValues10^
+
+^WithSelectedValues5^With Selected Values (Top 5)^WithSelectedValues5^
+
+^WithSpecifiedFilters^With Specified Filters^WithSpecifiedFilters^
+
+^Year^Year^Year^
+
+^YearToDate^Year to Date^YearToDate^
+
+^Yes^Yes^Yes^
+
+^Yesterday^Yesterday^Yesterday^
+
+^Yoshi^Yoshi^Yoshi^
+
+^ZoomIn^Zoom in^ZoomIn^
+
+^ZoomOut^Zoom out^ZoomOut^
+

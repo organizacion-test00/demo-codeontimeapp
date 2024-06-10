@@ -1,0 +1,83 @@
+﻿{
+  "name": "Social",
+  "color": "#3b5999",
+  "header": {
+    "background": "#3b5999",
+    "border": "#3b5999",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#eee",
+      "hover": "rgba(255,255,255,.7)",
+      "backgroundOpacity": "0.1"
+    },
+    "text": {
+      "default": "#f5f5f5",
+      "hover": "#fff",
+      "logo": "#fff",
+      "hoverBackground": "rgba(0,0,0,0.1)",
+      "selectedBackground": "rgba(0,0,0,0.2)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#3b5999",
+      "hover": "#223358"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#3b5999"
+    },
+    "menu": {
+      "background": "#3b5999",
+      "border": "#3b5999",
+      "icon": {
+        "default": "#fff",
+        "hover": "#eee",
+        "active": "#f5f5f5"
+      },
+      "text": {
+        "default": "#fff"
+      }
+    }
+  },
+  "readingPane": {
+    "master": {
+      "toolbar": {
+        "menuButton": {
+          "border": "#3b5999"
+        }
+      }
+    }
+  },
+  "system": {
+    "busyIndicator": "#fff"
+  },
+  "theme": {
+    "Dark": {
+      "panel": {
+        "icon": {
+          "hover": "#3b5999"
+        }
+      },
+      "filter": {
+        "text": "#476BB9"
+      },
+      "readingPane": {
+        "master": {
+          "toolbar": {
+            "menuButton": {
+              "border": "#333"
+            }
+          }
+        }
+      }
+    }
+  }
+}

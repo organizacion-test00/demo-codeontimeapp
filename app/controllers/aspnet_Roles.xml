@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="aspnet_Roles" conflictDetection="overwriteChanges" label="Roles" handler="MyCompany.Security.MembershipBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"aspnet_Roles"."ApplicationId" "ApplicationId"
+	,"Application"."ApplicationName" "ApplicationApplicationName"
+	,"aspnet_Roles"."RoleId" "RoleId"
+	,"aspnet_Roles"."RoleName" "RoleName"
+	,"aspnet_Roles"."LoweredRoleName" "LoweredRoleName"
+	,"aspnet_Roles"."Description" "Description"
+from "dbo"."aspnet_Roles" "aspnet_Roles"
+	left join "dbo"."aspnet_Applications" "Application" on "aspnet_Roles"."ApplicationId" = "Application"."ApplicationId"
+order by
+	"aspnet_Roles"."RoleName"
+]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="ApplicationId" type="Guid" allowNulls="false" label="Application#" />
+    <field name="ApplicationApplicationName" type="String" readOnly="true" label="Application Name" />
+    <field name="RoleId" type="Guid" allowNulls="false" isPrimaryKey="true" default="(newid())" label="Role#" />
+    <field name="RoleName" type="String" allowNulls="false" label="^RoleNameLabel^Role Name^RoleNameLabel^" />
+    <field name="LoweredRoleName" type="String" allowNulls="false" label="Lowered Role Name" />
+    <field name="Description" type="String" label="^DescriptionLabel^Description^DescriptionLabel^" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Roles">
+      <headerText>^GridViewHeaderText^This is a list of membership roles.^GridViewHeaderText^</headerText>
+      <dataFields>
+        <dataField fieldName="RoleName" />
+        <dataField fieldName="Description" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Role" tags="material-icon-group">
+      <headerText>^EditViewHeaderText^Please review membership roles information below. Click Edit to change this record, click Delete to delete the record, or click Cancel/Close to return back.^EditViewHeaderText^</headerText>
+      <categories>
+        <category headerText="Review Role">
+          <description><![CDATA[^EditViewCategory^These are the fields of the membership role record that can be edited.^EditViewCategory^]]></description>
+          <dataFields>
+            <dataField fieldName="ApplicationId" aliasFieldName="ApplicationApplicationName" hidden="true" />
+            <dataField fieldName="RoleName" />
+            <dataField fieldName="Description" />
+            <dataField fieldName="LoweredRoleName" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New Role" tags="material-icon-group-add">
+      <headerText>^CreateFormHeaderText^Please fill this form and click OK button to create a new membership roles record. Click Cancel to return to the previous screen.^CreateFormHeaderText^</headerText>
+      <categories>
+        <category headerText="New Roles">
+          <description><![CDATA[^CreateFormCategory^Complete the form. Make sure to enter all required fields.^CreateFormCategory^]]></description>
+          <dataFields>
+            <dataField fieldName="ApplicationId" aliasFieldName="ApplicationApplicationName" hidden="true" />
+            <dataField fieldName="RoleName" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup scope="Grid">
+      <action commandName="Select" commandArgument="editForm1" />
+      <action commandName="Edit" headerText="Edit" />
+      <action commandName="Delete" />
+    </actionGroup>
+    <actionGroup scope="Form">
+      <action commandName="Edit" />
+      <action commandName="Delete" />
+      <action commandName="Cancel" headerText="Close" />
+      <action whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action whenLastCommandName="Edit" commandName="Delete" />
+      <action whenLastCommandName="Edit" commandName="Cancel" />
+      <action whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action whenLastCommandName="New" commandName="Cancel" />
+      <action whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup scope="ActionBar" headerText="^ActionBarNewGroupHeaderText^New^ActionBarNewGroupHeaderText^" flat="true">
+      <action commandName="New" commandArgument="createForm1" headerText="^ActionBarNewActionHeaderText^New Role^ActionBarNewActionHeaderText^" description="^ActionBarNewActionDescription^Create a new membership Role record.^ActionBarNewActionDescription^" />
+    </actionGroup>
+    <!--<actionGroup scope="ActionBar" headerText="Edit" flat="true">
+      <action commandName="Edit" commandArgument="grid1" whenKeySelected="true"/>
+    </actionGroup>-->
+    <actionGroup scope="ActionBar" headerText="Actions">
+      <action commandName="ExportCsv" />
+      <action />
+      <action commandName="ExportRowset" />
+      <action commandName="ExportRss" />
+    </actionGroup>
+    <actionGroup scope="ActionBar" headerText="Record">
+      <action whenLastCommandName="Edit" commandName="Update" />
+      <action whenLastCommandName="Edit" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup scope="Row">
+      <action whenLastCommandName="Edit" commandName="Update" />
+      <action whenLastCommandName="Edit" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+</dataController>

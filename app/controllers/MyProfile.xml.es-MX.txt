@@ -1,0 +1,105 @@
+﻿*******************************************************************************
+Your application uses this file to locate resource strings defined
+in MyProfile.xml project item. 
+
+Replace the text between localization brackets as needed.
+*******************************************************************************
+
+^Account^Account^Account^
+
+^BackToRequestPasswordActionHeaderText^Espalda^BackToRequestPasswordActionHeaderText^
+
+^ConfirmIdentityActionHeaderText^Terminar^ConfirmIdentityActionHeaderText^
+
+^ConfirmNewPassword^Confirmar nueva contraseña^ConfirmNewPassword^
+
+^ConfirmPassword^Confirmar contraseña^ConfirmPassword^
+
+^Email^Email^Email^
+
+^ForgotYourPassword^¿Olvidaste tu contraseña?^ForgotYourPassword^
+
+^IdentityConfirmationViewIdentityConfirmCategoryDescription^Responda la siguiente pregunta para recibir su contraseña. <br/>____^IdentityConfirmationViewIdentityConfirmCategoryDescription^
+
+^IdentityConfirmationViewIdentityConfirmCategoryHeaderText^Confirmación de Identidad^IdentityConfirmationViewIdentityConfirmCategoryHeaderText^
+
+^IdentityConfirmViewHeaderText^Rellene este formulario y haga clic en el botón Enviar para recuperar la contraseña olvidada. Haga clic en Cancelar para volver a la pantalla anterior.^IdentityConfirmViewHeaderText^
+
+^IdentityConfirmViewLabel^Recuperación de la contraseña: Paso 2 de 2^IdentityConfirmViewLabel^
+
+^LoginButton^Iniciar sesión^LoginButton^
+
+^LoginLink^Iniciar sesión^LoginLink^
+
+^LoginWithDNN^Iniciar sesión con DotNetNuke^LoginWithDNN^
+
+^LoginWithFacebook^Iniciar sesión con Facebook^LoginWithFacebook^
+
+^LoginWithGoogle^Iniciar sesión con Google^LoginWithGoogle^
+
+^LoginWithMicrosoft^Iniciar sesión con Microsoft^LoginWithMicrosoft^
+
+^LoginWithSharePoint^Iniciar sesión con SharePoint^LoginWithSharePoint^
+
+^LoginWithWindowsLive^Iniciar sesión con Windows Live^LoginWithWindowsLive^
+
+^MaskedPasswordAnswer^Respuesta de contraseña (no se muestra para su protección)^MaskedPasswordAnswer^
+
+^MyAccountViewCurrentPasswordCategoryDescription^Ingrese su contraseña actual para crear una nueva contraseña, actualizar su dirección de correo electrónico o cambiar la pregunta y respuesta de recuperación de contraseña.^MyAccountViewCurrentPasswordCategoryDescription^
+
+^MyAccountViewCurrentPasswordCategoryHeaderText^1. Contraseña actual^MyAccountViewCurrentPasswordCategoryHeaderText^
+
+^MyAccountViewHeaderText^Por favor revise su información de membresía a continuación. Haga clic en Actualizar mi cuenta para cambiar este registro o haga clic en Cancelar para volver.^MyAccountViewHeaderText^
+
+^MyAccountViewLabel^Mi cuenta^MyAccountViewLabel^
+
+^MyAccountViewNewPasswordCategoryDescription^Introduzca una nueva contraseña. Tenga en cuenta que la contraseña debe tener al menos 7 caracteres e incluir un carácter no alfanumérico.^MyAccountViewNewPasswordCategoryDescription^
+
+^MyAccountViewNewPasswordCategoryHeaderText^2. Nueva contraseña (opcional)^MyAccountViewNewPasswordCategoryHeaderText^
+
+^MyAccountViewPasswordRecoveryCategoryDescription^Durante la recuperación de una contraseña olvidada, se le pedirá que introduzca su nombre de usuario. Si existe una cuenta de usuario, se debe responder a una pregunta de contraseña. Una respuesta correcta activará un correo electrónico con una contraseña temporal para enviarle.^MyAccountViewPasswordRecoveryCategoryDescription^
+
+^MyAccountViewPasswordRecoveryCategoryHeaderText^3. Correo electrónico &amp; Recuperación de contraseña (Opcional)^MyAccountViewPasswordRecoveryCategoryHeaderText^
+
+^NewPassword^nueva contraseña^NewPassword^
+
+^OldPassword^Contraseña anterior^OldPassword^
+
+^Password^Contraseña^Password^
+
+^PasswordAnswer^Respuesta de contraseña^PasswordAnswer^
+
+^PasswordQuestion^Pregunta de la contraseña^PasswordQuestion^
+
+^PasswordRequestViewForgotPasswordCategoryDescription^Por favor, ingrese un nombre de usuario. <br/>____^PasswordRequestViewForgotPasswordCategoryDescription^
+
+^PasswordRequestViewForgotPasswordCategoryHeaderText^¿Olvidaste tu contraseña?^PasswordRequestViewForgotPasswordCategoryHeaderText^
+
+^PasswordRequestViewHeaderText^Rellene este formulario y haga clic en el botón Continuar para recuperar la contraseña olvidada. Haga clic en Cancelar para volver a la pantalla anterior.^PasswordRequestViewHeaderText^
+
+^PasswordRequestViewLabel^Recuperación de la contraseña: Paso 1 de 2^PasswordRequestViewLabel^
+
+^RememberMe^Recuerdame la proxima vez^RememberMe^
+
+^RequestPasswordActionHeaderText^Siguiente^RequestPasswordActionHeaderText^
+
+^SignUp^Regístrate^SignUp^
+
+^SignUpNow^Regístrese ahora^SignUpNow^
+
+^SignUpViewHeaderText^Rellene este formulario y haga clic en el botón Aceptar para registrarse en una cuenta. Haga clic en Cancelar para volver a la pantalla anterior.^SignUpViewHeaderText^
+
+^SignUpViewLabel^Inscripción en la cuenta^SignUpViewLabel^
+
+^SignUpViewNewUserInfoCategoryDescription^Introduzca el nombre de usuario y la contraseña. Tenga en cuenta que la contraseña debe tener al menos 7 caracteres e incluir un carácter no alfanumérico. Sólo los usuarios aprobados podrán acceder al sitio web.^SignUpViewNewUserInfoCategoryDescription^
+
+^SignUpViewNewUserInfoCategoryHeaderText^Información del nuevo usuario^SignUpViewNewUserInfoCategoryHeaderText^
+
+^SignUpViewPasswordRecoveryCategoryDescription^Estos campos son necesarios para ayudarle a recuperar una contraseña olvidada. Durante el proceso de recuperación, se le pedirá que introduzca un nombre de usuario. Si existe una cuenta de usuario, se solicita una respuesta a una pregunta de seguridad. Una respuesta correcta activará un correo electrónico con una contraseña temporal enviada al correo electrónico registrado.^SignUpViewPasswordRecoveryCategoryDescription^
+
+^SignUpViewPasswordRecoveryCategoryHeaderText^Recuperación de contraseña^SignUpViewPasswordRecoveryCategoryHeaderText^
+
+^UpdateMyAccountActionHeaderText^Actualizar mi cuenta^UpdateMyAccountActionHeaderText^
+
+^UserName^Nombre de usuario^UserName^
+

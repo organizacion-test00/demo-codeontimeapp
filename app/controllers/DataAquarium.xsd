@@ -1,0 +1,2174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataAquarium"
+    targetNamespace="urn:schemas-codeontime-com:data-aquarium"
+    elementFormDefault="qualified"
+    xmlns="urn:schemas-codeontime-com:data-aquarium"
+    xmlns:a="urn:schemas-codeontime-com:data-aquarium"
+    xmlns:mstns="urn:schemas-codeontime-com:data-aquarium"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+	<xs:element name="dataControllerCollection">
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="dataController" type="dataControllerType"/>
+			</xs:sequence>
+			<xs:attribute name="snapshot" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Used by the code generator to determine if the collection represents the cached result of applying the log entries to the baseline.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dataController" type="dataControllerType">
+		<xs:annotation>
+			<xs:documentation>Combines together a collection of SQL commands, fields in the record sets returned by these commands, presentaion views of the data, and permitted actions.</xs:documentation>
+		</xs:annotation>
+		<xs:key name="CommandIdKey">
+			<xs:selector xpath="a:commands/a:command"/>
+			<xs:field xpath="@id"/>
+		</xs:key>
+		<xs:key name="FieldNameKey">
+			<xs:selector xpath="a:fields/a:field"/>
+			<xs:field xpath="@name"/>
+		</xs:key>
+	</xs:element>
+
+	<xs:complexType name="dataControllerType">
+		<xs:all maxOccurs="1" minOccurs="1">
+			<xs:element name="views">
+				<xs:annotation>
+					<xs:documentation>A collection of data presentation views.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="view" type="viewType"/>
+					</xs:sequence>
+				</xs:complexType>
+				<xs:unique name="ViewIdUnique">
+					<xs:selector xpath="a:view"/>
+					<xs:field xpath="@id"/>
+				</xs:unique>
+				<!--<xs:keyref name="CommandIdKeyRef" refer="CommandIdKey">
+          <xs:selector xpath="a:view"/>
+          <xs:field xpath="@commandId"/>
+        </xs:keyref>-->
+			</xs:element>
+			<xs:element name="commands" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A collection of SQL statements designed to retrieve a consistently structured record set. Additional data processing commands driven by events are also allowed.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="command" type="commandType">
+							<xs:annotation>
+								<xs:documentation>A SQL statement that returnes a record set or an additional data processing command driven by the value of the "event" attribute.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="fields" >
+				<xs:annotation>
+					<xs:documentation>Repesents a set of columns returned by a selection command of this data controller.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="field" type="fieldType" minOccurs="1" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="actions" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Defines a collection of actions available to the end user in the presentation views.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="actionGroup" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Groups several actions by their scope of avialability. Group is displayed if at least one action is available in the context of the last command.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="action" type="actionType" minOccurs="1" maxOccurs="unbounded"/>
+								</xs:sequence>
+								<xs:attribute name="scope">
+									<xs:annotation>
+										<xs:documentation>Specifies the scope of avialability for the group actions.</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Grid">
+												<xs:annotation>
+													<xs:documentation>Group actions are available in the row context menu of the grid displayed when user hovers over the values in the first column.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="Form">
+												<xs:annotation>
+													<xs:documentation>Group actions are available as push buttons below and above the fields in the form view.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="ActionBar">
+												<xs:annotation>
+													<xs:documentation>Group actions are displayed as popup menu options on the view action bar. Multiple groups with ActionBar scope are displayed as separate popup menus.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="Row">
+												<xs:annotation>
+													<xs:documentation>Groups actions are displayed as push buttons on the bar displayed under selected grid row.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="ActionColumn">
+												<xs:annotation>
+													<xs:documentation>Group actions are displayed in action column of a grid/list view.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="SwipeLeft">
+												<xs:annotation>
+													<xs:documentation>Swipe actions are displayed when the user performs a swipe gesture in the grid.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="SwipeRight">
+												<xs:annotation>
+													<xs:documentation>Swipe actions are displayed when the user performs a swipe gesture in the grid.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="Promoted">
+												<xs:annotation>
+													<xs:documentation>Promo actions are displayed as a floating action button in grid.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="Custom">
+												<xs:annotation>
+													<xs:documentation>Group actions will not be displayed in the user interface.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:attribute>
+								<xs:attribute name="headerText" type="xs:string" use="optional">
+									<xs:annotation>
+										<xs:documentation>Specifies the text label displayed on the action bar if the action group scope is ActionBar.</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="flat" type="xs:boolean" use="optional">
+									<xs:annotation>
+										<xs:documentation>Indicates that group actions are displayed in-place instead of a popup menu. Default value is 'false'. Use this property with action bar scope only.</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="id" type="xs:string" use="optional">
+									<xs:annotation>
+										<xs:documentation>The ID of the action group. Used by Code OnTime Designer only.</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="statusBar" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Defines a status bar of the data controller. Status bar is displayed in the form views.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="restConfig" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Defines the Representational State Transfer (REST) configuration of the data controller.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="blobAdapterConfig" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Defines the blob adapter configuration of the data controller.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" maxOccurs="1" name="businessRules">
+				<xs:annotation>
+					<xs:documentation>Defines a collection of business rules supported by this controller.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="rule">
+							<xs:complexType mixed="true">
+								<xs:attribute name="id" type="xs:string" use="required">
+									<xs:annotation>
+										<xs:documentation>The ID of the business rule.</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="type" use="required">
+									<xs:annotation>
+										<xs:documentation>The type of the business rule script.</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Sql">
+												<xs:annotation>
+													<xs:documentation>The rule script is written in SQL. The script is executed by the application framework on the server.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="Email">
+												<xs:annotation>
+													<xs:documentation>The rule script is describing an email notification in the format supported by the application framework. The script is executed by the application framework on the server.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="JavaScript">
+												<xs:annotation>
+													<xs:documentation>The rule script is written in JavaScript. The script is executed by the application client library in the web browser.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="Code">
+												<xs:annotation>
+													<xs:documentation>The rule is implemented as C#/Visual Basic method of the business rules class.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:attribute>
+								<xs:attribute name="commandName" type="xs:string" use="required">
+									<xs:annotation>
+										<xs:documentation>The name of the command that triggers execution of the rule script. Specify a regular expression to match multiple command names.</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="commandArgument" type="xs:string" use="optional">
+									<xs:annotation>
+										<xs:documentation>The argument of the command that triggers execution of the rule script. Specify a regular expression to match multiple command arguments. Optional.</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="view" type="xs:string" use="optional">
+									<xs:annotation>
+										<xs:documentation>The ID of the view that triggers execution of the rule script. Specify a regular expression to match multiple view IDs. Optional.</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="phase">
+									<xs:annotation>
+										<xs:documentation>The execution phase of the business rule.</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Execute">
+												<xs:annotation>
+													<xs:documentation>The rule script implements the command interpretation.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="Before">
+												<xs:annotation>
+													<xs:documentation>The rule script is executed before the command interpretation by the application framework.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="After">
+												<xs:annotation>
+													<xs:documentation>The rule script is executed after the command interpretation by the application framework.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:attribute>
+								<xs:attribute name="name" type="xs:string" use="optional">
+									<xs:annotation>
+										<xs:documentation>The name of the business rules. Optional.</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:all>
+		<xs:attribute name="name" use="required">
+			<xs:annotation>
+				<xs:documentation>Name of the data controller.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[\w\._]+"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="text" use="optional" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>User-freindly name of the data controller.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="conflictDetection" use="required">
+			<xs:annotation>
+				<xs:documentation>Defines the conflict detection strategy for the data controller when a SQL code to update or delete a record is emitted.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="compareAllValues">
+						<xs:annotation>
+							<xs:documentation>
+								<![CDATA[
+                  Data controller will generate a WHERE clause for UPDATE or DELETE SQL statement, which will include all fields of the original record. 
+                  If any of the fields has changed since the time when the fields were rertireved to be displayed to the user then the UPDATE/DELETE command will fail signaling a conflict.]]>
+							</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="overwriteChanges">
+						<xs:annotation>
+							<xs:documentation>
+								<![CDATA[Data controller will generate a WHERE clause for UPDATE or DELETE SQL statement, which will include only the primary key fields of the original record. 
+                  UPDATE/DELETE command will succeed as long as the record with the same values in the primary key fields is still present.]]>
+							</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="generateDataAccessObjects" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>Will generate data access objects for this controller.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="actionHandlerType" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies the name of custom action handler class. The handler must be derived from "*.Data.ActionHandlerBase" class located in App_Code\Data folder. Obsolete. Use 'handler' attribute instead.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="dataFilterType" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies the name of custom data filter class. This class must implement IDataFilter interface.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="handler" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies the name of the business rule handler class. The handler must be derived from "*.Data.BusinessRulesBase" class located in App_Code\Data folder.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="plugIn" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies the name of the data controller plug-in class that extends controller configuration. Optional.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="label" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Defines a user-friendly name for data controller. This property is not being used by the framework.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="connectionStringName" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies a connection string that must be used for this data controller.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="nativeSchema" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Used by code generator to identify the native database schema of the controller's base table/view.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="nativeTableName" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Used by code generator to identify the native name of the controller's base table/view.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<!-- dynamicExpressionType-->
+	<xs:complexType name="dynamicExpressionType">
+		<xs:annotation>
+			<xs:documentation>Defines a dynamic expression.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="type" use="optional">
+			<xs:annotation>
+				<xs:documentation>The type of dynamic expression. Default value is 'ClientScript'.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="RegularExpression">
+						<xs:annotation>
+							<xs:documentation>The expression test specifies a regular expression evaluted on the client.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="ClientScript">
+						<xs:annotation>
+							<xs:documentation>The expression test specifies a JavaScript expression evluated on the client.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="test" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>A dynamic expression coded in the language specified by attribut 'type'.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="result" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The result of expression evaluation.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="id" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The Id of dynamic expression. Used internally by Designer.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<!-- viewType -->
+	<xs:complexType name="viewType">
+		<xs:annotation>
+			<xs:documentation>Defines the visual presentation of the data.</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="headerText" minOccurs="0" maxOccurs="1" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>View header displayed in the user interface.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dataFields" type="dataFieldsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="categories" type="categoriesType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="styles" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The list of optional dynamic expressions that calculate the CSS style of the view row. The result of the expression is the CSS class name.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="expression" type="dynamicExpressionType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="overrideWhen" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>An expression written in C#/VB.NET that evaluates to a boolean result. If true then the view will override the virtual view specified by virtualViewId.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:all>
+		<xs:attribute name="id" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>The unique id of the view.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="type" use="required">
+			<xs:annotation>
+				<xs:documentation>Defines the type of visual data presentation.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Form">
+						<xs:annotation>
+							<xs:documentation>The view displays a form with a single record.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Grid">
+						<xs:annotation>
+							<xs:documentation>The view displays a grid of columns and rows.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Chart">
+						<xs:annotation>
+							<xs:documentation>The view displays a chart.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="DataSheet">
+						<xs:annotation>
+							<xs:documentation>The view displays a data sheet.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Tree">
+						<xs:annotation>
+							<xs:documentation>The view allows to drill in the items with children, it displays a drill-in path and shows a tree on a side.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="label" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>View label displayed in the user interface.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="commandId" use="optional" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Specifies id of the command that must be executed to select data for this view.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="sortExpression" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Sort expression lists comma-separated data field names with optional asc/desc specifiers.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="groupExpression" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Group expression is a comma-separated list of fields that will be used to group data when displayed to application users. Group fields are automatically injected at the begging of sort expression when not specified there.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="filter" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Filter expression will be applied to the command text at runtime. Use of data field names in the expression is allowed. Dynamic parameters matched to the names of the business rules class properties must be prefixed with @.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="virtualViewId" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The ID of the view that wil be replaced by this view if overrideWhen expression is true.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="baseViewId" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The ID fo the view that will provide the fields</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="legend" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>A legend is displayed in the chart area. Default value is false.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="showInSelector" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>The view can be selected in the view selector. Default value is true.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="reportLabel" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>View header printed in the report.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="reportTemplate" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>A custom report is generated for this view. Used internally by Designer.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="reportOrientation" use="optional">
+			<xs:annotation>
+				<xs:documentation>Orientation of the generic report.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="">
+						<xs:annotation>
+							<xs:documentation>Orientation is calculated automatically.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Portrait">
+						<xs:annotation>
+							<xs:documentation>The report will have a portrait orientation.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Landscape">
+						<xs:annotation>
+							<xs:documentation>The report will have a ladscape orientation.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="reportFont" use="optional">
+			<xs:annotation>
+				<xs:documentation>The size of fonts used to print data values and labels.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="">
+						<xs:annotation>
+							<xs:documentation>The size of fonts is calculated automatically.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="X-Large">
+						<xs:annotation>
+							<xs:documentation>The size of fonts to print data values and labels is extra large.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Large">
+						<xs:annotation>
+							<xs:documentation>The size of fonts to print data values and labels is large.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Medium">
+						<xs:annotation>
+							<xs:documentation>The size of fonts to print data values and labels is medium. This is the default size.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Small">
+						<xs:annotation>
+							<xs:documentation>The size of fonts to print data values and labels is small.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="X-Small">
+						<xs:annotation>
+							<xs:documentation>The size of fonts to print data values and labels is extra small.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="group" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The views with the same value of group will share filters.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="access" use="optional">
+			<xs:annotation>
+				<xs:documentation>Determines if the view can be accessed on public pages. The default value is "Private".</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="">
+						<xs:annotation>
+							<xs:documentation>The view can be accessed on private pages only. Only authenticated users can access a private page. This is the default option.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Public">
+						<xs:annotation>
+							<xs:documentation>The view can be accessed on public pages with the "Roles" attribute set to "?".</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="tags" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Tags assigned to the instances of the view.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<!-- commandType -->
+	<xs:complexType name="commandType">
+		<xs:all>
+			<xs:element name="text" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Defines the command text that corresponds to the command type.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="query" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The XPath query definition. Used by Code OnTime Designer only.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="select" type="xs:string" use="required">
+						<xs:annotation>
+							<xs:documentation>The XPath expression that evaluates to a node set.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="href" type="xs:string" use="required">
+						<xs:annotation>
+							<xs:documentation>The relative or absolute path to an XML file.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="sort" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation>The sort expression that defines the initial sort order of records.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="dependencies" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation>A list of XPath select expressions of dependent data controllers. Any changes to the data in this controller will clear up the cached dependent data.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="parameters" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence minOccurs="1" maxOccurs="unbounded">
+						<xs:element name="parameter">
+							<xs:complexType>
+								<xs:attribute name="name" type="xs:string" use="required">
+									<xs:annotation>
+										<xs:documentation>The name of the parameter.</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="type" type="FieldDataType" use="optional">
+									<xs:annotation>
+										<xs:documentation>The data type of the parameter.</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="direction" use="optional">
+									<xs:annotation>
+										<xs:documentation>The direction of the parameter.</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Input"/>
+											<xs:enumeration value="Output"/>
+											<xs:enumeration value="InputOutput"/>
+											<xs:enumeration value="ReturnValue"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:attribute>
+								<xs:attribute name="defaultValue" type="xs:string" use="optional">
+									<xs:annotation>
+										<xs:documentation>The default value of the parameter.</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="fieldName" type="xs:string" use="optional">
+									<xs:annotation>
+										<xs:documentation>The name of the field that shall be used as a source of paramter value when available.</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="fieldValue" use="optional">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Current">
+												<xs:annotation>
+													<xs:documentation>The parameter will use the current value of the field when available.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="New">
+												<xs:annotation>
+													<xs:documentation>The parameter will use the new value of the field when available.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+											<xs:enumeration value="Old">
+												<xs:annotation>
+													<xs:documentation>The parameter will use the old value of the field when available.</xs:documentation>
+												</xs:annotation>
+											</xs:enumeration>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:attribute>
+								<xs:attribute name="propertyName" type="xs:string" use="optional">
+									<xs:annotation>
+										<xs:documentation>The name of the property of the business rules class of this data controller that provides the parameter value.</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="template" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>An XML template for new instances. Must have a single root element. Used by Code OnTime Designer only.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:any processContents="skip" minOccurs="1"/>
+					</xs:sequence>
+					<xs:attribute name="select" type="xs:string" use="required">
+						<xs:annotation>
+							<xs:documentation>The XPath expression to select the parent for a new instance template.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="integrity" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A set of referential integrity inforcement commands. Used by Code OnTime Designer only.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:any processContents="skip" minOccurs="1" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="output" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Provides post-processing output instruction for the command executed in response to Insert, Update, or Delete action.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="fieldOutput" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Defines the data controller field that shall accept the column value in the command result set.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:attribute name="fieldName" type="xs:string" use="required">
+									<xs:annotation>
+										<xs:documentation>The name of the data controller field that shall accept the value of the column in the result set of this command upon its execution.</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+							</xs:complexType>
+							<!--<xs:keyref name="outputFieldOutputKeyRef" refer="FieldNameKey">
+                <xs:selector xpath="."/>
+                <xs:field xpath="@fieldName"/>
+              </xs:keyref>-->
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:all>
+		<xs:attribute name="id" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Defines command id that can be referenced by presentation views.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="type" use="required">
+			<xs:annotation>
+				<xs:documentation>Specifies the command type. Note that if the purpose of the command is to selected the view data then only the Text type is allowed.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Text">
+						<xs:annotation>
+							<xs:documentation>This command is a SELECT statement written in SQL.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="StoredProcedure">
+						<xs:annotation>
+							<xs:documentation>This command defines the name of the stored procedure.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="event" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies an event in the lifecycle of the action command execution that shall trigger this command.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Execute">
+						<xs:annotation>
+							<xs:documentation>The command is executed on demand when specified as an argument of an action.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Inserting">
+						<xs:annotation>
+							<xs:documentation>Insert statement is about to be generated and executed.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Inserting">
+						<xs:annotation>
+							<xs:documentation>INSERT statement is about to be generated and executed.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Inserted">
+						<xs:annotation>
+							<xs:documentation>INSERT statement has been generated and executed.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Updating">
+						<xs:annotation>
+							<xs:documentation>UPDATE statement is about to be generated and executed.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Updated">
+						<xs:annotation>
+							<xs:documentation>UPDATE statement has been generated and executed.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Deleting">
+						<xs:annotation>
+							<xs:documentation>DELETE statement is about to be generated and executed.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Deleted">
+						<xs:annotation>
+							<xs:documentation>DELETE statement has been generated and executed.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="tableName" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of the database table that will be used for insert, update, and delete operations.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="custom" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates that the command text has been composed manually.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<!-- itemsType -->
+	<xs:complexType name="itemsType">
+		<xs:annotation>
+			<xs:documentation>Specifies the list of possible field values that are defined statically or created dynamically by another data controller.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="item" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Defines a static item with the value and text.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="value" type="xs:string" use="required">
+						<xs:annotation>
+							<xs:documentation>Specifies the item value.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="text" type="xs:string" use="required">
+						<xs:annotation>
+							<xs:documentation>Specifies the item text.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="style" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies a presentation style of field items.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="CheckBox">
+						<xs:annotation>
+							<xs:documentation>List of values is presented as a check box. Note that exactly two items must be available for this style to take effect.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="DropDownList">
+						<xs:annotation>
+							<xs:documentation>List of values is presented as a drop down list.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="ListBox">
+						<xs:annotation>
+							<xs:documentation>List of values is presented as a list box.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Lookup">
+						<xs:annotation>
+							<xs:documentation>List of values is presented in a popup data view based on the data controller defined by the dataController attribute.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="AutoComplete">
+						<xs:annotation>
+							<xs:documentation>List of values is presented as a combo drop down list with type-ahead capability.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="RadioButtonList">
+						<xs:annotation>
+							<xs:documentation>List of values is presented as radio buttons.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="CheckBoxList">
+						<xs:annotation>
+							<xs:documentation>List of values is presented as check boxes. Field values are presumed to be separated by commas.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Basket">
+						<xs:annotation>
+							<xs:documentation>List of values is presented as check boxes. Field values are presumed to be separated by commas. New items are added via a lookup window.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="OneToOne">
+						<xs:annotation>
+							<xs:documentation>This field defines mapping of the 1-to-1 entity specified in the data controller.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="UserNameLookup">
+						<xs:annotation>
+							<xs:documentation>Lookup of user name. Requires ASP.NET Memberhship.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="UserIdLookup">
+						<xs:annotation>
+							<xs:documentation>Lookup of user ID. Requires ASP.NET Memberhship.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="dataController" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of the data controller that provides the list of items.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="dataView" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of the data view in the lookup data controller.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="dataValueField" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies the data controller field that provides the item value.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="dataTextField" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies the data controller field that provides the item text.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="newDataView" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies the name of the view defined in data controller descriptor referred by "dataController" attribute, which is used for in-place entering of new lookup items.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="copy" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies the fields that must be copied from the lookup data set when a lookup value is selected. Specify one copy source per line in format FieldName=LookupFieldName. Character * after the = will copy the value if the field is blank. Optional.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="targetController" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of the data controller that will accept selected item values if the style of the items is Check Box List. Optional. Used by Code OnTime Designer only.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="autoSelect" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>The lookup window is displayed automatically in edit mode if the field is blank.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="description" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The custom text displayed in the lookup window in description area.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="searchOnStart" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>The lookup window is displayed in search mode without initial data retreival.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="pageSize" type="xs:int" use="optional">
+			<xs:annotation>
+				<xs:documentation>The page size of the lookup window.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="letters" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>Enables search by first letter.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<!-- fieldDataViewType -->
+	<xs:complexType name="fieldDataViewType">
+		<xs:annotation>
+			<xs:documentation>Specifies the list of properties for fields that represent data views.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="filterSource" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of the data view field that will be used as a filter, if this data view is a child of another data view.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="controller" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of the data controller that provides the list of items.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="view" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of the data view in the lookup data controller.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="filterFields" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies the data controller field that provides the item value.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+
+		<xs:attribute name="showInSummary" type="xs:boolean" use="optional"/>
+		<xs:attribute name="showActionBar" type="xs:boolean" use="optional"/>
+		<xs:attribute name="showDescription" type="xs:boolean" use="optional"/>
+		<xs:attribute name="showViewSelector" type="xs:boolean" use="optional"/>
+		<xs:attribute name="showModalForms" type="xs:boolean" use="optional"/>
+		<xs:attribute name="searchByFirstLetter" type="xs:boolean" use="optional"/>
+		<xs:attribute name="searchOnStart" type="xs:boolean" use="optional"/>
+		<xs:attribute name="pageSize" type="xs:int" use="optional"/>
+		<xs:attribute name="multiSelect" type="xs:boolean" use="optional"/>
+		<xs:attribute name="startCommandName" type="xs:string" use="optional"/>
+		<xs:attribute name="startCommandArgument" type="xs:string" use="optional"/>
+		<xs:attribute name="showActionButtons" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value=""/>
+					<xs:enumeration value="None"/>
+					<xs:enumeration value="Top"/>
+					<xs:enumeration value="Bottom"/>
+					<xs:enumeration value="TopAndBottom"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="showPager" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value=""/>
+					<xs:enumeration value="None"/>
+					<xs:enumeration value="Top"/>
+					<xs:enumeration value="Bottom"/>
+					<xs:enumeration value="TopAndBottom"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="showPageSize" type="xs:boolean" use="optional"/>
+		<xs:attribute name="showSearchBar" type="xs:boolean" use="optional"/>
+		<xs:attribute name="showQuickFind" type="xs:boolean" use="optional"/>
+		<xs:attribute name="showRowNumber" type="xs:boolean" use="optional"/>
+		<xs:attribute name="autoSelectFirstRow" type="xs:boolean" use="optional"/>
+		<xs:attribute name="autoHighlightFirstRow" type="xs:boolean" use="optional"/>
+		<xs:attribute name="refreshInterval" type="xs:int" use="optional"/>
+	</xs:complexType>
+	<!-- actionContentGroup -->
+	<xs:group name="ActionContentGroup">
+		<xs:all>
+			<xs:element name="data" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:all>
+	</xs:group>
+	<!-- fieldContentGroup -->
+	<xs:group name="FieldContentGroup">
+		<xs:all>
+			<xs:element name="headerText" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Defines an extended field description displayed in the user interface.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="footerText" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Defines an extended field description displayed under the field in the form view.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="items" type="itemsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="dataView" type="fieldDataViewType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="validate" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The list of optional validation expressions for this field. The result of the expression is the error message.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence minOccurs="1" maxOccurs="unbounded">
+						<xs:element name="expression" type="dynamicExpressionType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="visibility" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The list of optional expressions that control visibility of this field. The 'result' attribute of expressions is ignored.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="expression" type="dynamicExpressionType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="readOnly" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The list of optional expressions that control if the field is read-only. The client library will set to the 'Mode' proprety of the field to 'Static' if the field is deemed read-only. The 'result' attribute of expressions is ignored.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="expression" type="dynamicExpressionType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="defaultValues" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The list of optional JavaScript expressions that are evaluated on the client for new records. If expression 'test' is blank then the 'result' is the default value. If the 'result' is blank then the calculated 'test' value is the default value of the field. </xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence minOccurs="1" maxOccurs="unbounded">
+						<xs:element name="expression" type="dynamicExpressionType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="formula" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The formula calculates the field value. Must be used with 'computed' attribute of 'field' element. The formula is automatically inserted into 'select' statements generated by data controller in response to user actions. Optional.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codeFormula" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The code formula calculates the field value. The formula is written in the programming language compatible with the code generation language of your project. This attribute is used by the code generator to create a business rule that supports the calculation in the formula. Used by Code OnTime Designer only.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codeDefault" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The code expression calculates the default field value. The expression is written in the programming language compatible with the code generation language of your project. This attribute is used by the code generator to create a business rule that supports the calculation in the formula. Used by Code OnTime Designer only.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codeValue" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The code expression calculates the field value whenever a record is stored to the database. The expression is written in the programming language compatible with the code generation language of your project. This attribute is used by the code generator to create a business rule that supports the calculation in the formula. Used by Code OnTime Designer only.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="configuration" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The dynamic configuration of the field derived from the other fields in the same data row.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codeFilter" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The code filter expression evalutes to the filter value. The expression is written in the programming language compatible with the code generation language of your project. This attribute is used by the code generator to create a business rule that supports filtering based on RowFilter attribute. Used by Code OnTime Designer only.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType mixed="true">
+					<xs:attribute name="operator">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Equal"/>
+								<xs:enumeration value="NotEqual"/>
+								<xs:enumeration value="LessThan"/>
+								<xs:enumeration value="LessThanOrEqual"/>
+								<xs:enumeration value="GreaterThan"/>
+								<xs:enumeration value="GreaterThanOrEqual"/>
+								<xs:enumeration value="Like"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+		</xs:all>
+	</xs:group>
+	<!-- FieldDataType -->
+	<xs:simpleType name="FieldDataType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AnsiString">
+				<xs:annotation>
+					<xs:documentation>A variable-length stream of non-Unicode characters ranging between 1 and 8,000 characters.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Binary">
+				<xs:annotation>
+					<xs:documentation>A variable-length stream of binary data ranging between 1 and 8,000 bytes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Byte">
+				<xs:annotation>
+					<xs:documentation>An 8-bit unsigned integer ranging in value from 0 to 255.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Boolean">
+				<xs:annotation>
+					<xs:documentation>A simple type representing Boolean values of true or false.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Currency">
+				<xs:annotation>
+					<xs:documentation>A currency value ranging from -2 63 (or -922,337,203,685,477.5808) to 2 63 -1 (or +922,337,203,685,477.5807) with an accuracy to a ten-thousandth of a currency unit.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DataView">
+				<xs:annotation>
+					<xs:documentation>A type that represents a placeholder for a child data view.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Date">
+				<xs:annotation>
+					<xs:documentation>A type representing a date value.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DateTime">
+				<xs:annotation>
+					<xs:documentation>A type representing a date and time value.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Decimal">
+				<xs:annotation>
+					<xs:documentation>A simple type representing values ranging from 1.0 x 10 -28 to approximately 7.9 x 10 28 with 28-29 significant digits.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Double">
+				<xs:annotation>
+					<xs:documentation>A floating point type representing values ranging from approximately 5.0 x 10 -324 to 1.7 x 10 308 with a precision of 15-16 digits.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Guid">
+				<xs:annotation>
+					<xs:documentation>A globally unique identifier (or GUID).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Int16">
+				<xs:annotation>
+					<xs:documentation>An integral type representing signed 16-bit integers with values between -32768 and 32767.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Int32">
+				<xs:annotation>
+					<xs:documentation>An integral type representing signed 32-bit integers with values between -2147483648 and 2147483647.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Int64">
+				<xs:annotation>
+					<xs:documentation>An integral type representing signed 64-bit integers with values between -9223372036854775808 and 9223372036854775807.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Object">
+				<xs:annotation>
+					<xs:documentation>A general type representing any reference or value type not explicitly represented by another DbType value.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SByte">
+				<xs:annotation>
+					<xs:documentation> An integral type representing signed 8-bit integers with values between -128 and 127.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Single">
+				<xs:annotation>
+					<xs:documentation>A floating point type representing values ranging from approximately 1.5 x 10 -45 to 3.4 x 10 38 with a precision of 7 digits.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="String">
+				<xs:annotation>
+					<xs:documentation>A type representing Unicode character strings.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Time">
+				<xs:annotation>
+					<xs:documentation>A type representing a time value.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TimeSpan">
+				<xs:annotation>
+					<xs:documentation>A type representing a time value.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UInt16">
+				<xs:annotation>
+					<xs:documentation>An integral type representing unsigned 16-bit integers with values between 0 and 65535.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UInt32">
+				<xs:annotation>
+					<xs:documentation>An integral type representing unsigned 32-bit integers with values between 0 and 4294967295.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UInt64">
+				<xs:annotation>
+					<xs:documentation>An integral type representing unsigned 64-bit integers with values between 0 and 18446744073709551615.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="VarNumeric">
+				<xs:annotation>
+					<xs:documentation>A variable-length numeric value.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AnsiStringFixedLength">
+				<xs:annotation>
+					<xs:documentation>A fixed-length stream of non-Unicode characters.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StringFixedLength">
+				<xs:annotation>
+					<xs:documentation> A fixed-length string of Unicode characters.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Xml">
+				<xs:annotation>
+					<xs:documentation>A parsed representation of an XML document or fragment.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DateTime2">
+				<xs:annotation>
+					<xs:documentation>Date and time data. Date value range is from January 1,1 AD through December 31, 9999 AD. Time value range is 00:00:00 through 23:59:59.9999999 with an accuracy of 100 nanoseconds.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DateTimeOffset">
+				<xs:annotation>
+					<xs:documentation>Date and time data with time zone awareness. Date value range is from January 1,1 AD through December 31, 9999 AD. Time value range is 00:00:00 through 23:59:59.9999999 with an accuracy of 100 nanoseconds. Time zone value range is -14:00 through +14:00.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Byte[]">
+				<xs:annotation>
+					<xs:documentation>The field represents a variable length stream of binary data.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DataView">
+				<xs:annotation>
+					<xs:documentation>Represents a data view linked to the current record as a child in a master-detail relationship.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- fieldType-->
+	<xs:complexType name="fieldType">
+		<xs:annotation>
+			<xs:documentation>Represents a single column in the result set returned by a selection command of this data controller.</xs:documentation>
+		</xs:annotation>
+		<xs:group ref="FieldContentGroup"/>
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Matches the name of the column in the result set returned by a selection commands of this data controller.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="type" use="required" type="FieldDataType">
+			<xs:annotation>
+				<xs:documentation>Specifies the data type of the base column of this field.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="length" use="optional" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>The length of the field of 'String' type.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="allowNulls" type="xs:boolean" use="optional" default="true">
+			<xs:annotation>
+				<xs:documentation>Indicates that the field accepts Null values.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="isPrimaryKey" type="xs:string" use="optional" default="false">
+			<xs:annotation>
+				<xs:documentation>Indicates that the field is based on the primary key column.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="label" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies a default text label displayed in the corresponding data fields of presentation views.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="readOnly" type="xs:boolean" use="optional" default="false">
+			<xs:annotation>
+				<xs:documentation>Indicates that the field is read-only.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="default" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies the default column value expression compatible with the syntax of the back-end database server.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="allowQBE" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>Controls if the query-by-example is allowed in the column of the grid view. Default value is 'true'.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="allowLEV" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies if the last entered value copying is enabled for the field. Default value is 'false'.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="allowSorting" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>Controls if sorting is allowed in the column of the grid view. Default value is 'true'.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="sourceFields" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies a comma-separated list of fields that are concatenated to compose a value for this field. Use this attribute with on-demand fields and compound primary keys.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="onDemand" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies that the field shall be processed on-demand. Set this attribute to 'true' if the field represents a large binary field.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="onDemandHandler" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies a name of BLOB handler capable of retreiving/updating of the field data.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="onDemandStyle" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies a presentation style of BLOB data in user interface. The default value is Thumbnail.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Thumbnail">
+						<xs:annotation>
+							<xs:documentation>A thumbnail is automatically generated for this on-demand field. Use this style for images stored in the database.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Link">
+						<xs:annotation>
+							<xs:documentation>A hyperlink link to the original BLOB data is displayed in the user interface.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Signature">
+						<xs:annotation>
+							<xs:documentation>An image of a signature is captured and displayed in the user interface.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="dataFormatString" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The format string that shall be passed to the String.format() method when the field is being rendered in the browser. For example, "c" will format field value as a currency, and "d" will dispaly the field in the standard date format. View data fields can override this property.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="formatOnClient" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>The data format string is evaluated on the client. The default value is 'true'. Optional.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="roles" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies the comma-separated list of user roles that are allowed to view this field.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="writeRoles" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies the comma-separated list of user roles that are allowed to write values to this field.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="mask" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The edit mask for the field.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="maskType">
+			<xs:annotation>
+				<xs:documentation>The edit mask type for the field. Default value is 'None'.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="None">
+						<xs:annotation>
+							<xs:documentation>No data validation is performed.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Number">
+						<xs:annotation>
+							<xs:documentation>The field value is treated as a number.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Date">
+						<xs:annotation>
+							<xs:documentation>The field value is treated as a date.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Time">
+						<xs:annotation>
+							<xs:documentation>The field value is treated as a time.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="DateTime">
+						<xs:annotation>
+							<xs:documentation>The field value is treated as a date and time.</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="contextFields" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies a comma-separated list of context filter fields that are used by lookups to create an external filter for matching columns.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="select" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The XPath expression that produces a field value. Used by Code OnTime Designer only. Optional.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="showInSummary" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>The field can be displayed in the page summary. The default value is 'false'. Optional.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="computed" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>The field is providing a formula to calculate its value if the value is 'true'. Default value is 'false'. Optional.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="htmlEncode" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>The field requires use of HTML encoding when presenting read-only views of the value. Default value is 'true'. Optional.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="calculated" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>The field value is calculated by a server-side business rule.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="causesCalculate" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>Changing of the field value causes "Calculate" command to execute.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="isVirtual" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>This field value is only used in business rules and will never be included in automatic CRUD operations.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="editor" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of custom editor that must be used when field is rendered in edit mode.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="hidden" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>Includes the field value in all data views. Hidden fields can be modified in business rules.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<!-- actionType -->
+	<xs:complexType name="actionType">
+		<xs:annotation>
+			<xs:documentation>Defines a command name and its arguments. Optionally specifies a condition for the command availability. Action without a command name is display as a horizontal divider.</xs:documentation>
+		</xs:annotation>
+		<xs:group ref="ActionContentGroup"/>
+		<xs:attribute name="whenLastCommandName" type="commandNameType" use="optional">
+			<xs:annotation>
+				<xs:documentation>Defines the name of the last executed command that make this action visible in the user interface.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="whenLastCommandArgument" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Defines the argument of the last executed command that make this action visible in the user interface if last command name has been matched as well. Optional.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="whenKeySelected" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies that action is available only when a key is selected. Default value is 'false'. Optional.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="whenView" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The regular expression that must have a positive match when evaluated against view ID to allow the action.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="whenTag" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The regular expression that must have a positive match when evaluated against the Tag property of DataViewExtender to allow the action.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="whenHRef" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The regular expression that must have a positive match when evaluated against current location HRef to allow the action.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="whenClientScript" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The JavaScript expression that must evaluate to the boolean "true" to allow the action.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="causesValidation" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies if action may display data validation errors when field values are being collected on the client prior to action execution. Default value is 'true'. Optional.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="key" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Action will be triggered when user presses specified keyboard shortcut combination. Optional.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="commandName" type="commandNameType" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of the command to execute when action is selected.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="commandArgument" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Provides an optional argument for a command specified by commandName attribute.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="confirmation" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies a command confirmation message.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="notify" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies a command notification.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="headerText" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies a text label representing the action.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="description" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Defines an expanded description of the action displayed under the header text in the popup menu of the action bar.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="cssClass" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies the name of the CSS class that shall be applied to the action representation.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="roles" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Specifies the comma-separated list of user roles that are allowed to execute this action.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<!--<xs:attribute name="clientScript" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>Defines a java script snippet that will be executed in the context of the $app AJAX component when the action command has been completed.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>-->
+		<xs:attribute name="id" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The ID of the action. Used by Code OnTime Designer only.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:simpleType name="commandNameType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Select">
+				<xs:annotation>
+					<xs:documentation>Selects the record in the view. Optionally, a name of the single record view can be specified in the commandArgument attribute.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Navigate">
+				<xs:annotation>
+					<xs:documentation>
+						Navigates to the location specified in commandArgument attribute. Location example: "~/SomePage.aspx?ProductId={ProductID}&amp;ProductName={ProductName}".
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Back">
+				<xs:annotation>
+					<xs:documentation>
+						Performs the same action as a user clicking the Back button in the browser. Use commandArgument to specify the number of urls to go back. The default number is -1.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Edit">
+				<xs:annotation>
+					<xs:documentation>Switches view into the edit record mode. Grid view natively supports in-place editing. The edit view name can be specified in the commandArgument attribute.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="New">
+				<xs:annotation>
+					<xs:documentation>Switches view into the new record mode. The new record view name must be specified in the commandArgument attribute.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Delete">
+				<xs:annotation>
+					<xs:documentation>Deletes the currently selected record.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Update">
+				<xs:annotation>
+					<xs:documentation>Updates the record that is being edited in the current view.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Insert">
+				<xs:annotation>
+					<xs:documentation>Insert the new record that is being edited in the current view.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Cancel">
+				<xs:annotation>
+					<xs:documentation>Cancels changes to the record and returns to the previous view.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BatchEdit">
+				<xs:annotation>
+					<xs:documentation>Edit multiple records at once by entering field values that will be propagated through all selected records.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Duplicate">
+				<xs:annotation>
+					<xs:documentation>Starts editing of a new record and initializes this record with values of the previosly selected row.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ClientScript">
+				<xs:annotation>
+					<xs:documentation>Execute client-side JavaScript expression specified by the argument. You can use field names enclosed in square brackets to address the actual DHTML objects that represent the field input controls.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ExportCsv">
+				<xs:annotation>
+					<xs:documentation>Export records in comma-separated value format.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ExportRowset">
+				<xs:annotation>
+					<xs:documentation>Export records in XML format for processing by spreadsheet applications.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ExportRss">
+				<xs:annotation>
+					<xs:documentation>Export records as an RSS feed.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Import">
+				<xs:annotation>
+					<xs:documentation>Import record from the uploaded file in CSV, XLS, or XLSX format.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Report">
+				<xs:annotation>
+					<xs:documentation>Execute a server-side report and open the result in a new window. Command argument may specify an optional template or report name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ReportAsPdf">
+				<xs:annotation>
+					<xs:documentation>Execute a server-side report and open the result as a PDF document in a new window. Command argument may specify an optional template or report name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ReportAsImage">
+				<xs:annotation>
+					<xs:documentation>Execute a server-side report and open the result as a TIFF image in a new window. Command argument may specify an optional template or report name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ReportAsExcel">
+				<xs:annotation>
+					<xs:documentation>Execute a server-side report and open the result as a formatted Excel spreadsheet in a new window. Command argument may specify an optional template or report name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ReportAsWord">
+				<xs:annotation>
+					<xs:documentation>Execute a server-side report and open the result as a formatted Microsoft Word document in a new window. Command argument may specify an optional template or report name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SelectModal">
+				<xs:annotation>
+					<xs:documentation>Display the view specified in the argument in modal window. The argument must be in the format: ControllerName,ViewId.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Status">
+				<xs:annotation>
+					<xs:documentation>Change the internal status or the value of the Status field to the value specified in the command argument.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="EditModal">
+				<xs:annotation>
+					<xs:documentation>Display the view specified in the argument in modal window in edit mode. The argument must be in the format: ControllerName,ViewId.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Execute">
+				<xs:annotation>
+					<xs:documentation>Execute the command specified by the argument.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Custom">
+				<xs:annotation>
+					<xs:documentation>Use custom command along with command argument to define your own commands. Commands are handled by classes derived from "*.Data.ActionHandlerBase" class. Custom handler type name is specified in the "dataController/@actionHandlerType" attribute.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DataSheet">
+				<xs:annotation>
+					<xs:documentation>Edit items using a data sheet format.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Grid">
+				<xs:annotation>
+					<xs:documentation>Display items in the standard list format.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Tree">
+				<xs:annotation>
+					<xs:documentation>Display items in a hierarchical format.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Any">
+				<xs:annotation>
+					<xs:documentation>Indicates any command. Use only with When Last Command Name property.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="None">
+				<xs:annotation>
+					<xs:documentation>Specifies that no command will be executed. The action is displayed as disabled.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SQL">
+				<xs:annotation>
+					<xs:documentation>Executes an SQL script specified in the 'data' element of the action.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Email">
+				<xs:annotation>
+					<xs:documentation>Sends an email using the template specified in the 'data' element of the action.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Confirm">
+				<xs:annotation>
+					<xs:documentation>Confirms the action parameters. Causes the modal form view to close. The original action will be executed with the field values passed as external filter.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Search">
+				<xs:annotation>
+					<xs:documentation>Refreshes the contents of the view with optional parameters. Uses "Confirmation" property to collect optional "external filter" parameters.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Upload">
+				<xs:annotation>
+					<xs:documentation>Initiates multi-file upload.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- categoriesType -->
+	<xs:complexType name="categoriesType">
+		<xs:annotation>
+			<xs:documentation>Defines groups of fields displayed in the form view. At least one category must be defined for each form view.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="category">
+				<xs:annotation>
+					<xs:documentation>Represents a group of fields displayed in the form view.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>An extended description for the category. Wrap your description into CDATA element if the description includes HTML tags.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="dataFields" type="dataFieldsType" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="visibility" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>The list of optional expressions that control visibility of this category. The 'result' attribute of expressions is ignored.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence minOccurs="1" maxOccurs="unbounded">
+									<xs:element name="expression" type="dynamicExpressionType"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="template" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>The category template. Use curly brakets to refer to the field names inside of the template.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:all>
+					<xs:attribute name="id" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation>Id of the category. For internal use by Project Designer only.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="headerText" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation>A label for the group of fields displayed in a form view.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="tab" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation>The name of the form tab that owns the category.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="wizard" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation>The name of the wizard step that makes this category visible to the user.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="flow" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation>Starts rendering of this category in a new column or row. Optional.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="wrap" type="xs:boolean" use="optional">
+						<xs:annotation>
+							<xs:documentation>Forces field values to display under field labels if set to 'true'. Otherwise the wrapping is automatically applied on smaller screens. Optional.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="collapsed" type="xs:boolean" use="optional">
+						<xs:annotation>
+							<xs:documentation>Specifies that the category is collapsed by default. Optional.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="floating" type="xs:boolean" use="optional">
+						<xs:annotation>
+							<xs:documentation>Forces fields in the category to float from left to right.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- dataFieldsType -->
+	<xs:complexType name="dataFieldsType">
+		<xs:annotation>
+			<xs:documentation>A list of data fields presented in the view.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="dataField" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Defines a single field presented in the view.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:group ref="FieldContentGroup"/>
+					<xs:attribute name="fieldName" type="xs:string" use="required">
+						<xs:annotation>
+							<xs:documentation>The name of the field defined in this data controller.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="aliasFieldName" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation>The name of the alternative field defined in this data controller that shall be displayed instead of the field referenced by the "fieldName" attribute. This may be needed if you want to displayed a lookup value in place of the foreign key field.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="dataFormatString" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation>The format string that shall be passed to the String.format() method when the field is being rendered in the browser. For example, "c" will format field value as a currency, and "d" will dispaly the field in the standard date format.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="formatOnClient" type="xs:boolean" use="optional">
+						<xs:annotation>
+							<xs:documentation>The data format string is evaluated on the client. The default value is 'true'. Optional.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="columns" type="xs:int" use="optional">
+						<xs:annotation>
+							<xs:documentation>Specifies the number of columns in the text box when the field is presented for editing.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="rows" type="xs:int" use="optional">
+						<xs:annotation>
+							<xs:documentation>Specifies the number of rows in the text box when the field is presented for editing.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute  name="hyperlinkFormatString" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation>Specifies a hyperlink format string for the field value.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute  name="toolTip" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation>Specifies a tooltip displayed when a mouse pointer is positioned over the input element.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute  name="watermark" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation>Specifies a text displayed in the input field if the field is empty.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="hidden" type="xs:boolean" use="optional">
+						<xs:annotation>
+							<xs:documentation>Hides the data field from user interface rendered in client browser. Hidden fields can be modified in custom action handlers.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="aggregate" type="FieldAggregateType" use="optional">
+						<xs:annotation>
+							<xs:documentation>Defines an aggregate function that is calculated for this field on the entire record set and is displayed in grid views.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="textMode" use="optional">
+						<xs:annotation>
+							<xs:documentation>Specifies a text mode for a data field input control. Default value is Text.</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Text">
+									<xs:annotation>
+										<xs:documentation>A standard text editor is displayed to allow single or multi-line text entry.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="Password">
+									<xs:annotation>
+										<xs:documentation>A single line password text editor is displayed.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="RichText">
+									<xs:annotation>
+										<xs:documentation>A rich text editor is displayed to allow entry of a formatted text. Not implemented.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="Note">
+									<xs:annotation>
+										<xs:documentation>The text is displayed in read-only mode with a link under the text that allows to switch to the edit mode.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="Static">
+									<xs:annotation>
+										<xs:documentation>The text is displayed as a read-only label and cannot be changed. The field value participates in the round trip from the server to the client and back.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="tag" type="xs:string" use="optional">
+						<xs:annotation>
+							<xs:documentation>A comma-separated list of tags supported by the client library.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="readOnly" type="xs:boolean" use="optional" default="false">
+						<xs:annotation>
+							<xs:documentation>Indicates that the field is read-only. Optional.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="autoCompletePrefixLength">
+						<xs:annotation>
+							<xs:documentation>Specifies the minimum prefix length to start auto completion on text fields.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="chart" use="optional" default="">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="">
+									<xs:annotation>
+										<xs:documentation>This data field is not used to draw a chart.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="XValue">
+									<xs:annotation>
+										<xs:documentation>The data field is used as X value on a chart.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="XValue,Hours">
+									<xs:annotation>
+										<xs:documentation>The data field is used as X value on a chart. Values are grouped in hourly intervals.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="XValue,Days">
+									<xs:annotation>
+										<xs:documentation>The data field is used as X value on a chart. Values are grouped in dayly intervals.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="XValue,Weeks">
+									<xs:annotation>
+										<xs:documentation>The data field is used as X value on a chart. Values are grouped in weekly intervals.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="XValue,Weeks2">
+									<xs:annotation>
+										<xs:documentation>The data field is used as X value on a chart. Values are grouped in 2-week intervals.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="XValue,Months">
+									<xs:annotation>
+										<xs:documentation>The data field is used as X value on a chart. Values are grouped in monthly intervals.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="XValue,Quarters">
+									<xs:annotation>
+										<xs:documentation>The data field is used as X value on a chart. Values are grouped in quarterly intervals.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="XValue,Years">
+									<xs:annotation>
+										<xs:documentation>The data field is used as X value on a chart. Values are grouped in yearly intervals.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="Bar">
+									<xs:annotation>
+										<xs:documentation>The data field is used as Y value on a Bar chart.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="Bar-Cylinder">
+									<xs:annotation>
+										<xs:documentation>The data field is used as Y value on a Bar chart with drawing style Cylinder.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="Column">
+									<xs:annotation>
+										<xs:documentation>The data field is used as Y value on a Column chart.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="Column-Cylinder">
+									<xs:annotation>
+										<xs:documentation>The data field is used as Y value on a Column chart with drawing style Cylinder.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="Line">
+									<xs:annotation>
+										<xs:documentation>The data field is used as Y value on a Line chart.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="Spline">
+									<xs:annotation>
+										<xs:documentation>The data field is used as Y value on a Spline chart.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="search" use="optional">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value=""/>
+								<xs:enumeration value="Default">
+									<xs:annotation>
+										<xs:documentation>The field will be available in the search bar if its Hidden attribute is not equal to 'true'.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="Required">
+									<xs:annotation>
+										<xs:documentation>The field is displayed in the search bar automatically. It cannot be removed and requires a value.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="Suggested">
+									<xs:annotation>
+										<xs:documentation>The field is allowed in the search bar. It is suggested by default as a search option when the search bar is activated.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="Allowed">
+									<xs:annotation>
+										<xs:documentation>The field is allowed in the search bar. It is not selected by default.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="Forbidden">
+									<xs:annotation>
+										<xs:documentation>The field is not allowed in the search bar.</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="searchOptions" type="xs:string" use="optional"/>
+				</xs:complexType>
+				<!--<xs:keyref name="DataFieldFieldNameKeyRef" refer="FieldNameKey">
+          <xs:selector xpath="."/>
+          <xs:field xpath="@fieldName"/>
+        </xs:keyref>
+        <xs:keyref name="DataFieldAliasFieldNameKeyRef" refer="FieldNameKey">
+          <xs:selector xpath="."/>
+          <xs:field xpath="@aliasFieldName"/>
+        </xs:keyref>-->
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="FieldAggregateType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="None"/>
+			<xs:enumeration value="Sum"/>
+			<xs:enumeration value="Count"/>
+			<xs:enumeration value="Average"/>
+			<xs:enumeration value="Max"/>
+			<xs:enumeration value="Min"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

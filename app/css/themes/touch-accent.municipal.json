@@ -1,0 +1,60 @@
+﻿{
+  "name": "Municipal",
+  "color": "#545050",
+  "header": {
+    "background": "#545050",
+    "border": "#545050",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#eee",
+      "hover": "rgba(255,255,255,.7)",
+      "backgroundOpacity": "0.1"
+    },
+    "text": {
+      "default": "#f5f5f5",
+      "hover": "#fff",
+      "logo": "#fff",
+      "hoverBackground": "rgba(0,0,0,0.1)",
+      "selectedBackground": "rgba(0,0,0,0.2)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#545050",
+      "hover": "#151414"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#545050"
+    },
+    "tabbar": {
+      "icon": {
+        "default": "#333"
+      }
+    }
+  },
+  "theme": {
+    "Dark": {
+      "panel": {
+        "icon": {
+          "hover": "#645f5f"
+        }
+      },
+      "filter": {
+        "text": "#fff"
+      },
+      "system": {
+        "select": {
+          "text": "#fff"
+        }
+      }
+    }
+  }
+}

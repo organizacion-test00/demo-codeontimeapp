@@ -1,0 +1,45 @@
+﻿*******************************************************************************
+Your application uses this file to locate resource strings when requested
+by Localizer.Replace(token, text) method calls in the source code files of
+the project. The localization process will also use this file if missing
+localization tokens are found in a static resource.
+
+Replace the text between localization brackets (tokens) as needed.
+*******************************************************************************
+
+^AnnotationActionHeaderText^Anotar^AnnotationActionHeaderText^
+
+^AnnotationAttachmentDynamicFieldHeaderText^{0} <b>{1}</b> Adjunto a {2}^AnnotationAttachmentDynamicFieldHeaderText^
+
+^AnnotationAttachmentNewFieldLabel^Fijación^AnnotationAttachmentNewFieldLabel^
+
+^AnnotationCategoryDescription^Escribe una nota opcional y adjuntar archivos.^AnnotationCategoryDescription^
+
+^AnnotationCategoryHeaderText^Notas y Anexos^AnnotationCategoryHeaderText^
+
+^AnnotationNoteDynamicFieldHeaderText^{0} Escrito en {1}^AnnotationNoteDynamicFieldHeaderText^
+
+^AnnotationNoteNewFieldLabel^Notas^AnnotationNoteNewFieldLabel^
+
+^AnnotationTab^Notas y Anexos^AnnotationTab^
+
+^BlobClearConfirm^Clara?^BlobClearConfirm^
+
+^BlobCleared^<b>Confirmación:</b> {0} Ha sido borrada.^BlobCleared^
+
+^BlobClearText^Claro^BlobClearText^
+
+^BlobUploadError^<b>Error:</b> No se pudo cargar {0}. {1}^BlobUploadError^
+
+^BlobUploadLinkPart1^Clic^BlobUploadLinkPart1^
+
+^BlobUploadLinkPart2^aquí^BlobUploadLinkPart2^
+
+^BlobUploadLinkPart3^para subir o borrar archivos {0}.^BlobUploadLinkPart3^
+
+^BlobUploded^<b>Confirmación:</b> {0} Se ha subido correctamente. <b>It Puede tardar unos minutos {1} de la imagen para reflejar la subida content.</b>^BlobUploded^
+
+^Copyright^Todos los derechos reservados.^Copyright^
+
+^RecordChangedByAnotherUser^El registro ha sido cambiado por otro usuario.^RecordChangedByAnotherUser^
+

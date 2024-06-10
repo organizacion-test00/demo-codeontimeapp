@@ -1,0 +1,50 @@
+﻿{
+  "name": "ModernRose",
+  "color": "#c10003",
+  "header": {
+    "background": "#c10003",
+    "border": "#c10003",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#eee",
+      "hover": "rgba(255,255,255,.75)",
+      "backgroundOpacity": "0.2",
+      "disabled": "rgba(255,255,255,.35)"
+    },
+    "text": {
+      "default": "#f5f5f5",
+      "hover": "#fff",
+      "logo": "#fff",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.1)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#c10003",
+      "hover": "#7A0002"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#c10003"
+    }
+  },
+  "sidebar": {
+    "full": {
+      "toolbar": {
+        "icon": {
+          "default": "#c10003",
+          "hover": "#7A0002",
+          "active": "#b30003"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+﻿{
+  "name": "Classic",
+  "color": "#275ede",
+  "header": {
+    "background": "#275ede",
+    "border": "#275ede",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#eee",
+      "hover": "rgba(255,255,255,.65)",
+      "backgroundOpacity": "0.2"
+    },
+    "text": {
+      "default": "#f5f5f5",
+      "hover": "#fff",
+      "logo": "#fff",
+      "hoverBackground": "rgba(0,0,0,0.08)",
+      "selectedBackground": "rgba(0,0,0,0.15)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#275ede",
+      "hover": "#506EB4"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent", "border": "transparent"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#275ede"
+    }
+  },
+  "sidebar": {
+    "full": {
+      "icon": {
+        "default": "#275ede",
+        "hover": "#506EB4",
+        "active": "#2252c3"
+      }
+    },
+    "mini": {
+      "icon": {
+        "default": "#275ede",
+        "hover": "#506EB4"
+      }
+    }
+  },
+  "system": {
+    "busyIndicator": "#de7327"
+  }
+}

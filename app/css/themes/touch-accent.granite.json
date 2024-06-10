@@ -1,0 +1,72 @@
+﻿{
+  "name": "Granite",
+  "color": "#b1b3b2",
+  "header": {
+    "background": "#b1b3b2",
+    "border": "#aaa",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#111",
+      "hover": "rgba(0,0,0,.6)",
+      "active": "#000",
+      "disabled": "rgba(0,0,0,.3)"
+    },
+    "text": {
+      "default": "#111",
+      "hover": "#000",
+      "logo": "#000",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.08)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#5B5D5C",
+      "hover": "#6F7170"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    },
+    "tabColor": "#777"
+  },
+  "buttons": {
+    "promo": {
+      "background": "#b1b3b2",
+      "icon": {
+        "default": "#111"
+      }
+    },
+    "tabbar": {
+      "icon": { "default": "#333" }
+    }
+  },
+  "sidebar": {
+    "full": {
+      "selectedColor": "#777"
+    }
+  },
+  "system": {
+    "select": {
+      "bar": "#777"
+    }
+  },
+  "readingPane": {
+    "detail": {
+      "toolbar": {
+        "buttons": {
+          "default": "#333"
+        }
+      }
+    }
+  },
+  "theme": {
+    "Light": {
+      "filter": {
+        "text": "#5B5D5C"
+      }
+    }
+  }
+}

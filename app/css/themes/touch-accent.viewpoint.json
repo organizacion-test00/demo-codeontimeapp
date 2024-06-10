@@ -1,0 +1,99 @@
+﻿{
+  "name": "Viewpoint",
+  "color": "#d1c484",
+  "header": {
+    "background": "#d1c484",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#333",
+      "hover": "rgba(0,0,0,.5)",
+      "active": "#000",
+      "disabled": "rgba(0,0,0,.35)"
+    },
+    "text": {
+      "default": "#333",
+      "hover": "#000",
+      "active": "#000",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.1)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#71B800",
+      "hover": "#65A300"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    },
+    "tabColor": "#71B800"
+  },
+  "buttons": {
+    "promo": {
+      "background": "#d1c484",
+      "icon": {
+        "default": "#000"
+      }
+    }
+  },
+  "sidebar": {
+    "full": {
+      "selectedColor": "#71B800",
+      "icon": {
+        "default": "#7ECC00",
+        "hover": "#65A300",
+        "active": "#6bad01"
+      },
+      "toolbar": {
+        "icon": {
+          "default": "#7ECC00",
+          "hover": "#65A300",
+          "active": "#6bad01"
+        }
+      }
+    },
+    "mini": {
+      "icon": {
+        "default": "#7ECC00",
+        "hover": "#65A300",
+        "active": "#6bad01"
+      },
+      "toolbar": {
+        "icon": {
+          "default": "#7ECC00",
+          "hover": "#65A300",
+          "active": "#6bad01"
+        }
+      }
+    }
+  },
+  "readingPane": {
+    "detail": {
+      "toolbar": {
+        "buttons": {
+          "default": "#333"
+        }
+      }
+    }
+  },
+  "system": {
+    "select": {
+      "bar": "#71B800"
+    }
+  },
+  "theme": {
+    "Light": {
+      "form": {
+        "header": {
+          "divider": "#bbb"
+        }
+      },
+      "filter": {
+        "text": "#71B800"
+      }
+    }
+  }
+}

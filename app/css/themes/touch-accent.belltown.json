@@ -1,0 +1,55 @@
+﻿{
+  "name": "Belltown",
+  "color": "#b17c08",
+  "header": {
+    "background": "#b17c08",
+    "border": "#b17c08",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#eee",
+      "hover": "rgba(255,255,255,.65)",
+      "backgroundOpacity": "0.2"
+    },
+    "text": {
+      "default": "#f5f5f5",
+      "hover": "#fff",
+      "logo": "#fff",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.1)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#b17c08",
+      "hover": "#937025"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#b17c08"
+    },
+    "menu": {
+      "background": "#b17c08",
+      "border": "#b17c08",
+      "icon": {
+        "default": "#fff",
+        "hover": "#eee",
+        "active": "#f5f5f5"
+      },
+      "text": {
+        "default": "#fff"
+      }
+    }
+  },
+  "sidebar": {
+    "full": {
+      "selectedColor": "#b17c08"
+    }
+  }
+}

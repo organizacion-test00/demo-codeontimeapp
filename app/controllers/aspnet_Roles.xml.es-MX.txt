@@ -1,0 +1,27 @@
+﻿*******************************************************************************
+Your application uses this file to locate resource strings defined
+in aspnet_Roles.xml project item. 
+
+Replace the text between localization brackets as needed.
+*******************************************************************************
+
+^ActionBarNewActionDescription^Crear un registro nuevo de función.^ActionBarNewActionDescription^
+
+^ActionBarNewActionHeaderText^Nueva Función^ActionBarNewActionHeaderText^
+
+^ActionBarNewGroupHeaderText^Agregar^ActionBarNewGroupHeaderText^
+
+^CreateFormCategory^Favor completar el formulario. Asegúrese de entrar todos los campos obligatorios.^CreateFormCategory^
+
+^CreateFormHeaderText^Por favor, llene este formulario y haga clic en el botón Aceptar para crear un nuevo registro de funcion de usuarios. Haga clic en Cancelar para volver a la pantalla anterior.^CreateFormHeaderText^
+
+^DescriptionLabel^Descripción^DescriptionLabel^
+
+^EditViewCategory^Estos son los campos de funciones que se pueden editar.^EditViewCategory^
+
+^EditViewHeaderText^Por favor revise la información de funciones y usuarios a continuación. Haga clic en <b>Editar</b> para cambiar el registro, haga clic en <b>Borrar</b> para eliminar el registro, o haga clic en <b>Cancelar/Cerrar</b> para volver atrás.^EditViewHeaderText^
+
+^GridViewHeaderText^Esta es una lista de funciones disponibles en el sistema.^GridViewHeaderText^
+
+^RoleNameLabel^Nombre de la función^RoleNameLabel^
+

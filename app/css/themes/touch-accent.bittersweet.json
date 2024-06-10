@@ -1,0 +1,44 @@
+﻿{
+  "name": "Bittersweet",
+  "color": "#d65c26",
+  "header": {
+    "background": "#d65c26",
+    "border": "#d65c26",
+    "divider": "#d65c26",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#eee",
+      "hover": "rgba(255,255,255,.65)",
+      "backgroundOpacity": "0.25"
+    },
+    "text": {
+      "default": "#f5f5f5",
+      "hover": "#fff",
+      "logo": "#fff",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.1)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#d65c26",
+      "hover": "#AD491F"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#d65c26"
+    }
+  },
+  "sidebar": {
+    "full": {
+      "selectedColor": "#d65c26"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+﻿{
+  "name": "Petal",
+  "color": "#d62c77",
+  "header": {
+    "background": "#d62c77",
+    "border": "#d62c77",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#eee",
+      "hover": "rgba(255,255,255,.7)",
+      "backgroundOpacity": "0.15",
+      "disabled": "rgba(255,255,255,.35)"
+    },
+    "text": {
+      "default": "#f5f5f5",
+      "hover": "#fff",
+      "logo": "#fff",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.08)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#d62c77",
+      "hover": "#881B4A"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent", 
+      "border": "transparent"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#d62c77"
+    },
+    "menu": {
+      "background": "#d62c77",
+      "border": "#d62c77",
+      "icon": {
+        "default": "#fff",
+        "hover": "#eee",
+        "active": "#f5f5f5"
+      },
+      "text": {
+        "default": "#fff"
+      }
+    }
+  }
+}

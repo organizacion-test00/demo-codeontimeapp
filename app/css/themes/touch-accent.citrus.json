@@ -1,0 +1,124 @@
+﻿{
+  "name": "Citrus",
+  "color": "#FFA500",
+  "header": {
+    "background": "#FFA500",
+    "border": "#FFA500",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#000",
+      "hover": "rgba(0,0,0,.65)",
+      "disabled": "rgba(0,0,0,.3)"
+    },
+    "text": {
+      "default": "#000",
+      "hover": "#000",
+      "hoverBackground": "rgba(0,0,0,0.05)",
+      "selectedBackground": "rgba(0,0,0,0.08)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#0a6332",
+      "hover": "#003D00"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    },
+    "tabColor": "#0a6332"
+  },
+  "buttons": {
+    "promo": {
+      "background": "#FFA500",
+      "icon": {
+        "default": "#000"
+      }
+    }
+  },
+  "sidebar": {
+    "full": {
+      "background": "#0a6332",
+      "border": "#0a6332",
+      "selectedColor": "#fff",
+      "text": {
+        "default": "#eee",
+        "hover": "#fff",
+        "active": "#ddd",
+        "static": "#8BB19C"
+      },
+      "icon": {
+        "default": "#fff",
+        "hover": "#eee",
+        "active": "#ddd"
+      },
+      "toolbar": {
+        "background": "#0a6332",
+        "border": "#0a6332",
+        "selectedColor": "#fff",
+        "icon": {
+          "default": "#fff",
+          "hover": "#ddd",
+          "active": "#eee"
+        }
+      }
+    },
+    "mini": {
+      "background": "#0a6332",
+      "border": "#0a6332",
+      "selectedColor": "#fff",
+      "icon": {
+        "default": "#fff",
+        "hover": "#eee",
+        "active": "#ddd"
+      },
+      "toolbar": {
+        "background": "#0a6332",
+        "border": "#0a6332",
+        "selectedColor": "#fff",
+        "icon": {
+          "default": "#fff",
+          "hover": "#ddd",
+          "active": "#eee"
+        }
+      }
+    }
+  },
+  "system": {
+    "select": {
+      "text": "#c78100"
+    }
+  },
+  "readingPane": {
+    "master": {
+      "toolbar": {
+        "menuButton": {
+          "border": "#0a6332"
+        }
+      }
+    },
+    "detail": {
+      "toolbar": {
+        "buttons": {
+          "default": "#000"
+        }
+      }
+    }
+  },
+  "theme": {
+    "Dark": {
+      "panel": {
+        "icon": {
+          "hover": "#0a6332"
+        }
+      }
+    },
+    "Light": {
+      "filter": {
+        "text": "#0a6332"
+      }
+    }
+  }
+}

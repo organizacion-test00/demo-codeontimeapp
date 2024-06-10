@@ -1,0 +1,76 @@
+﻿{
+  "name": "Convention",
+  "color": "#36150e",
+  "header": {
+    "background": "#36150e",
+    "border": "#36150e",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#eee",
+      "hover": "rgba(255,255,255,.65)",
+      "backgroundOpacity": "0.2"
+    },
+    "text": {
+      "default": "#f5f5f5",
+      "hover": "#fff",
+      "logo": "#fff",
+      "hoverBackground": "rgba(0,0,0,0.3)",
+      "selectedBackground": "rgba(0,0,0,0.4)"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#612519",
+      "hover": "#36150e"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent", 
+      "border": "transparent"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#36150e"
+    }
+  },
+  "sidebar": {
+    "full": {
+      "icon": {
+        "default": "#36150e"
+      }
+    }
+  },
+  "theme": {
+    "Dark": {
+      "sidebar": {
+        "full": {
+          "icon": {
+            "default": "#7e3121",
+            "hover": "#923926",
+            "active": "#923926"
+          }
+        }
+      },
+      "panel": {
+        "icon": {
+          "default": "#7e3121",
+          "hover": "#923926",
+          "active": "#923926"
+        }
+      },
+      "form": {
+        "tabColor": "#7e3121"
+      },
+      "filter": {
+        "text": "#7e3121"
+      },
+      "system": {
+        "select": {
+          "text": "#7e3121"
+        }
+      }
+    }
+  }
+}

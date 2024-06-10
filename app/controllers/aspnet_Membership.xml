@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="aspnet_Membership" conflictDetection="overwriteChanges" label="User Membership" handler="MyCompany.Security.MembershipBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <!-- 
+			Fields "Roles", "RoleId", "ConfirmPassword", and "OldPassword" are provided as 
+			field value placeholders only. It is up to a controller handler implementation 
+			to perform actual processing of the field. The controller handler is identified 
+			by "handler" attribute of this data controller. 
+		-->
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"aspnet_Membership"."ApplicationId" "ApplicationId"
+	,"Application"."ApplicationName" "ApplicationApplicationName"
+	,"aspnet_Membership"."UserId" "UserId"
+	,"User"."UserName" "UserName"
+	,"User"."UserName" "UserUserName"
+	,"UserApplication"."ApplicationName" "UserApplicationApplicationName"
+	,"aspnet_Membership"."Password" "Password"
+	,"aspnet_Membership"."PasswordFormat" "PasswordFormat"
+	,"aspnet_Membership"."PasswordSalt" "PasswordSalt"
+	,"aspnet_Membership"."MobilePIN" "MobilePIN"
+	,"aspnet_Membership"."Email" "Email"
+	,"aspnet_Membership"."LoweredEmail" "LoweredEmail"
+	,"aspnet_Membership"."PasswordQuestion" "PasswordQuestion"
+	,"aspnet_Membership"."PasswordQuestion" "PasswordQuestionReadOnly"
+	,"aspnet_Membership"."PasswordAnswer" "PasswordAnswer"
+	,"aspnet_Membership"."IsApproved" "IsApproved"
+	,"aspnet_Membership"."IsLockedOut" "IsLockedOut"
+	,"aspnet_Membership"."CreateDate" "CreateDate"
+	,"aspnet_Membership"."LastLoginDate" "LastLoginDate"
+	,"aspnet_Membership"."LastPasswordChangedDate" "LastPasswordChangedDate"
+	,"aspnet_Membership"."LastLockoutDate" "LastLockoutDate"
+	,"aspnet_Membership"."FailedPasswordAttemptCount" "FailedPasswordAttemptCount"
+	,"aspnet_Membership"."FailedPasswordAttemptWindowStart" "FailedPasswordAttemptWindowStart"
+	,"aspnet_Membership"."FailedPasswordAnswerAttemptCount" "FailedPasswordAnswerAttemptCount"
+	,"aspnet_Membership"."FailedPasswordAnswerAttemptWindowStart" "FailedPasswordAnswerAttemptWindowStart"
+	,"aspnet_Membership"."Comment" "Comment"
+	,null "Roles"
+	,null "RoleId"
+	,null "ConfirmPassword"
+	,null "OldPassword"
+from "dbo"."aspnet_Membership" "aspnet_Membership"
+	left join "dbo"."aspnet_Applications" "Application" on "aspnet_Membership"."ApplicationId" = "Application"."ApplicationId"
+	left join "dbo"."aspnet_Users" "User" on "aspnet_Membership"."UserId" = "User"."UserId"
+	left join "dbo"."aspnet_Applications" "UserApplication" on "User"."ApplicationId" = "UserApplication"."ApplicationId"
+order by
+	"User"."UserName"
+]]></text>
+    </command>
+    <!-- users in role -->
+    <command id="command2" type="Text">
+      <text><![CDATA[
+select
+	"aspnet_Membership"."ApplicationId" "ApplicationId"
+	,"Application"."ApplicationName" "ApplicationApplicationName"
+	,"aspnet_Membership"."UserId" "UserId"
+	,"User"."UserName" "UserName"
+	,"User"."UserName" "UserUserName"
+	,"UserApplication"."ApplicationName" "UserApplicationApplicationName"
+	,"aspnet_Membership"."Password" "Password"
+	,"aspnet_Membership"."PasswordFormat" "PasswordFormat"
+	,"aspnet_Membership"."PasswordSalt" "PasswordSalt"
+	,"aspnet_Membership"."MobilePIN" "MobilePIN"
+	,"aspnet_Membership"."Email" "Email"
+	,"aspnet_Membership"."LoweredEmail" "LoweredEmail"
+	,"aspnet_Membership"."PasswordQuestion" "PasswordQuestion"
+	,"aspnet_Membership"."PasswordQuestion" "PasswordQuestionReadOnly"
+	,"aspnet_Membership"."PasswordAnswer" "PasswordAnswer"
+	,"aspnet_Membership"."IsApproved" "IsApproved"
+	,"aspnet_Membership"."IsLockedOut" "IsLockedOut"
+	,"aspnet_Membership"."CreateDate" "CreateDate"
+	,"aspnet_Membership"."LastLoginDate" "LastLoginDate"
+	,"aspnet_Membership"."LastPasswordChangedDate" "LastPasswordChangedDate"
+	,"aspnet_Membership"."LastLockoutDate" "LastLockoutDate"
+	,"aspnet_Membership"."FailedPasswordAttemptCount" "FailedPasswordAttemptCount"
+	,"aspnet_Membership"."FailedPasswordAttemptWindowStart" "FailedPasswordAttemptWindowStart"
+	,"aspnet_Membership"."FailedPasswordAnswerAttemptCount" "FailedPasswordAnswerAttemptCount"
+	,"aspnet_Membership"."FailedPasswordAnswerAttemptWindowStart" "FailedPasswordAnswerAttemptWindowStart"
+	,"aspnet_Membership"."Comment" "Comment"
+	,null  "Roles"
+	,"UsersInRoles"."RoleId"  "RoleId"
+	,null "ConfirmPassword"
+	,null "OldPassword"
+from "dbo"."aspnet_Membership" "aspnet_Membership"
+	left join "dbo"."aspnet_Applications" "Application" on "aspnet_Membership"."ApplicationId" = "Application"."ApplicationId"
+	left join "dbo"."aspnet_Users" "User" on "aspnet_Membership"."UserId" = "User"."UserId"
+	left join "dbo"."aspnet_Applications" "UserApplication" on "User"."ApplicationId" = "UserApplication"."ApplicationId"
+	left join "dbo"."aspnet_UsersInRoles" "UsersInRoles" on "aspnet_Membership"."UserId" = "UsersInRoles"."UserId"
+order by
+	"User"."UserName"
+]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="ApplicationId" type="Guid" allowNulls="false" label="Application#" />
+    <field name="ApplicationApplicationName" type="String" readOnly="true" label="Application Name" />
+    <field name="UserId" type="Guid" allowNulls="false" isPrimaryKey="true" label="User#" />
+    <field name="UserName" type="String" label="^UserName^User Name^UserName^" allowNulls="false" />
+    <field name="UserUserName" type="String" label="^UserName^User Name^UserName^" readOnly="true" />
+    <field name="UserApplicationApplicationName" type="String" readOnly="true" label="User Application Name" />
+    <field name="Password" type="String" allowNulls="false" label="^Password^Password^Password^" />
+    <field name="ConfirmPassword" type="String" allowNulls="false" label="^ConfirmPassword^Confirm Password^ConfirmPassword^" />
+    <field name="OldPassword" type="String" allowNulls="false" label="^OldPassword^Old Password^OldPassword^" />
+    <field name="PasswordFormat" type="Int32" allowNulls="false" default="((0))" label="^PasswordFormat^Password Format^PasswordFormat^" />
+    <field name="PasswordSalt" type="String" allowNulls="false" label="Password Salt" />
+    <field name="MobilePIN" type="String" label="Mobile PIN" />
+    <field name="Email" type="String" label="^Email^Email^Email^" allowNulls="false" />
+    <field name="LoweredEmail" type="String" label="Lowered Email" />
+    <field name="PasswordQuestion" type="String" label="^PasswordQuestion^Password Question^PasswordQuestion^" allowNulls="false" />
+    <field name="PasswordQuestionReadOnly" type="String" label="^PasswordQuestion^Password Question^PasswordQuestion^" readOnly="true" />
+    <field name="PasswordAnswer" type="String" label="^PasswordAnswer^Password Answer^PasswordAnswer^" allowNulls="false" />
+    <field name="IsApproved" type="Boolean" allowNulls="false" label="^IsApproved^Is Approved^IsApproved^">
+      <items style="CheckBox" />
+    </field>
+    <field name="IsLockedOut" type="Boolean" allowNulls="false" label="^IsLockedOut^Is Locked Out^IsLockedOut^" />
+    <field name="CreateDate" type="DateTime" allowNulls="true" label="^CreateDate^Create Date^CreateDate^" dataFormatString="{0:g}" readOnly="true" />
+    <field name="LastLoginDate" type="DateTime" allowNulls="true" label="^LastLoginDate^Last Login Date^LastLoginDate^" dataFormatString="{0:g}" readOnly="true" />
+    <field name="LastPasswordChangedDate" type="DateTime" allowNulls="true" label="^LastPasswordChangedDate^Last Password Changed Date^LastPasswordChangedDate^" dataFormatString="{0:g}" readOnly="true" />
+    <field name="LastLockoutDate" type="DateTime" allowNulls="true" label="^LastLockoutDate^Last Lockout Date^LastLockoutDate^" dataFormatString="{0:g}" readOnly="true" />
+    <field name="FailedPasswordAttemptCount" type="Int32" allowNulls="true" label="^FailedPasswordAttemptCount^Failed Password Attempt Count^FailedPasswordAttemptCount^" readOnly="true" />
+    <field name="FailedPasswordAttemptWindowStart" type="DateTime" allowNulls="true" label="^FailedPasswordAttemptWindowStart^Failed Password Attempt Window Start^FailedPasswordAttemptWindowStart^" dataFormatString="{0:g}" readOnly="true" />
+    <field name="FailedPasswordAnswerAttemptCount" type="Int32" allowNulls="true" label="^FailedPasswordAnswerAttemptCount^Failed Password Answer Attempt Count^FailedPasswordAnswerAttemptCount^" readOnly="true" />
+    <field name="FailedPasswordAnswerAttemptWindowStart" type="DateTime" allowNulls="true" label="^FailedPasswordAnswerAttemptWindowStart^Failed Password Answer Attempt Window Start^FailedPasswordAnswerAttemptWindowStart^" dataFormatString="{0:g}" readOnly="true" />
+    <field name="Comment" type="String" allowQBE="false" allowSorting="false" label="^Comment^Comment^Comment^" />
+    <!-- this is a placeholder for a list of role names that are being populated by MembershipBusinessRules class -->
+    <field name="Roles" type="String" allowQBE="false" allowSorting="false" label="^Roles^Roles^Roles^">
+      <items dataController="aspnet_Roles" style="CheckBoxList" dataTextField="RoleName" dataValueField="RoleName" />
+    </field>
+    <!-- This field is blank when command1 is execute and does include an actual role ID for command2 -->
+    <field name="RoleId" type="Guid" label="Role#" />
+  </fields>
+  <views>
+    <!-- list of users -->
+    <view id="grid1" type="Grid" commandId="command1" label="^GridViewLabel^All Users^GridViewLabel^" showInSelector="false">
+      <headerText>^GridViewHeaderText^This is a list of membership user records.^GridViewHeaderText^</headerText>
+      <dataFields>
+        <dataField fieldName="UserUserName" />
+        <dataField fieldName="IsApproved" />
+        <dataField fieldName="Email" />
+        <dataField fieldName="IsLockedOut" />
+        <dataField fieldName="CreateDate" columns="20" />
+        <dataField fieldName="LastLoginDate" columns="20" />
+        <dataField fieldName="Comment" />
+        <dataField fieldName="UserApplicationApplicationName" hidden="true" />
+      </dataFields>
+    </view>
+    <!-- list of users in a role -->
+    <view id="usersInRolesGrid" type="Grid" commandId="command2" label="^UsersInRolesGridLabel^Users in Role^UsersInRolesGridLabel^" showInSelector="false">
+      <headerText>^UsersInRolesGridHeaderText^This is a list of membership user records that belong to a selected role.^UsersInRolesGridHeaderText^</headerText>
+      <dataFields>
+        <dataField fieldName="UserUserName" />
+        <dataField fieldName="IsApproved" />
+        <dataField fieldName="Email" />
+        <dataField fieldName="IsLockedOut" />
+        <dataField fieldName="CreateDate" columns="20" />
+        <dataField fieldName="LastLoginDate" columns="20" />
+        <dataField fieldName="Comment" />
+        <dataField fieldName="UserApplicationApplicationName" hidden="true" />
+        <dataField fieldName="RoleId" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="lookup" type="Grid" commandId="command1" label="^GridViewLabel^All Users^GridViewLabel^" showInSelector="false">
+      <headerText>^GridViewHeaderText^This is a list of membership user records.^GridViewHeaderText^</headerText>
+      <dataFields>
+        <dataField fieldName="UserName" />
+        <dataField fieldName="UserUserName" hidden="true" />
+        <dataField fieldName="Email" />
+        <dataField fieldName="CreateDate" columns="20" />
+        <dataField fieldName="LastLoginDate" columns="20" />
+      </dataFields>
+    </view>
+    <!-- user account edit form -->
+    <view id="editForm1" type="Form" commandId="command1" label="^EditFormViewLabel^Review User^EditFormViewLabel^" tags="material-icon-person">
+      <headerText>^EditFormViewHeaderText^Please review user membership information below. Click Edit to change this record, click Delete to delete the record, or click Cancel/Close to return back.^EditFormViewHeaderText^</headerText>
+      <categories>
+        <category headerText="^EditFormUserInformationCategoryHeaderText^User Information^EditFormUserInformationCategoryHeaderText^">
+          <description><![CDATA[
+						^EditFormUserInformationCategoryDescription^Please select user roles that most closely match user's responsibilities. Roles control access to the areas of this web site. Please contact system administrator if role access restrictions must be changed.
+						<br/>
+						<br/>
+						Enter any additional comments about this user account. Comment is not visible to the user.^EditFormUserInformationCategoryDescription^
+					]]></description>
+          <dataFields>
+            <dataField fieldName="UserUserName" columns="20" />
+            <dataField fieldName="Roles" columns="3" />
+            <dataField fieldName="Comment" rows="5" />
+            <dataField fieldName="IsApproved">
+              <headerText>^EditFormIsApprovedFieldHeaderText^This user account is approved^EditFormIsApprovedFieldHeaderText^</headerText>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="^EditFormPasswordRecoveryCategoryHeaderText^Password Recovery^EditFormPasswordRecoveryCategoryHeaderText^">
+          <description><![CDATA[^EditFormPasswordRecoveryCategoryDescription^During the recovery of a forgotten password the user will be asked to enter a user name. If a user account exists then a security question is requested to be answered. A correct answer will trigger an email with a temporary password send to the user.
+						<br/><br/>
+						Change locked out flag to 'No' if the user has been locked out after reaching a maximum number of failed login attempts and you want to allow user to login again.^EditFormPasswordRecoveryCategoryDescription^]]></description>
+          <dataFields>
+            <dataField fieldName="Email" />
+            <dataField fieldName="PasswordQuestionReadOnly" />
+            <dataField fieldName="IsLockedOut" />
+          </dataFields>
+        </category>
+        <category headerText="^EditFormActivityStatisticsCategoryDescription^Activity Statistics^EditFormActivityStatisticsCategoryDescription^">
+          <description><![CDATA[^EditFormActivityStatisticsCategoryDescription^These are the statists of user activity.^EditFormActivityStatisticsCategoryDescription^]]></description>
+          <dataFields>
+            <dataField fieldName="CreateDate" columns="10" />
+            <dataField fieldName="LastLoginDate" columns="10" />
+            <dataField fieldName="LastPasswordChangedDate" columns="10" />
+          </dataFields>
+        </category>
+        <category headerText="^EditFormLoginStatisticsCategoryHeaderText^Login Statistics^EditFormLoginStatisticsCategoryHeaderText^">
+          <description><![CDATA[^EditFormLoginStatisticsCategoryDescription^These are the statistics of failed login attempts by this user.
+					<br/>
+					<br/>
+					User will be locked out after reaching a maximum number of failed login attempts. Locked out users will be able to login again after the date in Failed Password Attempt Window Start. Users who failed to recover the password will be able to so after the date in Failed Password Answer Attempt Window Start.
+					<br/>
+					<br/>
+					You can restore user's ability to login by setting Locked Out flag to 'No'.^EditFormLoginStatisticsCategoryDescription^
+					]]></description>
+          <dataFields>
+            <dataField fieldName="LastLockoutDate" columns="10" />
+            <dataField fieldName="FailedPasswordAttemptCount" columns="15" />
+            <dataField fieldName="FailedPasswordAttemptWindowStart" columns="10" />
+            <dataField fieldName="FailedPasswordAnswerAttemptCount" columns="15" />
+            <dataField fieldName="FailedPasswordAnswerAttemptWindowStart" columns="10" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="^CreateFormViewLabel^New User^CreateFormViewLabel^" tags="material-icon-person-add">
+      <headerText>^CreateFormViewHeaderText^Please fill this form and click OK button to create a new user membership record. Click Cancel to return to the previous screen.^CreateFormViewHeaderText^</headerText>
+      <categories>
+        <category headerText="^CreateFormNewUserInfoCategoryHeaderText^New User Information^CreateFormNewUserInfoCategoryHeaderText^">
+          <description><![CDATA[^CreateFormNewUserInfoCategoryDescription^Please enter user name and password. Note that password must be at least 7 characters long and include one non-alphanumeric character. Only approved users will be able to login into the website.^CreateFormNewUserInfoCategoryDescription^]]></description>
+          <dataFields>
+            <dataField fieldName="UserName" columns="20" />
+            <dataField fieldName="Password" columns="20" textMode="Password" />
+            <dataField fieldName="ConfirmPassword" columns="20" textMode="Password" />
+            <dataField fieldName="IsApproved">
+              <headerText>^CreateViewIsApprovedFieldHeaderText^This user account will be created as approved.^CreateViewIsApprovedFieldHeaderText^</headerText>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="^CreateFormRolesCategoryHeaderText^Roles^CreateFormRolesCategoryHeaderText^">
+          <description><![CDATA[^CreateFormRolesCategoryDescription^Please select user roles that most closely match user's responsibilities. Roles control access to the areas of this web site. Please contact system administrator if role access restrictions must be changed.^CreateFormRolesCategoryDescription^]]></description>
+          <dataFields>
+            <dataField fieldName="Roles" columns="3" />
+          </dataFields>
+        </category>
+        <category headerText="^CreateFormPasswordRecoveryCategoryHeaderText^Password Recovery^CreateFormPasswordRecoveryCategoryHeaderText^">
+          <description><![CDATA[^CreateFormPasswordRecoveryCategoryDescription^These fields are required to help a user to recover a forgotten password. During the recovery process the user will be asked to enter a user name.  
+						If a user account exists then a security question is requested to be answered. A correct answer will trigger an email with a temporary password send to the user.^CreateFormPasswordRecoveryCategoryDescription^]]></description>
+          <dataFields>
+            <dataField fieldName="Email" />
+            <dataField fieldName="PasswordQuestion" />
+            <dataField fieldName="PasswordAnswer" />
+          </dataFields>
+        </category>
+        <category headerText="^CreateFormCommentCategoryHeaderText^Comments^CreateFormCommentCategoryHeaderText^">
+          <description><![CDATA[^CreateFormCommentCategoryDescription^Enter any additional comments about this user account. Comment is not visible to the user.^CreateFormCommentCategoryDescription^]]></description>
+          <dataFields>
+            <dataField fieldName="Comment" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup scope="Grid">
+      <action commandName="Select" commandArgument="editForm1" />
+      <action commandName="Edit" roles="Administrators" />
+      <action commandName="Delete" confirmation="Delete?" roles="Administrators" />
+    </actionGroup>
+    <actionGroup scope="Form">
+      <action commandName="Edit" commandArgument="editForm1" roles="Administrators" />
+      <action commandName="Delete" roles="Administrators" />
+      <action commandName="Cancel" />
+      <action whenLastCommandName="Edit" whenLastCommandArgument="editForm1" commandName="Update" commandArgument="Save" />
+      <action whenLastCommandName="Edit" whenLastCommandArgument="editForm1" commandName="Cancel" />
+      <action whenLastCommandName="New" whenLastCommandArgument="createForm1" commandName="Insert" commandArgument="Save" />
+      <action whenLastCommandName="New" whenLastCommandArgument="createForm1" commandName="Insert" commandArgument="SaveAndNew" />
+      <action whenLastCommandName="New" whenLastCommandArgument="createForm1" commandName="Cancel" />
+      <action whenLastCommandName="New" whenLastCommandArgument="signUpForm" commandName="Insert" commandArgument="SignUp" headerText="^SignUp^Sign Up^SignUp^" />
+      <action whenLastCommandName="New" whenLastCommandArgument="signUpForm" commandName="Cancel" />
+      <action whenLastCommandName="Insert" whenLastCommandArgument="SignUp" commandName="Cancel" />
+      <action whenLastCommandName="New" whenLastCommandArgument="passwordRequestForm" commandName="Cancel" />
+      <action whenLastCommandName="New" whenLastCommandArgument="passwordRequestForm" commandName="Custom" commandArgument="RequestPassword" headerText="^RequestPasswordActionHeaderText^Next^RequestPasswordActionHeaderText^" />
+      <action whenLastCommandName="Edit" whenLastCommandArgument="identityConfirmationForm" commandName="Custom" commandArgument="BackToRequestPassword" headerText="^BackToRequestPasswordActionHeaderText^Back^BackToRequestPasswordActionHeaderText^" causesValidation="false" />
+      <action whenLastCommandName="Edit" whenLastCommandArgument="identityConfirmationForm" commandName="Custom" commandArgument="ConfirmIdentity" headerText="^ConfirmIdentityActionHeaderText^Finish^ConfirmIdentityActionHeaderText^" />
+      <action whenLastCommandName="Edit" whenLastCommandArgument="myAccountForm" commandName="Update" headerText="^UpdateMyAccountActionHeaderText^Update My Account^UpdateMyAccountActionHeaderText^" causesValidation="false" />
+      <action whenLastCommandName="Edit" whenLastCommandArgument="myAccountForm" commandName="Cancel" />
+      <action whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup scope="ActionBar" headerText="^ActionBarNewGroupHeaderText^New^ActionBarNewGroupHeaderText^" flat="true">
+      <action commandName="New" commandArgument="createForm1" headerText="^ActionBarNewActionHeaderText^New User^ActionBarNewActionHeaderText^" description="^ActionBarNewActionDescription^Create a new user record.^ActionBarNewActionDescription^" roles="Administrators" />
+      <!--<action commandName="New" commandArgument="signUpForm" headerText="Sign Up" description="Sign up for an account." />-->
+    </actionGroup>
+    <actionGroup scope="ActionBar" headerText="Actions">
+      <action commandName="ExportCsv" />
+      <action />
+      <action commandName="ExportRowset" />
+      <action commandName="ExportRss" />
+    </actionGroup>
+    <actionGroup scope="Row">
+      <action whenLastCommandName="Edit" commandName="Update" />
+      <action whenLastCommandName="Edit" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+  <!-- 
+    System resources
+    ================
+    ^DuplicateEmail^Duplicate email address.^DuplicateEmail^
+    ^DuplicateProviderUserKey^Duplicate provider key.^DuplicateProviderUserKey^
+    ^DuplicateUserName^Duplicate user name.^DuplicateUserName^
+    ^InvalidAnswer^Invalid password recovery answer.^InvalidAnswer^
+    ^InvalidEmail^Invalid email address.^InvalidEmail^
+    ^InvalidPassword^Invalid password.^InvalidPassword^
+    ^InvalidProviderUserKey^Invalid provider user key.^InvalidProviderUserKey^
+    ^InvalidQuestion^Invalid password recovery question.^InvalidQuestion^
+    ^InvalidUserName^Invalid user name.^InvalidUserName^
+    ^ProviderError^Provider error.^ProviderError^
+    ^UserRejected^User has been rejected.^UserRejected^
+    
+    ^UserHasBeenDeleted^User '{0}' has been deleted.^UserHasBeenDeleted^
+    ^UserCannotBeLockedOut^User cannot be locked out. If you want to prevent this user from being able to login then simply mark user as 'not-approved'.^UserCannotBeLockedOut^
+    ^PasswordAndConfirmationDoNotMatch^Password and confirmation do not match.^PasswordAndConfirmationDoNotMatch^
+    ^SelfRegisteredUser^Self-registered user.^SelfRegisteredUser^
+    ^UserNameDoesNotExist^User name does not exist.^UserNameDoesNotExist^
+    ^NewPasswordSubject^New password for \'{0}\'.^NewPasswordSubject^
+    ^NewPasswordAlert^A new password has been emailed to the address on file.^NewPasswordAlert^
+    ^EnterCurrentPassword^Please enter your current password.^EnterCurrentPassword^
+    ^PasswordDoesNotMatchRecords^Your password does not match our records.^PasswordDoesNotMatchRecords^
+    ^NewPasswordAndConfirmatinDoNotMatch^New password and confirmation do not match.^NewPasswordAndConfirmatinDoNotMatch^
+    ^NewPasswordInvalid^Your new password is invalid.^NewPasswordInvalid^
+    ^EnterPasswordAnswer^Please enter a password answer.^EnterPasswordAnswer^
+    ^UserNotFound^User not found.^UserNotFound^
+    ^ErrorSavingUser^Error saving user account.^ErrorSavingUser^
+  -->
+</dataController>

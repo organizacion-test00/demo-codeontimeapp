@@ -1,0 +1,64 @@
+﻿{
+  "name": "Lacquer",
+  "color": "#64080d",
+  "header": {
+    "background": "#64080d",
+    "border": "#64080d",
+    "paddingTop": 0,
+    "icon": {
+      "default": "#eee",
+      "hover": "rgba(255,255,255,.75)",
+      "backgroundOpacity": "0.2"
+    },
+    "text": {
+      "default": "#f5f5f5",
+      "hover": "#fff",
+      "logo": "#fff",
+      "hoverBackground": "rgba(0,0,0,0.1)",
+      "selectedBackground": "rgba(0,0,0,0.2)"
+    }
+  },
+  "buttons": {
+    "promo": {
+      "background": "#64080d"
+    }
+  },
+  "panel": {
+    "icon": {
+      "default": "#64080d",
+      "hover": "#390507"
+    }
+  },
+  "form": {
+    "header": {
+      "background": "transparent",
+      "border": "transparent"
+    }
+  },
+  "theme": {
+    "Dark": {
+      "panel": {
+        "icon": {
+          "default": "#8a0b12",
+          "hover": "#940c13"
+        }
+      },
+      "filter": {
+        "text": "#b10e17"
+      },
+      "system": {
+        "select": {
+          "text": "#b10e17"
+        }
+      },
+      "form": {
+        "tabText": "#fff"
+      }
+    },
+    "Light": {
+      "filter": {
+        "text": "#8a0b12"
+      }
+    }
+  }
+}
